@@ -6,6 +6,7 @@ public class MovementController : MonoBehaviour
 {
     private float _horizontal;
     private float _speed = 4f;
+    private float _aimDelay;
     private bool _isFacingRight = true;
     private bool _isAiming = false;
 
@@ -23,11 +24,18 @@ public class MovementController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            _isAiming = true;
-            _speed = 1.0f;
+            if (_speed > 2.0f)
+            {
+                _speed -= 0.5f;
+
+            }
+            else
+            {
+                _isAiming = true;
+            }
         }
         else if (Input.GetKey(KeyCode.LeftShift))
-        {
+        {   
             _speed = 8f;
             _isAiming = false;
         }
