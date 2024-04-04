@@ -17,7 +17,7 @@ public class MovementController : MonoBehaviour
 
     void Start()
     {
-
+        rb.velocity = new Vector2(_horizontal * _speed, rb.velocity.y);
     }
 
     // Update is called once per frame
