@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     private float _aimDelay;
     private bool _isFacingRight = true;
     private bool _isAiming = false;
+    private float _currentDelay = 0;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -56,10 +57,18 @@ public class MovementController : MonoBehaviour
     {
         if (_isAiming == false && (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f))
         {
-            _isFacingRight = !_isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x = -localScale.x;
-            transform.localScale = localScale;
+            if(_currentDelay < _speed)
+            {
+                _currentDelay += 0.5f;
+            }
+            else
+            {
+                _isFacingRight = !_isFacingRight;
+                Vector3 localScale = transform.localScale;
+                localScale.x = -localScale.x;
+                transform.localScale = localScale;
+                _currentDelay = 0f;
+            }
         }
     }
 }
