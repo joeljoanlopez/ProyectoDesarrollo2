@@ -12,15 +12,11 @@ public class WeaponController : MonoBehaviour
     private bool _isAiming;
     public bool Aiming { get { return _isAiming; } }
 
-    private Vector2 _forward;
-
-    // Use this for initialization
     void Start()
     {
         _currentCoolDown = _coolDown;
     }
 
-    // Update is called once per frame
     void Update()
     {
         _isAiming = Input.GetMouseButton(1);
@@ -43,7 +39,6 @@ public class WeaponController : MonoBehaviour
     private Quaternion GetRotation()
     {
         //Get the Screen positions of the object and the mouse
-        // Debug.Log(Camera.current);
         Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
         Vector2 mouseOnScreen = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         float angle = GetAngleFromPoints(mouseOnScreen, positionOnScreen);
