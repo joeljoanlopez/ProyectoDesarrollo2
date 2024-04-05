@@ -15,7 +15,7 @@ public class PlayerTeleportController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return)) 
+        if (Input.GetKeyDown(KeyCode.Return) ) 
         {
             if(_currentTeleporter != null) 
             {
@@ -28,7 +28,15 @@ public class PlayerTeleportController : MonoBehaviour
         if (other.gameObject.name == _otherName)
         {
             _currentTeleporter = other.gameObject;
-
         }
     }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name == _otherName)
+        {
+            _currentTeleporter = null;
+        }
+    }
+
+
 }
