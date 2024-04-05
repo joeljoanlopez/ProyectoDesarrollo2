@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &79769915
+--- !u!1001 &57130551
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -137,15 +137,15 @@ PrefabInstance:
       objectReference: {fileID: 576544428}
     - target: {fileID: 3781024668835955447, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
       propertyPath: m_Name
-      value: 'Door '
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 5417158911051243115, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.24
+      value: 8.411102
       objectReference: {fileID: 0}
     - target: {fileID: 5417158911051243115, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.628108
+      value: -2.7327895
       objectReference: {fileID: 0}
     - target: {fileID: 5417158911051243115, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
       propertyPath: m_LocalPosition.z
@@ -184,6 +184,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
+--- !u!4 &169140439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5417158911051243115, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
+  m_PrefabInstance: {fileID: 57130551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &542110816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
@@ -473,11 +478,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1089493096 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5417158911051243115, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
-  m_PrefabInstance: {fileID: 79769915}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5042843193014974642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 3160656497965483264, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
       propertyPath: _destination
       value: 
-      objectReference: {fileID: 1089493096}
+      objectReference: {fileID: 169140439}
     - target: {fileID: 3781024668835955447, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
       propertyPath: m_Name
       value: Door
@@ -607,4 +607,4 @@ SceneRoots:
   - {fileID: 9004889376512685768}
   - {fileID: 700034498}
   - {fileID: 5042843193014974642}
-  - {fileID: 79769915}
+  - {fileID: 57130551}
