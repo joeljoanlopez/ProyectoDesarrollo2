@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    private WeaponController _weaponController;
     private float _horizontal;
     private float _speed = 4f;
     private float _aimDelay;
@@ -17,6 +18,7 @@ public class MovementController : MonoBehaviour
 
     void Start()
     {
+        _weaponController = GetComponentInChildren<WeaponController>();
         rb.velocity = new Vector2(_horizontal * _speed, rb.velocity.y);
     }
 
@@ -28,7 +30,6 @@ public class MovementController : MonoBehaviour
             if (_speed > 2.0f)
             {
                 _speed -= 0.5f;
-
             }
             else
             {
@@ -36,7 +37,7 @@ public class MovementController : MonoBehaviour
             }
         }
         else if (Input.GetKey(KeyCode.LeftShift))
-        {   
+        {
             _speed = 8f;
             _isAiming = false;
         }
@@ -57,7 +58,7 @@ public class MovementController : MonoBehaviour
     {
         if (_isAiming == false && (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f))
         {
-            if(_currentDelay < _speed)
+            if (_currentDelay < _speed)
             {
                 _currentDelay += 0.5f;
             }
