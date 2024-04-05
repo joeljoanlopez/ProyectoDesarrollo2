@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class FlashLightController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Light _targetLight;
+    public Light2D _targetLight;
     void Start()
     {
     }
