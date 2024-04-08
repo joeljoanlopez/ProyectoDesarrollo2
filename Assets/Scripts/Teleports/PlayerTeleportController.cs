@@ -6,7 +6,6 @@ public class PlayerTeleportController : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject _currentTeleporter;
-    private string _otherName = ("Door");
     void Start()
     {
         
@@ -25,17 +24,20 @@ public class PlayerTeleportController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == _otherName)
+        if (other.GetComponent<DoorController>() != null)
         {
             _currentTeleporter = other.gameObject;
         }
+        
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == _otherName)
+        if (other.GetComponent<DoorController>() != null)
         {
             _currentTeleporter = null;
+
         }
+        
     }
 
 
