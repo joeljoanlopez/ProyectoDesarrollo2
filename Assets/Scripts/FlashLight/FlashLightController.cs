@@ -22,27 +22,26 @@ public class FlashLightController : MonoBehaviour
         // Check if the "F" key is pressed
         if (Input.GetKeyDown(KeyCode.F) && _canLight)
         {
-            // Turn off the light if it's currently on
-            if (_targetLight != null && _targetLight.enabled)
+            // Change TargetLight state
+            if (_targetLight != null)
             {
-                _targetLight.enabled = false;
-                _enabled = false;
-            }
-            else if (_targetLight != null && !_targetLight.enabled && _battery > 0)
-            {
-                _targetLight.enabled = true;
-                _enabled = true;
+                _targetLight.enabled = !_targetLight.enabled;
+                _enabled = !_enabled;
             }
         }
-        if (_enabled == true)
+        if (_enabled)
         {
             _battery -= 0.1f;
         }
-        //if (_battery < 0 && _canLight)
-        //{
-         //   _targetLight.enabled = false;
-          //  _canLight = false;
-        //}
+
+        if (_battery <= 0)
+        {
+           _canLight = false;
+        }
+
+        if (!_canLight && _targetLight.enabled){
+            _targetLight.enabled = false;
+        }
     }
 }
 
