@@ -8,7 +8,7 @@ public class KnifeAttackHandler : MonoBehaviour
         StartCoroutine(Slice());
     }
 
-    IEnumerator Slice()
+    private IEnumerator Slice()
     {
         transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(1);

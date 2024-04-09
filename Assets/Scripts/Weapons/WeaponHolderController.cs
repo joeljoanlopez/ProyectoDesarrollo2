@@ -1,13 +1,20 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class WeaponChangeController : MonoBehaviour
+public class WeaponHolderController : MonoBehaviour
 {
-    [SerializeField] int _currentWeaponIndex = 0;
+    public GameObject _lantern;
 
+    private int _currentWeaponIndex = 0;
     private GameObject[] _weapons;
     private GameObject _currentWeapon;
-    int _totalWeapons;
+    private int _totalWeapons;
+
+    private bool _isAiming;
+
+    public bool Aiming
+    { get { return _isAiming; } }
 
     private void Start()
     {
@@ -43,5 +50,23 @@ public class WeaponChangeController : MonoBehaviour
             _currentWeaponIndex = _nextWeapon;
             _weapons[_currentWeaponIndex].SetActive(true);
         }
+
+        _isAiming = Input.GetMouseButton(1);
+        if (_isAiming)
+        {
+            transform.rotation = GetRotation();
+            _lantern.transform.rotation = GetRotation();
+        }
+    }
+
+    private Quaternion GetRotation()
+    {
+        //Get the Screen positions of the object and the mouse
+        Vector3 mouseOnScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 rotation = mouseOnScreen - transform.position;
+        float angle = MathF.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        //return the angle
+        return Quaternion.Euler(new Vector3(0f, 0f, angle - 90));
     }
 }
