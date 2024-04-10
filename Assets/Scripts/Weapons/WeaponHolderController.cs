@@ -36,20 +36,12 @@ public class WeaponHolderController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            _weapons[_currentWeaponIndex].SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            ChangeWeapon(0);
 
-            // Check if nextWeapon is in the array
-            int _nextWeapon = _currentWeaponIndex + 1;
-            if (_nextWeapon >= _totalWeapons)
-            {
-                _nextWeapon = 0;
-            }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+            ChangeWeapon(1);
 
-            _currentWeaponIndex = _nextWeapon;
-            _weapons[_currentWeaponIndex].SetActive(true);
-        }
 
         _isAiming = Input.GetMouseButton(1);
         if (_isAiming)
@@ -67,6 +59,14 @@ public class WeaponHolderController : MonoBehaviour
         float angle = MathF.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         //return the angle
-        return Quaternion.Euler(new Vector3(0f, 0f, angle - 90));
+        return Quaternion.Euler(new Vector3(0f, 0f, angle));
+    }
+
+    private void ChangeWeapon(int index)
+    {
+        _weapons[_currentWeaponIndex].SetActive(false);
+
+        _currentWeaponIndex = index;
+        _weapons[_currentWeaponIndex].SetActive(true);
     }
 }

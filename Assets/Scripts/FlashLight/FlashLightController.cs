@@ -27,15 +27,10 @@ public class FlashLightController : MonoBehaviour
                 _flashEnabled = !_flashEnabled;
             }
 
+            _light.enabled = _flashEnabled;
+
             if (_flashEnabled)
-            {
-                _light.intensity = 1;
-                _battery -= 0.1f * Time.deltaTime;
-            }
-            else
-            {
-                _light.intensity = 0;
-            }
+                _battery -= 1f * Time.deltaTime;
 
             if (_battery <= 0)
                 _canLight = false;
