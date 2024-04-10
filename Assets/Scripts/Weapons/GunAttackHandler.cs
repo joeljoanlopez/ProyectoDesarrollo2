@@ -20,13 +20,15 @@ public class GunAttackHandler : MonoBehaviour
     {
         var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
         var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
+        _trail.transform.SetParent(transform);
         var _trailScript = _trail.GetComponent<BulletHandler>();
 
         if (_hit.collider)
         {
             _trailScript.SetTargetPosition(_hit.point);
         }
-        else {
+        else
+        {
             var _endPosition = _gunPoint.position + transform.right * _aimDistance;
             _trailScript.SetTargetPosition(_endPosition);
         }

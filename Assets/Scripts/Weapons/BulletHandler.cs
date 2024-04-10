@@ -6,7 +6,8 @@ public class BulletHandler : MonoBehaviour
 
     private Vector3 _startPosition;
     private Vector3 _targetPosition;
-    Vector3 direction;
+    private Vector3 direction = Vector3.right;
+    
     void Start()
     {
         _startPosition = transform.position;
