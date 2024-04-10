@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyHealthHandler : MonoBehaviour
 {
     public float _maxHealth = 100;
-    private float _currentHealth;
+    public float _currentHealth;
 
     public void Start()
     {

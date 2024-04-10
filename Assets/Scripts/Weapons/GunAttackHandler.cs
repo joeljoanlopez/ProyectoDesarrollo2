@@ -5,6 +5,7 @@ public class GunAttackHandler : MonoBehaviour
     public float _aimDistance = 100f;
     public Transform _gunPoint;
     public GameObject _bulletTrail;
+    public float _damage = 0;
 
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
@@ -28,7 +29,10 @@ public class GunAttackHandler : MonoBehaviour
             _trailScript.SetTargetPosition(_hit.point);
 
             // Make damage
-            
+            var _enemyHealth = _hit.transform.GetComponent<EnemyHealthHandler>();
+            if (_enemyHealth != null){
+                _enemyHealth.TakeDamage(_damage);
+            }
         }
         else
         {

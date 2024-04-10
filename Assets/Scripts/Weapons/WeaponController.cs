@@ -5,6 +5,7 @@ public class WeaponController : MonoBehaviour
 {
     public UnityEvent OnAttack;
     public float _coolDown = 1f;
+    public float _damage = 0;
 
     private WeaponHolderController _controller;
     private float _currentCoolDown;

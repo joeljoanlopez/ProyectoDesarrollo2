@@ -6,6 +6,7 @@ public class KnifeAttackHandler : MonoBehaviour
 {
     public int _maxAttacks = 3;
     public float _comboTime = 1;
+    public float _damage = 0;
 
     private SpriteRenderer _knife;
     private int _attackCount;

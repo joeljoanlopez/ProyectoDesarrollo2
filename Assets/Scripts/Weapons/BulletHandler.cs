@@ -3,19 +3,26 @@ using UnityEngine;
 public class BulletHandler : MonoBehaviour
 {
     public float _speed = 100f;
+    public float _lifeTime = 1;
 
     private Vector3 _startPosition;
     private Vector3 _targetPosition;
     private Vector3 direction = Vector3.right;
+    private float _currentLife;
     
     void Start()
     {
         _startPosition = transform.position;
         _startPosition.z -= 1;
+        _currentLife = 1;
     }
     void Update()
     {
         transform.position = transform.position + direction * _speed * Time.deltaTime;
+
+        _currentLife -= Time.deltaTime;
+        if(_currentLife <= 0)
+            Destroy(gameObject);
     }
 
     public void SetTargetPosition(Vector3 targetPosition)
