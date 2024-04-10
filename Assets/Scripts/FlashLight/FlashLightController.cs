@@ -12,6 +12,7 @@ public class FlashLightController : MonoBehaviour
     private void Start()
     {
         _light = GetComponent<Light2D>();
+        Debug.Assert(_light);
     }
 
     // Update is called once per frame
@@ -28,12 +29,12 @@ public class FlashLightController : MonoBehaviour
 
             if (_flashEnabled)
             {
-                _light.intensity = 1;
+                // _light.intensity = 1;
                 _battery -= 0.1f * Time.deltaTime;
             }
             else
             {
-                _light.intensity = 0;
+                // _light.intensity = 0;
             }
 
             if (_battery <= 0)
