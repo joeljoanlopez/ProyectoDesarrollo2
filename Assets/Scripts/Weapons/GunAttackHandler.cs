@@ -37,7 +37,7 @@ public class GunAttackHandler : MonoBehaviour
     public void Update()
     {
         // Set the _aimRay direction and show if needed
-        _aimRay.SetPosition(0, transform.position);
+        _aimRay.SetPosition(0, _gunPoint.position);
         _aimRay.SetPosition(1, transform.right * _aimDistance);
 
         _aimRay.enabled = _controller.Aiming;

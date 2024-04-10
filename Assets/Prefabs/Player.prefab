@@ -91,7 +91,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _coolDown: 0
+  _coolDown: 0.5
 --- !u!114 &6160122258751988745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebb64d506c0bc44d92e9c4457eed7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxAttacks: 3
+  _comboTime: 1
 --- !u!1 &2484960085016255185
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,12 +528,21 @@ LineRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 0, b: 0, a: 0.39215687}
       key1: {r: 1, g: 0, b: 0, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
