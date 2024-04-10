@@ -48,10 +48,23 @@ public class PlayerTeleportController : MonoBehaviour
     public Transform _player;
     public Transform _target;
     private bool _isActive;
+    private FadeToBlack _fadeToBlack;
+
 
     public void Start()
     {
         _isActive = false;
+        _fadeToBlack = FindObjectOfType<FadeToBlack>();
+
+    }
+    private void Update()
+    {
+        if (_isActive && Input.GetKeyDown(KeyCode.E))
+        {
+            _player.transform.position = _target.position;
+            _fadeToBlack.StartFade();
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,17 +72,13 @@ public class PlayerTeleportController : MonoBehaviour
         if (other.gameObject.name == _player.name)
         {
             _isActive = true;
+
         }
     }
 
-    public void OnTriggerExit(Collider2D other){
+    public void OnTriggerExit2D(Collider2D other)
+    {
         _isActive = false;
-    }
-
-    private void Update(){
-        if (_isActive && Input.GetKeyDown(KeyCode.E)){
-            _player.transform.position = _target.position;
-        }
     }
 
 }
