@@ -26,6 +26,9 @@ public class GunAttackHandler : MonoBehaviour
         if (_hit.collider)
         {
             _trailScript.SetTargetPosition(_hit.point);
+
+            // Make damage
+            
         }
         else
         {
