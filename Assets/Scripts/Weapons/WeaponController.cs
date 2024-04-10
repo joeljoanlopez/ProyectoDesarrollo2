@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class WeaponController : MonoBehaviour
 {
     public UnityEvent OnAttack;
-    public float _coolDown;
+    public float _coolDown = 1f;
 
     private WeaponHolderController _controller;
     private float _currentCoolDown;

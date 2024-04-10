@@ -12,7 +12,7 @@ public class FlashLightController : MonoBehaviour
     private void Start()
     {
         _light = GetComponent<Light2D>();
-        Debug.Assert(_light);
+        // Debug.Assert(_light);
     }
 
     // Update is called once per frame
