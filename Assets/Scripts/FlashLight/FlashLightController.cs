@@ -1,47 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
 
 public class FlashLightController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Light2D _targetLight;
     public float _battery = 100;
 
-    private bool _enabled = true;
+    private Light2D _light;
     private bool _canLight = true;
-    void Start()
+    private bool _flashEnabled = false;
+
+    private void Start()
     {
+        _light = GetComponent<Light2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // Check if the "F" key is pressed
-        if (Input.GetKeyDown(KeyCode.F) && _canLight)
+        if (_canLight)
         {
-            // Change TargetLight state
-            if (_targetLight != null)
+            // Check if the "F" key is pressed
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                _targetLight.enabled = !_targetLight.enabled;
-                _enabled = !_enabled;
+                // Change enabled state
+                _flashEnabled = !_flashEnabled;
             }
-        }
-        if (_enabled)
-        {
-            _battery -= 0.1f;
-        }
 
-        if (_battery <= 0)
-        {
-           _canLight = false;
-        }
+            if (_flashEnabled)
+            {
+                _light.intensity = 1;
+                _battery -= 0.1f * Time.deltaTime;
+            }
+            else
+            {
+                _light.intensity = 0;
+            }
 
-        if (!_canLight && _targetLight.enabled){
-            _targetLight.enabled = false;
+            if (_battery <= 0)
+                _canLight = false;
+        }
+        else
+        {
+            _light.intensity = 0;
         }
     }
 }
-

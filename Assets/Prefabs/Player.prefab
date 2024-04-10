@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 1097568639165628430}
   - component: {fileID: 1768672213348480403}
   - component: {fileID: 3817367776295870776}
+  - component: {fileID: 8748983669055197643}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -345,8 +346,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc95c5c03cd168f41ad47d87b659c419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetLight: {fileID: 0}
+  _battery: 100
 --- !u!114 &3817367776295870776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658821436558530329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224ec80bc832dfb40821cad5511e3636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8748983669055197643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,6 +446,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aimDistance: 100
+  _maxBulletsOnScreen: 5
+  _bulletPool: []
+  _bullet: {fileID: 8797783702118549149, guid: b82580079f3309d489ced517be0c71d7, type: 3}
 --- !u!120 &5307531414630749270
 LineRenderer:
   serializedVersion: 2
@@ -629,6 +645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8223048010188498755}
   - component: {fileID: 6443359923239247417}
+  - component: {fileID: 8929493845675996252}
   m_Layer: 0
   m_Name: Lantern
   m_TagString: Untagged
@@ -701,3 +718,16 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &8929493845675996252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179604909582907325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc95c5c03cd168f41ad47d87b659c419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battery: 100

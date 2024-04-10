@@ -3,12 +3,24 @@
 public class GunAttackHandler : MonoBehaviour
 {
     public float _aimDistance = 100f;
+    public int _maxBulletsOnScreen = 5;
+    public GameObject[] _bulletPool;
+    public GameObject _bullet;
 
     private LineRenderer _aimRay;
 
     private void Start()
     {
         _aimRay = GetComponent<LineRenderer>();
+
+        // Create an Object Pool and instantiate bullets
+        _bulletPool = new GameObject[_maxBulletsOnScreen];
+        for (int i = 0; i < _bulletPool.Length; i++)
+        {
+            _bulletPool[i] = Instantiate(_bullet);
+            _bulletPool[i].transform.SetParent(transform, false);
+            _bulletPool[i].SetActive(false);
+        }
     }
 
     public void Shoot()
