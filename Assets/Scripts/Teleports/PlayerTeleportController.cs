@@ -6,9 +6,11 @@ public class PlayerTeleportController : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject _currentTeleporter;
+    private FadeToBlack _fadeToBlack;
     void Start()
     {
-        
+        _fadeToBlack = FindObjectOfType<FadeToBlack>();
+
     }
 
     // Update is called once per frame
@@ -18,6 +20,8 @@ public class PlayerTeleportController : MonoBehaviour
         {
             if(_currentTeleporter != null) 
             {
+                _fadeToBlack.StartFade();
+
                 transform.position = _currentTeleporter.GetComponent<DoorController>().GetDestination().position;
             }
         }
