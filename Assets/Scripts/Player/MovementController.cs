@@ -11,6 +11,7 @@ public class MovementController : MonoBehaviour
     private bool _isFacingRight = true;
     private bool _isAiming = false;
     private float _currentDelay = 0;
+    public bool _canMove;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -25,30 +26,38 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (_canMove)
         {
-            if (_speed > 2.0f)
+            if (Input.GetKey(KeyCode.Mouse1))
             {
-                _speed -= 0.5f;
+                if (_speed > 2.0f)
+                {
+                    _speed -= 0.5f;
+                }
+                else
+                {
+                    _isAiming = true;
+                }
+            }
+            else if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _speed = 8f;
+                _isAiming = false;
             }
             else
             {
-                _isAiming = true;
+                _speed = 4f;
+                _isAiming = false;
             }
-        }
-        else if (Input.GetKey(KeyCode.LeftShift))
-        {
-            _speed = 8f;
-            _isAiming = false;
+            _horizontal = Input.GetAxisRaw("Horizontal");
+
+            Flip();
         }
         else
         {
-            _speed = 4f;
-            _isAiming = false;
+            _speed = 0f;
+            Flip();
         }
-        _horizontal = Input.GetAxisRaw("Horizontal");
-
-        Flip();
     }
     private void FixedUpdate()
     {
