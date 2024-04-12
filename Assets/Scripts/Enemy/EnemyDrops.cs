@@ -10,7 +10,7 @@ public class EnemyDrops : MonoBehaviour
     public GameObject _ammo;
     public GameObject _health;
     public GameObject _battery;
-    private int _additionalOddsH, _additionalOddsA, _additionalOddsB;
+    private int _additionalOddsH = 1, _additionalOddsA = 1, _additionalOddsB = 1;
 
     public GameObject _player;
     void Start()
@@ -21,30 +21,34 @@ public class EnemyDrops : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //_additionalOddsH = _additionalOddsH / (playerhealth/100) 
-        //_additionalOddsA = _additionalOddsH / (playerammo/3 )
-        //_additionalOddsB = _additionalOddsH / (playerbattery/100) 
+        _additionalOddsH = 1;
+        _additionalOddsA = 1; _additionalOddsB = 1;
     }
     public GameObject DropSomething()
     {
         int alea;
+        //formulas para ver cuanto es additionalOdds
+        //_additionalOddsH = _additionalOddsH / (playerhealth/100) 
+        //_additionalOddsA = _additionalOddsH / (playerammo/3 )
+        //_additionalOddsB = _additionalOddsH / (playerbattery/100) 
         alea = Random.Range(0, 100);
         if (alea <= 90)
         {
             return null;
         }
-        else if(alea<= 94)
+        else if(alea>= 91 - _additionalOddsA)
         {
             return _ammo;
         }
-        else if (alea <= 98)
+        else if (alea >= 94 - _additionalOddsH)
         {
             return _health;
         }
-        else 
+        else if (alea >= 97 - _additionalOddsB)
         {
             return _battery;
         }
+        return null;
     }
 
 }
