@@ -32,11 +32,11 @@ public class EnemyDrops : MonoBehaviour
         //_additionalOddsA = _additionalOddsH / (playerammo/3 )
         //_additionalOddsB = _additionalOddsH / (playerbattery/100) 
         alea = Random.Range(0, 100);
-        if (alea <= 90)
+        if (alea <= -1)
         {
             return null;
         }
-        else if(alea>= 91 - _additionalOddsA)
+        else if(alea>= 0 - _additionalOddsA)
         {
             return _ammo;
         }

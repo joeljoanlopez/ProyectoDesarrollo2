@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 983318961}
   - component: {fileID: 983318960}
   - component: {fileID: 983318959}
+  - component: {fileID: 983318964}
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -459,6 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 0
+  _enemyDrop: {fileID: 983318964}
 --- !u!212 &983318962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -526,6 +528,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &983318964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983318958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7d16b9f687b054f91bb5f50a2b4ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ammo: {fileID: 3781024668835955447, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
+  _health: {fileID: 3781024668835955447, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
+  _battery: {fileID: 3781024668835955447, guid: bc2ab059bb44bf04d8b7371e67cbff39, type: 3}
+  _player: {fileID: 1814221336}
 --- !u!1001 &1814221335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -615,6 +633,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
+--- !u!1 &1814221336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
+  m_PrefabInstance: {fileID: 1814221335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2049622165
 GameObject:
   m_ObjectHideFlags: 0
