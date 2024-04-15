@@ -56,3 +56,6 @@ TagManager:
   - name: Ground
     uniqueID: 624994067
     locked: 0
+  - name: Weapons
+    uniqueID: 3332072325
+    locked: 0
