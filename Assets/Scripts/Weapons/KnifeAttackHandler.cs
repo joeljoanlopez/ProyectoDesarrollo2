@@ -9,6 +9,7 @@ public class KnifeAttackHandler : MonoBehaviour
     public float _damage = 0;
 
     private SpriteRenderer _knife;
+    private Collider2D _knifeCollider;
     private int _attackCount;
     private float _currentComboTime;
 
@@ -16,6 +17,8 @@ public class KnifeAttackHandler : MonoBehaviour
         _currentComboTime = _comboTime;
         _knife = GetComponent<SpriteRenderer>();
         _knife.enabled = false;
+        _knifeCollider = GetComponent<Collider2D>();
+        _knifeCollider.enabled = false;
     }
 
     private void Update(){
@@ -32,7 +35,7 @@ public class KnifeAttackHandler : MonoBehaviour
             _currentComboTime = _comboTime;
             _attackCount++;
         }
-        if (_attackCount == _maxAttacks){
+        if (_attackCount >= _maxAttacks){
             // mandar evento de stun
             Debug.Log("Combo!");
             _attackCount = 0;
@@ -42,7 +45,16 @@ public class KnifeAttackHandler : MonoBehaviour
     private IEnumerator Slice()
     {
         _knife.enabled = true;
+        _knifeCollider.enabled = true;
         yield return new WaitForSeconds(0.5f);
         _knife.enabled = false;
+        _knifeCollider.enabled = false;
+    }
+
+    private void OnTriggerEnter2D (Collider2D other){
+        var _enemyHealth = other.gameObject.GetComponent<EnemyHealthHandler>();
+        if (_enemyHealth != null){
+            _enemyHealth.TakeDamage(_damage);
+        }
     }
 }

@@ -19,6 +19,9 @@ public class EnemyHealthHandler : MonoBehaviour
     {
         if (_currentHealth <= 0 || Input.GetKeyDown(KeyCode.T))
             Die();
+        if (Input.GetKeyDown(KeyCode.L)){
+            TakeDamage(10);
+        }
     }
 
     public void TakeDamage(float value)
@@ -30,11 +33,11 @@ public class EnemyHealthHandler : MonoBehaviour
     public void Die()
     {
         // Animacion de muerte
-        Destroy(gameObject);
         if(_drop != null)
         {
             Instantiate(_drop, transform.position, Quaternion.identity);
-
+            _drop.transform.SetParent(this.transform, false);
         }
+        Destroy(gameObject);
     }
 }
