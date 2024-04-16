@@ -17,10 +17,8 @@ public class EnemyHealthHandler : MonoBehaviour
 
     public void Update()
     {
-        if (_currentHealth <= 0 || Input.GetKeyDown(KeyCode.T))
+        if (_currentHealth <= 0)
             Die();
-        if (Input.GetKeyDown(KeyCode.L))
-            TakeDamage(10);
     }
 
     public void TakeDamage(float value)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7706021880966572953}
   - component: {fileID: 7969659931463006433}
   - component: {fileID: 7729674879112500747}
+  - component: {fileID: -7785189329625293414}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Ammo
@@ -146,3 +147,30 @@ MonoBehaviour:
   _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
   _maxQuant: 4
   _minQuant: 1
+--- !u!50 &-7785189329625293414
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652105816245215002}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
