@@ -12,16 +12,15 @@ public class EnemyHealthHandler : MonoBehaviour
     {
         _currentHealth = _maxHealth;
         
-        _drop = _enemyDrop.DropSomething();
+        _drop = _enemyDrop.GetDrop();
     }
 
     public void Update()
     {
         if (_currentHealth <= 0 || Input.GetKeyDown(KeyCode.T))
             Die();
-        if (Input.GetKeyDown(KeyCode.L)){
+        if (Input.GetKeyDown(KeyCode.L))
             TakeDamage(10);
-        }
     }
 
     public void TakeDamage(float value)
@@ -33,11 +32,7 @@ public class EnemyHealthHandler : MonoBehaviour
     public void Die()
     {
         // Animacion de muerte
-        if(_drop != null)
-        {
-            Instantiate(_drop, transform.position, Quaternion.identity);
-            _drop.transform.SetParent(this.transform, false);
-        }
+        _enemyDrop.DropSomething(_drop);
         Destroy(gameObject);
     }
 }

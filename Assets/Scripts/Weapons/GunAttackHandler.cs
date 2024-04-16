@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GunAttackHandler : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class GunAttackHandler : MonoBehaviour
     public Transform _gunPoint;
     public GameObject _bulletTrail;
     public float _damage = 0;
+    public int _ammo = 10;
 
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
@@ -15,6 +17,15 @@ public class GunAttackHandler : MonoBehaviour
     {
         _aimRay = GetComponent<LineRenderer>();
         _controller = GetComponentInParent<WeaponHolderController>();
+    }
+
+    public void Update()
+    {
+        // Set the _aimRay direction and show if needed
+        _aimRay.SetPosition(0, _gunPoint.position);
+        _aimRay.SetPosition(1, transform.right * _aimDistance);
+
+        _aimRay.enabled = _controller.Aiming;
     }
 
     public void Shoot()
@@ -41,12 +52,7 @@ public class GunAttackHandler : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        // Set the _aimRay direction and show if needed
-        _aimRay.SetPosition(0, _gunPoint.position);
-        _aimRay.SetPosition(1, transform.right * _aimDistance);
-
-        _aimRay.enabled = _controller.Aiming;
+    public void GetAmmo(int value){
+        _ammo += value;
     }
 }

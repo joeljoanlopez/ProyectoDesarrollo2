@@ -6,25 +6,24 @@ using UnityEngine;
 
 public class EnemyDrops : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject _ammo;
     public GameObject _health;
     public GameObject _battery;
-    private int _additionalOddsH = 1, _additionalOddsA = 1, _additionalOddsB = 1;
+    public int _additionalOddsH = 1, _additionalOddsA = 1, _additionalOddsB = 1;
+    public GameObject _targetParent;
 
-    public GameObject _player;
-    void Start()
+    public void Start()
     {
-        
+        _targetParent = GameObject.FindGameObjectWithTag("DropContainer");
     }
 
-    // Update is called once per frame
     void Update()
     {
         _additionalOddsH = 1;
-        _additionalOddsA = 1; _additionalOddsB = 1;
+        _additionalOddsA = 1;
+        _additionalOddsB = 1;
     }
-    public GameObject DropSomething()
+    public GameObject GetDrop()
     {
         int alea;
         //formulas para ver cuanto es additionalOdds
@@ -36,7 +35,7 @@ public class EnemyDrops : MonoBehaviour
         {
             return null;
         }
-        else if(alea>= 0 - _additionalOddsA)
+        else if (alea >= 0 - _additionalOddsA)
         {
             return _ammo;
         }
@@ -49,6 +48,15 @@ public class EnemyDrops : MonoBehaviour
             return _battery;
         }
         return null;
+    }
+
+    public void DropSomething(GameObject drop)
+    {
+        if (drop != null)
+        {
+            var _item = Instantiate(drop, transform.position, transform.rotation);
+            _item.transform.SetParent(_targetParent.transform, true);
+        }
     }
 
 }

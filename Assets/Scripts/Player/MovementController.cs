@@ -65,7 +65,7 @@ public class MovementController : MonoBehaviour
     }
     private void Flip()
     {
-        if (_isAiming == false && (_isFacingRight && _horizontal < 0f || !_isFacingRight && _horizontal > 0f))
+        if (_isAiming == false && (_isFacingRight && (_horizontal < 0f) || !_isFacingRight && (_horizontal > 0f)))
         {
             if (_currentDelay < _speed)
             {
@@ -74,9 +74,10 @@ public class MovementController : MonoBehaviour
             else
             {
                 _isFacingRight = !_isFacingRight;
-                Vector3 localScale = transform.localScale;
-                localScale.x = -localScale.x;
-                transform.localScale = localScale;
+                // Vector3 _localScale = transform.localScale;
+                // _localScale.x = -_localScale.x;
+                // transform.localScale = _localScale;
+                GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
                 _currentDelay = 0f;
             }
         }

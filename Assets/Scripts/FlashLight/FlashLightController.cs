@@ -40,4 +40,8 @@ public class FlashLightController : MonoBehaviour
             _light.intensity = 0;
         }
     }
+
+    public void AddBattery(int value){
+        _battery += value;
+    }
 }
