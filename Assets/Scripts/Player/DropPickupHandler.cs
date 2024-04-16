@@ -24,11 +24,11 @@ public class DropPickupHandler : MonoBehaviour
         DroppedItem _droppedItem;
         if (other.TryGetComponent<DroppedItem>(out _droppedItem))
         {
-            if (other.gameObject.name == _ammo.name)
+            if (other.gameObject.tag == _ammo.tag)
                 _gun.GetAmmo(_droppedItem.Quantity);
-            else if (other.gameObject.name == _health.name)
+            else if (other.gameObject.tag == _health.tag)
                 _healthManager.AddHealth(_droppedItem.Quantity);
-            else if (other.gameObject.name == _battery.name)
+            else if (other.gameObject.tag == _battery.tag)
                 _lantern.AddBattery(_droppedItem.Quantity);
         }
 

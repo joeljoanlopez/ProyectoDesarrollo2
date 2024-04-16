@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - DropContainer
+  - Ammo
+  - Battery
+  - Health
   layers:
   - Default
   - TransparentFX

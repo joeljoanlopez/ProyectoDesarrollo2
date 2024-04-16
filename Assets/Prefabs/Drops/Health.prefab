@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8265924532868424281}
   m_Layer: 0
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,5 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab26854b0a3627e4badb3bcdb4efcd77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
   _maxQuant: 4
   _minQuant: 1
