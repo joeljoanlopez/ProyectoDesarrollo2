@@ -47,7 +47,7 @@ public class WeaponHolderController : MonoBehaviour
         if (_isAiming)
         {
             transform.rotation = GetRotation();
-            _lantern.transform.rotation = GetRotation();
+            _lantern.transform.rotation = Quaternion.Euler(GetRotation().eulerAngles - new Vector3(0f, 0f, 90f));
         }
     }
 
