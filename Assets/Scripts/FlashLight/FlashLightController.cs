@@ -30,18 +30,20 @@ public class FlashLightController : MonoBehaviour
             _light.enabled = _flashEnabled;
 
             if (_flashEnabled)
-                _battery -= 1f * Time.deltaTime;
+                _battery -= 5f * Time.deltaTime;
 
             if (_battery <= 0)
                 _canLight = false;
         }
         else
         {
-            _light.intensity = 0;
+            _light.enabled = false;
         }
     }
 
     public void AddBattery(int value){
         _battery += value;
+        _light.enabled = true;
+        _canLight = true;
     }
 }
