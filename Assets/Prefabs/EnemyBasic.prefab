@@ -105,6 +105,8 @@ MonoBehaviour:
   _maxHealth: 100
   _currentHealth: 0
   _enemyDrop: {fileID: 6939078155829303656}
+  popUpDamagePrefab: {fileID: 2893392058516124430, guid: b62ca35f7e7cb3e4a83765dad8ac8629, type: 3}
+  popUpText: {fileID: 6666158435667421982, guid: b62ca35f7e7cb3e4a83765dad8ac8629, type: 3}
 --- !u!50 &8635613369392749893
 Rigidbody2D:
   serializedVersion: 4
@@ -150,6 +152,7 @@ MonoBehaviour:
   _additionalOddsH: 1
   _additionalOddsA: 1
   _additionalOddsB: 1
+  _basicOdds: 1
   _targetParent: {fileID: 0}
   _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
 --- !u!1 &5105254651753334487

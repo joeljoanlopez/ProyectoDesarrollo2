@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class EnemyHealthHandler : MonoBehaviour
@@ -5,6 +6,8 @@ public class EnemyHealthHandler : MonoBehaviour
     public float _maxHealth = 100;
     public float _currentHealth;
     public EnemyDrops _enemyDrop;
+    public GameObject popUpDamagePrefab;
+    public TMP_Text popUpText;
 
     private GameObject _drop;
 
@@ -25,6 +28,8 @@ public class EnemyHealthHandler : MonoBehaviour
     {
         // Animacion de damage
         _currentHealth -= value;
+        popUpText.text = value.ToString();
+        Instantiate(popUpDamagePrefab, transform.position, Quaternion.identity);
     }
 
     public void Die()
