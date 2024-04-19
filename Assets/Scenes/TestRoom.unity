@@ -592,6 +592,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6787148970589557054, guid: 21a07400caefa0b4eb38ced33b2b6baf, type: 3}
+      propertyPath: popUpText
+      value: 
+      objectReference: {fileID: 6666158435667421982, guid: b62ca35f7e7cb3e4a83765dad8ac8629, type: 3}
+    - target: {fileID: 6787148970589557054, guid: 21a07400caefa0b4eb38ced33b2b6baf, type: 3}
+      propertyPath: popUpDamagePrefab
+      value: 
+      objectReference: {fileID: 2893392058516124430, guid: b62ca35f7e7cb3e4a83765dad8ac8629, type: 3}
     - target: {fileID: 6939078155829303656, guid: 21a07400caefa0b4eb38ced33b2b6baf, type: 3}
       propertyPath: _player
       value: 
