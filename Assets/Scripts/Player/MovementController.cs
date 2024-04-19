@@ -6,7 +6,7 @@ public class MovementController : MonoBehaviour
 {
     private WeaponController _weaponController;
     private float _horizontal;
-    private float _speed = 4f;
+    public float _speed = 4f;
     private float _aimDelay;
     private bool _isFacingRight = true;
     private bool _isAiming = false;

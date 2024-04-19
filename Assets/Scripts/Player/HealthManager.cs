@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
-    public int _health = 100;
+    public float _health = 100f;
 
     void Update()
     {
@@ -28,7 +28,7 @@ public class HealthManager : MonoBehaviour
         _health += value;
     }
 
-    public void RemoveHealth(int value)
+    public void RemoveHealth(float value)
     {
         _health -= value;
     }
