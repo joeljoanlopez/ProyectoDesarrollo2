@@ -151,6 +151,7 @@ MonoBehaviour:
   _additionalOddsA: 1
   _additionalOddsB: 1
   _targetParent: {fileID: 0}
+  _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
 --- !u!1 &5105254651753334487
 GameObject:
   m_ObjectHideFlags: 0

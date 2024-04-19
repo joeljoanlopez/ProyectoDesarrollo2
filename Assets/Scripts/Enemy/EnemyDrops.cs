@@ -9,8 +9,9 @@ public class EnemyDrops : MonoBehaviour
     public GameObject _ammo;
     public GameObject _health;
     public GameObject _battery;
-    public int _additionalOddsH = 1, _additionalOddsA = 1, _additionalOddsB = 1;
+    public float _additionalOddsH = 1, _additionalOddsA = 1, _additionalOddsB = 1, _basicOdds = 1;
     public GameObject _targetParent;
+    public GameObject _player;
 
     public void Start()
     {
@@ -19,23 +20,17 @@ public class EnemyDrops : MonoBehaviour
 
     void Update()
     {
-        _additionalOddsH = 1;
-        _additionalOddsA = 1;
-        _additionalOddsB = 1;
+
+        _additionalOddsH = _basicOdds * (_player.GetComponent<HealthManager>()._health / 100);
+        //_additionalOddsA = _basicOdds * (_player.GetComponentInChildren<GunAttackHandler>()._ammo * 10 / 100);
+        _additionalOddsB = _basicOdds * (_player.GetComponentInChildren<FlashLightController>()._battery / 100);
     }
     public GameObject GetDrop()
     {
         int alea;
         //formulas para ver cuanto es additionalOdds
-        //_additionalOddsH = _additionalOddsH / (playerhealth/100) 
-        //_additionalOddsA = _additionalOddsH / (playerammo/3 )
-        //_additionalOddsB = _additionalOddsH / (playerbattery/100) 
         alea = Random.Range(0, 100);
-        if (alea <= -1)
-        {
-            return null;
-        }
-        else if (alea >= 0 - _additionalOddsA)
+        if (alea >= 0 - _additionalOddsA)
         {
             return _ammo;
         }
@@ -46,6 +41,10 @@ public class EnemyDrops : MonoBehaviour
         else if (alea >= 97 - _additionalOddsB)
         {
             return _battery;
+        }
+        else if (alea >= 0)
+        {
+            return null;
         }
         return null;
     }
