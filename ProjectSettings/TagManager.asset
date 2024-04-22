@@ -8,6 +8,7 @@ TagManager:
   - Ammo
   - Battery
   - Health
+  - Curtain
   layers:
   - Default
   - TransparentFX

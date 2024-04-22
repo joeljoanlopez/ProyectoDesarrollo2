@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(_distance);
+        // print(_distance);
         _distance = Vector2.Distance(transform.position, _player.transform.position);
         Vector2 direction = _player.transform.position - transform.position;
         if (_detectionRange < _player.GetComponent<MovementController>()._speed / _distance * 25)
