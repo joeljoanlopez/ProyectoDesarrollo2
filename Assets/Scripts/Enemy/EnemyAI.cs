@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     public GameObject _player;
     public GameObject _enemy;
-    public EnemyAttackHandler _attackHandler;
+    private EnemyAttackHandler _attackHandler;
     public float _speed;
     public float _detectionRange = 10;
     public bool _detected;
