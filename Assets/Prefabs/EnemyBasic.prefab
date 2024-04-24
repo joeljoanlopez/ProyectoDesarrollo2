@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 30
-  _cooldown: 2
 --- !u!1 &1225114043088890962
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +158,6 @@ GameObject:
   - component: {fileID: 8635613369392749893}
   - component: {fileID: 6939078155829303656}
   - component: {fileID: 5501926155782132802}
-  - component: {fileID: 5118414872567693053}
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -302,7 +300,7 @@ MonoBehaviour:
   _additionalOddsB: 1
   _basicOdds: 1
   _targetParent: {fileID: 0}
-  _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
+  _player: {fileID: 0}
 --- !u!114 &5501926155782132802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,24 +315,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
   _enemy: {fileID: 266136608971119358}
-  _attackHandler: {fileID: 5118414872567693053}
+  _attackHandler: {fileID: 0}
   _speed: 5
   _detectionRange: 10
   _detected: 0
---- !u!114 &5118414872567693053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225114043088890962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f586c6087e1f9f94086ff9607916db6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 30
-  _cooldown: 2
 --- !u!1 &5105254651753334487
 GameObject:
   m_ObjectHideFlags: 0
