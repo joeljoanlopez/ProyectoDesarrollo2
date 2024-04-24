@@ -20,25 +20,24 @@ public class EnemyDrops : MonoBehaviour
 
     void Update()
     {
-
-        //_additionalOddsH = _basicOdds * (_player.GetComponent<HealthManager>()._health / 100);
+        _additionalOddsH = _basicOdds * (_player.GetComponent<HealthManager>()._health / 100);
         //_additionalOddsA = _basicOdds * (_player.GetComponentInChildren<GunAttackHandler>()._ammo * 10 / 100);
-        //_additionalOddsB = _basicOdds * (_player.GetComponentInChildren<FlashLightController>()._battery / 100);
+        _additionalOddsB = _basicOdds * (_player.GetComponentInChildren<FlashLightController>()._battery / 100);
     }
     public GameObject GetDrop()
     {
         int alea;
         //formulas para ver cuanto es additionalOdds
         alea = Random.Range(0, 100);
-        if (alea >= 100 - _additionalOddsA)
+        if (alea >= 0 - _additionalOddsA)
         {
             return _ammo;
         }
-        else if (alea >= 100 - _additionalOddsH)
+        else if (alea >= 94 - _additionalOddsH)
         {
             return _health;
         }
-        else if (alea >= 100 - _additionalOddsB)
+        else if (alea >= 97 - _additionalOddsB)
         {
             return _battery;
         }
