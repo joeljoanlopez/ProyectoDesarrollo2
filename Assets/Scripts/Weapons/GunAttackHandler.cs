@@ -41,8 +41,13 @@ public class GunAttackHandler : MonoBehaviour
 
             // Make damage
             var _enemyHealth = _hit.transform.GetComponent<EnemyHealthHandler>();
+            var _lootBoxHealth = _hit.transform.GetComponent<LootBoxHealth>();
             if (_enemyHealth != null){
                 _enemyHealth.TakeDamage(_damage );
+            }
+            else if (_lootBoxHealth != null)
+            {
+                _lootBoxHealth.TakeDamage(_damage);
             }
         }
         else

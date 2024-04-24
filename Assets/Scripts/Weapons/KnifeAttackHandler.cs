@@ -52,8 +52,13 @@ public class KnifeAttackHandler : MonoBehaviour
 
     private void OnTriggerEnter2D (Collider2D other){
         var _enemyHealth = other.gameObject.GetComponentInParent<EnemyHealthHandler>();
+        var _lootBoxHealth = other.gameObject.GetComponent<LootBoxHealth>();
         if (_enemyHealth != null){
             _enemyHealth.TakeDamage(_damage);
+        }
+        else if (_lootBoxHealth != null)
+        {
+            _lootBoxHealth.TakeDamage(_damage);
         }
     }
 }
