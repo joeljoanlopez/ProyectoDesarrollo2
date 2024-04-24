@@ -158,8 +158,12 @@ GameObject:
   - component: {fileID: 6787148970589557054}
   - component: {fileID: 8635613369392749893}
   - component: {fileID: 6939078155829303656}
+<<<<<<< Updated upstream
   - component: {fileID: 5501926155782132802}
   - component: {fileID: 5118414872567693053}
+=======
+  - component: {fileID: 1362926108597537834}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -301,16 +305,22 @@ MonoBehaviour:
   _additionalOddsA: 1
   _additionalOddsB: 1
   _basicOdds: 1
-  _targetParent: {fileID: 0}
   _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
+<<<<<<< Updated upstream
 --- !u!114 &5501926155782132802
 MonoBehaviour:
+=======
+--- !u!95 &1362926108597537834
+Animator:
+  serializedVersion: 5
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225114043088890962}
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e29e1dbad165e1f4a8bc98db9f06711e, type: 3}
   m_Name: 
@@ -335,6 +345,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 30
   _cooldown: 2
+=======
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a00f4f12e2d4b0240b44696d1a63aaac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> Stashed changes
 --- !u!1 &5105254651753334487
 GameObject:
   m_ObjectHideFlags: 0
