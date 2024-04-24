@@ -14,7 +14,6 @@ public class EnemyHealthHandler : MonoBehaviour
     public void Start()
     {
         _currentHealth = _maxHealth;
-        
         _drop = _enemyDrop.GetDrop();
     }
 

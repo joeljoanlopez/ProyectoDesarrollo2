@@ -10,8 +10,8 @@ public class EnemyDrops : MonoBehaviour
     public GameObject _health;
     public GameObject _battery;
     public float _additionalOddsH = 1, _additionalOddsA = 1, _additionalOddsB = 1, _basicOdds = 1;
-    public GameObject _targetParent;
     public GameObject _player;
+    private GameObject _targetParent;
 
     public void Start()
     {
