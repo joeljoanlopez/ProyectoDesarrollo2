@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -20,17 +21,17 @@ public class EnemyAI : MonoBehaviour
     {
         _detected = false;
         _attackHandler = _enemy.GetComponent<EnemyAttackHandler>();
-
+        _player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(_distance);
-        print (_player);
         _distance = Vector2.Distance(transform.position, _player.transform.position);
         Vector2 direction = _player.transform.position - transform.position;
-        if (_detectionRange < _player.GetComponent<MovementController>()._speed / _distance * 25)
+        var _detectionCalc = Math.Abs(_player.GetComponent<Rigidbody2D>().velocity.x) / _distance * 25;
+        print (_detectionCalc);
+        if (_detectionRange < _detectionCalc)
         {
             _detected = true;
         }

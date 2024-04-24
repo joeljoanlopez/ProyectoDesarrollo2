@@ -20,7 +20,6 @@ public class EnemyDrops : MonoBehaviour
 
     void Update()
     {
-
         _additionalOddsH = _basicOdds * (_player.GetComponent<HealthManager>()._health / 100);
         //_additionalOddsA = _basicOdds * (_player.GetComponentInChildren<GunAttackHandler>()._ammo * 10 / 100);
         _additionalOddsB = _basicOdds * (_player.GetComponentInChildren<FlashLightController>()._battery / 100);
