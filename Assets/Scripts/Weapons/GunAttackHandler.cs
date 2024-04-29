@@ -8,6 +8,8 @@ public class GunAttackHandler : MonoBehaviour
     public GameObject _bulletTrail;
     public float _damage = 0;
     public int _ammo = 10;
+    public int _mags = 1;
+    private float _holdDuration = 0;
 
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
@@ -26,38 +28,66 @@ public class GunAttackHandler : MonoBehaviour
         _aimRay.SetPosition(1, transform.right * _aimDistance);
 
         _aimRay.enabled = _controller.Aiming;
+        if (Input.GetKey(KeyCode.R))
+        {
+            _holdDuration = _holdDuration + Time.deltaTime;
+
+        }
+        if (_holdDuration > 1 && Input.GetKeyUp(KeyCode.R)) 
+        {
+            print(_ammo + "ammo and" + _mags + "magazines");
+            _holdDuration = 0;
+        }
+        else if(_holdDuration < 1 && Input.GetKeyUp(KeyCode.R) && _ammo != 10 && _mags >0)
+        {
+            _mags = _mags - 1;
+            _ammo = 10;
+            _holdDuration = 0;
+
+        }
+        else if (Input.GetKeyUp(KeyCode.R))
+        {
+            _holdDuration = 0;
+        }
     }
 
     public void Shoot()
     {
-        var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
-        var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
-        _trail.transform.SetParent(transform);
-        var _trailScript = _trail.GetComponent<BulletHandler>();
 
-        if (_hit.collider)
+        if (_ammo > 0)
         {
-            _trailScript.SetTargetPosition(_hit.point);
+            _ammo = _ammo - 1;
+            var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
+            var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
+            _trail.transform.SetParent(transform);
+            var _trailScript = _trail.GetComponent<BulletHandler>();
 
-            // Make damage
-            var _enemyHealth = _hit.transform.GetComponent<EnemyHealthHandler>();
-            var _lootBoxHealth = _hit.transform.GetComponent<LootBoxHealth>();
-            if (_enemyHealth != null){
-                _enemyHealth.TakeDamage(_damage );
-            }
-            else if (_lootBoxHealth != null)
+            if (_hit.collider)
             {
-                _lootBoxHealth.TakeDamage(_damage);
+                _trailScript.SetTargetPosition(_hit.point);
+
+                // Make damage
+                var _enemyHealth = _hit.transform.GetComponent<EnemyHealthHandler>();
+                var _lootBoxHealth = _hit.transform.GetComponent<LootBoxHealth>();
+                if (_enemyHealth != null)
+                {
+                    _enemyHealth.TakeDamage(_damage);
+                }
+                else if (_lootBoxHealth != null)
+                {
+                    _lootBoxHealth.TakeDamage(_damage);
+                }
             }
-        }
-        else
-        {
-            var _endPosition = _gunPoint.position + transform.right * _aimDistance;
-            _trailScript.SetTargetPosition(_endPosition);
+            else
+            {
+                var _endPosition = _gunPoint.position + transform.right * _aimDistance;
+                _trailScript.SetTargetPosition(_endPosition);
+            }
+
         }
     }
 
     public void GetAmmo(int value){
-        _ammo += value;
+        _mags += value;
     }
 }

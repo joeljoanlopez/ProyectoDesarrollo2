@@ -7408,8 +7408,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -2.4006, y: -2.7326999, z: 0}
-    m_Extent: {x: 8.414101, y: 4.796, z: 0}
+    m_Center: {x: -2.4012, y: -2.7331, z: 0}
+    m_Extent: {x: 8.4141, y: 4.7963, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -14486,6 +14486,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3503029152502095748, guid: a679b45b9fa214848be5562c918b7455, type: 3}
+      propertyPath: _itemDrop
+      value: 
+      objectReference: {fileID: 2652105816245215002, guid: 1e36075528521d44fa3d73bf44a46808, type: 3}
     - target: {fileID: 4427072458444785347, guid: a679b45b9fa214848be5562c918b7455, type: 3}
       propertyPath: m_Name
       value: LootBox

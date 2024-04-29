@@ -3,7 +3,7 @@ using UnityEngine;
 public class DroppedItem : MonoBehaviour
 {
     public GameObject _player;
-    public int _maxQuant = 4;
+    public int _maxQuant = 1;
     public int _minQuant = 1;
 
     private int _quant;

@@ -30,7 +30,6 @@ public class EnemyAI : MonoBehaviour
         _distance = Vector2.Distance(transform.position, _player.transform.position);
         Vector2 direction = _player.transform.position - transform.position;
         var _detectionCalc = Math.Abs(_player.GetComponent<Rigidbody2D>().velocity.x) / _distance * 25;
-        print (_detectionCalc);
         if (_detectionRange < _detectionCalc)
         {
             _detected = true;
