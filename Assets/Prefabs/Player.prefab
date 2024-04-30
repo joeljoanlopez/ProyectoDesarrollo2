@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 415860017125043717}
   - component: {fileID: 5677126720931903000}
   - component: {fileID: 2833099977806058163}
+  - component: {fileID: 8723407598710972635}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -462,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505538cce8a6c2246b7c29b4f6f71527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 4
   _canMove: 1
   rb: {fileID: 1097568639165628430}
   groundCheck: {fileID: 7157179435931764946}
@@ -498,6 +500,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+--- !u!114 &8723407598710972635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658821436558530329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d07e563e9f0b404f9280bdf19488b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canHide: 0
+  _hidingTransparency: 0.5
 --- !u!1 &7781955578413969230
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +595,7 @@ MonoBehaviour:
   _bulletTrail: {fileID: 7961644175558645235, guid: c1482d63d0d75ee4ba6dc0a3e2c5f361, type: 3}
   _damage: 10
   _ammo: 10
+  _mags: 1
 --- !u!120 &5307531414630749270
 LineRenderer:
   serializedVersion: 2

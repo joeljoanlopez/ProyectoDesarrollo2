@@ -1,12 +1,26 @@
 using UnityEngine;
 
-public class ChaseBehavior : StateMachineBehaviour {
-    
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        
+public class ChaseBehavior : StateMachineBehaviour
+{
+    private HidingController _hidingController;
+    private GameObject _player;
+    private EnemyAIController _AI;
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        _player = GameObject.FindWithTag("Player");
+        _hidingController = _player.GetComponent<HidingController>();
+        _AI = animator.GetComponent<EnemyAIController>();
     }
 
-    private void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
-        
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        // Check triggers
+        if (!_hidingController.Targettable)
+            animator.SetTrigger("Undetect");
+        if (_AI.Distance <= _AI._attackDistance)
+            animator.SetTrigger("Attack");
+
+        // Do stuff
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, _player.transform.position, _AI._speed * Time.deltaTime);
     }
 }
