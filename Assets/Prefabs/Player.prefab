@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7157179435931764946}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6160122258751988745}
   - component: {fileID: 6051573590361605739}
   - component: {fileID: 201880107141265495}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _coolDown: 0.5
-  _damage: 0
+  _damage: 30
 --- !u!114 &6160122258751988745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxAttacks: 3
   _comboTime: 1
-  _damage: 10
+  _damage: 30
 --- !u!212 &6051573590361605739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2344679377640377745}
   - component: {fileID: 4507601752501987386}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -233,7 +233,7 @@ Transform:
   m_GameObject: {fileID: 2484960085016255185}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1782142308523724018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GunPoint
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 5677126720931903000}
   - component: {fileID: 2833099977806058163}
   - component: {fileID: 8723407598710972635}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -526,7 +526,7 @@ GameObject:
   - component: {fileID: 4856703877548171533}
   - component: {fileID: 1558312177431478480}
   - component: {fileID: 5307531414630749270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _coolDown: 1
-  _damage: 10
+  _damage: 20
 --- !u!114 &1558312177431478480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5607683815066130632}
   - component: {fileID: 2211573232978275289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000085639bc6
+  m_ApplyToSortingLayers: 000000006332984145d0e3d433111cf2d367385013a7402585639bc6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -802,7 +802,7 @@ GameObject:
   - component: {fileID: 8223048010188498755}
   - component: {fileID: 6443359923239247417}
   - component: {fileID: 8929493845675996252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,13 +817,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179604909582907325}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7061967, w: 0.7080157}
+  m_LocalRotation: {x: -0, y: -0, z: -0.73728955, w: 0.6755769}
   m_LocalPosition: {x: 0, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5638466107631380596}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.698}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &6443359923239247417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000085639bc6
+  m_ApplyToSortingLayers: 000000006332984145d0e3d433111cf2d367385013a7402585639bc6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -861,9 +861,9 @@ MonoBehaviour:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 27.82
-  m_PointLightOuterAngle: 72.85
+  m_PointLightOuterAngle: 83.83397
   m_PointLightInnerRadius: 1.4377251
-  m_PointLightOuterRadius: 17.11826
+  m_PointLightOuterRadius: 16.047289
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -886,4 +886,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc95c5c03cd168f41ad47d87b659c419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _battery: 100
+  _battery: 5000

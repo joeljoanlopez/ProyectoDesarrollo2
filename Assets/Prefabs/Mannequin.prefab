@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6188098336666000974}
   - component: {fileID: 7394558676719918260}
   - component: {fileID: 7910665366880615460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Claw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 5501926155782132802}
   - component: {fileID: 4983324685278040870}
   - component: {fileID: 8928524325991245509}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mannequin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225114043088890962}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -79.51, y: 60.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   _additionalOddsA: 1
   _additionalOddsB: 1
   _basicOdds: 1
-  _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
+  _player: {fileID: 0}
 --- !u!114 &5501926155782132802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
   _speed: 5
-  _detectionRange: 10
+  _detectionRange: 50
   _attackDistance: 3
 --- !u!114 &4983324685278040870
 MonoBehaviour:
@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8027937253724766090}
   - component: {fileID: 2434951753098289127}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HeadHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553248197927621818}
   - component: {fileID: 7535551971128132791}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TorsoHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7645535701894387934}
   - component: {fileID: 4441337653932267702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

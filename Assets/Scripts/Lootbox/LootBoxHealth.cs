@@ -7,14 +7,13 @@ public class LootBoxHealth : MonoBehaviour
     public float _currentHealth;
     public LootBoxDrop _lootBoxDrop;
     public GameObject popUpDamagePrefab;
-    public TMP_Text popUpText;
+    public TMP_Text _popUpText;
 
     private GameObject _drop;
 
     public void Start()
     {
         _currentHealth = _maxHealth;
-
         _drop = _lootBoxDrop.GetDrop();
     }
 
@@ -28,7 +27,7 @@ public class LootBoxHealth : MonoBehaviour
     {
         // Animacion de damage
         _currentHealth -= value;
-        popUpText.text = value.ToString();
+        _popUpText.text = value.ToString();
         Instantiate(popUpDamagePrefab, transform.position, Quaternion.identity);
     }
 

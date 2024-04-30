@@ -10,11 +10,13 @@ public class HidingController : MonoBehaviour
     public bool Targettable { get { return !_hiding; } }
     public float _hidingTransparency = 0.5f;
     private MovementController _movementController;
+    private Collider2D _collider;
 
     public void Start()
     {
         _hiding = false;
         _movementController = GetComponent<MovementController>();
+        _collider = GetComponent<Collider2D>();
     }
     private void Update()
     {
@@ -23,15 +25,18 @@ public class HidingController : MonoBehaviour
             _hiding = !_hiding;
         }
 
+
         if (_hiding)
         {
             SetTransparency(_hidingTransparency);
             _movementController._canMove = false;
+
         }
         else
         {
             SetTransparency(1f);
             _movementController._canMove = true;
+            _collider.enabled = true;
         }
     }
 
