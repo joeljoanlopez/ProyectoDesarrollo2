@@ -9,6 +9,7 @@ public class HidingController : MonoBehaviour
     private bool _hiding;
     public bool Targettable { get { return !_hiding; } }
     public float _hidingTransparency = 0.5f;
+    public float _currentTransparency = 1f;
 
     private GameObject _enemy;
     private MovementController _movementController;
@@ -19,25 +20,21 @@ public class HidingController : MonoBehaviour
         _movementController = GetComponent<MovementController>();
         _enemy = GameObject.FindWithTag("Enemy");
     }
-    
+
     private void Update()
     {
         if (_canHide && Input.GetKeyDown(KeyCode.E))
             _hiding = !_hiding;
 
+        _movementController._canMove = !_hiding;
+        _currentTransparency = _hiding ? _hidingTransparency : 1f;
 
-        if (_hiding)
-        {
-            SetTransparency(_hidingTransparency);
-            _movementController._canMove = false;
-            Physics2D.IgnoreLayerCollision(gameObject.layer, _enemy.layer, true);
-        }
+        if (_enemy != null)
+            Physics2D.IgnoreLayerCollision(gameObject.layer, _enemy.layer, _hiding);
         else
-        {
-            SetTransparency(1f);
-            _movementController._canMove = true;
-            Physics2D.IgnoreLayerCollision(gameObject.layer, _enemy.layer, false);
-        }
+            _enemy = GameObject.FindWithTag("Enemy");
+
+        SetTransparency(_currentTransparency);
     }
 
     private void SetTransparency(float value)

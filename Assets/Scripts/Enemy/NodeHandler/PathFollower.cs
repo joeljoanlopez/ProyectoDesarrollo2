@@ -8,8 +8,7 @@ public class PathFollower : MonoBehaviour
 
     private bool _moving;
     private Transform _currentWP;
-    public Transform CurrentWP
-    { get { return _currentWP; } }
+    public Transform CurrentWP { get { return _currentWP; } }
 
     // Start is called before the first frame update
     private void Start()
@@ -25,9 +24,7 @@ public class PathFollower : MonoBehaviour
     private void Update()
     {
         if (_moving)
-        {
             transform.position = Vector2.MoveTowards(transform.position, _currentWP.position, _speed * Time.deltaTime);
-        }
     }
 
     public void NextWP()

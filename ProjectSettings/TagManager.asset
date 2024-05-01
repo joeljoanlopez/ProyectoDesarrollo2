@@ -9,6 +9,7 @@ TagManager:
   - Battery
   - Health
   - Curtain
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyAIController : MonoBehaviour
@@ -11,7 +12,6 @@ public class EnemyAIController : MonoBehaviour
     private HidingController _hidingController;
     private float _distance;
     public float Distance { get { return _distance; } }
-
     private bool _hiding;
     public bool Hiding { get { return _hiding; } }
 
@@ -30,7 +30,10 @@ public class EnemyAIController : MonoBehaviour
 
     public Vector3 PlayerDirection()
     {
-        Vector3 _direction = (Vector2)(_player.transform.position - transform.position).normalized;
+        Vector3 _direction = new Vector3(_player.transform.position.x - transform.position.x, 0, 0);
+        if(_direction.x < 0) _direction.x = -1;
+        else if (_direction.x > 0) _direction.x = 1;
+        print(_direction);
         return _direction;
     }
 
