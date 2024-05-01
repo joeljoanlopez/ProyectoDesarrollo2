@@ -10,6 +10,8 @@ public class GunAttackHandler : MonoBehaviour
     public int _ammo = 10;
     public int _mags = 1;
     private float _holdDuration = 0;
+    public TextPopUpManager _text;
+
 
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
@@ -35,8 +37,22 @@ public class GunAttackHandler : MonoBehaviour
         }
         if (_holdDuration > 1 && Input.GetKeyUp(KeyCode.R)) 
         {
-            print(_ammo + "ammo and" + _mags + "magazines");
             _holdDuration = 0;
+            if (_mags > 3)
+            {
+                _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, will do for now");
+
+            }
+            else if (_ammo <= 0 && _mags <= 0)
+            {
+                _text.ShowText("I have nothing left, Shit...");
+
+            }
+            else
+            {
+                _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, I'm running low");
+
+            }
         }
         else if(_holdDuration < 1 && Input.GetKeyUp(KeyCode.R) && _ammo != 10 && _mags >0)
         {
@@ -44,11 +60,13 @@ public class GunAttackHandler : MonoBehaviour
             _ammo = 10;
             _holdDuration = 0;
 
+
         }
         else if (Input.GetKeyUp(KeyCode.R))
         {
             _holdDuration = 0;
         }
+
     }
 
     public void Shoot()
