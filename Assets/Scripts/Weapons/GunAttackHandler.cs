@@ -1,7 +1,4 @@
-﻿using TMPro;
-using UnityEditor;
-using UnityEditor.VersionControl;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Rendering;
 
 public class GunAttackHandler : MonoBehaviour
@@ -10,13 +7,12 @@ public class GunAttackHandler : MonoBehaviour
     public Transform _gunPoint;
     public GameObject _bulletTrail;
     public float _damage = 0;
-    public int _ammo = 6;
+    public int _ammo = 10;
     public int _mags = 1;
     private float _holdDuration = 0;
 
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
-    public TextPupUpController _text;
 
 
     private void Start()
@@ -35,31 +31,17 @@ public class GunAttackHandler : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             _holdDuration = _holdDuration + Time.deltaTime;
+
         }
         if (_holdDuration > 1 && Input.GetKeyUp(KeyCode.R)) 
         {
+            print(_ammo + "ammo and" + _mags + "magazines");
             _holdDuration = 0;
-            if (_mags > 3)
-            {
-                _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, will do for now");
-
-            }
-            else if (_ammo <= 0 && _mags <=0)
-            {
-                _text.ShowText("I have nothing left, Shit...");
-
-            }
-            else
-            {
-                _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, I'm running low");
-
-            }
-
         }
         else if(_holdDuration < 1 && Input.GetKeyUp(KeyCode.R) && _ammo != 10 && _mags >0)
         {
             _mags = _mags - 1;
-            _ammo = 6;
+            _ammo = 10;
             _holdDuration = 0;
 
         }
