@@ -6,10 +6,12 @@ public class PatrolBehaviour : StateMachineBehaviour
 {
     private HearingDetector _detector;
     private PathFollower _pathFollower;
+    private EnemyAIController _AI;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        _AI = animator.GetComponent<EnemyAIController>();
         _detector = animator.GetComponent<HearingDetector>();
         _pathFollower = animator.GetComponent<PathFollower>();
     }
@@ -18,7 +20,7 @@ public class PatrolBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         // Check state change triggers
-        if (_detector.Detected)
+        if (_detector.Detected && !_AI.Hiding)
             animator.SetTrigger("Chase");
 
         // Do update Stuff

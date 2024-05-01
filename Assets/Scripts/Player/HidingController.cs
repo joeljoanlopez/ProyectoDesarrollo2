@@ -9,34 +9,34 @@ public class HidingController : MonoBehaviour
     private bool _hiding;
     public bool Targettable { get { return !_hiding; } }
     public float _hidingTransparency = 0.5f;
+
+    private GameObject _enemy;
     private MovementController _movementController;
-    private Collider2D _collider;
 
     public void Start()
     {
         _hiding = false;
         _movementController = GetComponent<MovementController>();
-        _collider = GetComponent<Collider2D>();
+        _enemy = GameObject.FindWithTag("Enemy");
     }
+    
     private void Update()
     {
         if (_canHide && Input.GetKeyDown(KeyCode.E))
-        {
             _hiding = !_hiding;
-        }
 
 
         if (_hiding)
         {
             SetTransparency(_hidingTransparency);
             _movementController._canMove = false;
-
+            Physics2D.IgnoreLayerCollision(gameObject.layer, _enemy.layer, true);
         }
         else
         {
             SetTransparency(1f);
             _movementController._canMove = true;
-            _collider.enabled = true;
+            Physics2D.IgnoreLayerCollision(gameObject.layer, _enemy.layer, false);
         }
     }
 
