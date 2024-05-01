@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87af7dc29f709e448be6bb7cef8f9a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 542110835}
   _levelParent: {fileID: 1894816542}
-  _levels: []
 --- !u!4 &10635579
 Transform:
   m_ObjectHideFlags: 0
@@ -3999,6 +3999,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5638466107631380596, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
   m_PrefabInstance: {fileID: 9004889376512685768}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &542110835 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3907312233034719357, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
+  m_PrefabInstance: {fileID: 9004889376512685768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &547892219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7455,8 +7460,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -2.4017003, y: -2.73275, z: 0}
-    m_Extent: {x: 8.4139, y: 4.79565, z: 0}
+    m_Center: {x: -2.4003499, y: -2.7319999, z: 0}
+    m_Extent: {x: 8.41415, y: 4.7964, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

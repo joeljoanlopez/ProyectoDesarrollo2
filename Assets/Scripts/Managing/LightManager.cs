@@ -5,8 +5,8 @@ public class LightManager : MonoBehaviour
 {
     public Collider2D _player;
     public GameObject _levelParent;
-    [SerializeField] private GameObject[] _levels;
-    [SerializeField] private Light2D[][] _lights;
+    private GameObject[] _levels;
+    private Light2D[][] _lights;
     private int _levelNumber;
 
     private void Start()
