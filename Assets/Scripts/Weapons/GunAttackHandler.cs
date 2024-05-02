@@ -7,8 +7,8 @@ public class GunAttackHandler : MonoBehaviour
     public Transform _gunPoint;
     public GameObject _bulletTrail;
     public float _damage = 0;
-    public int _ammo = 10;
-    public int _mags = 1;
+    public int _ammo = 6;
+    public int _mags = 0;
     private float _holdDuration = 0;
     public TextPopUpManager _text;
 
@@ -57,7 +57,7 @@ public class GunAttackHandler : MonoBehaviour
         else if(_holdDuration < 1 && Input.GetKeyUp(KeyCode.R) && _ammo != 10 && _mags >0)
         {
             _mags = _mags - 1;
-            _ammo = 10;
+            _ammo = 6;
             _holdDuration = 0;
 
 

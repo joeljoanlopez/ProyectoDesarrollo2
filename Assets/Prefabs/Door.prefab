@@ -145,3 +145,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 5638466107631380596, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
   _target: {fileID: 0}
+  _isClosed: 0
+  _text: {fileID: 1726423485223982922, guid: 8c205b9836557c543a75e283759ce50b, type: 3}

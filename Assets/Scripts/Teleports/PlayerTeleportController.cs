@@ -6,7 +6,10 @@ public class PlayerTeleportController : MonoBehaviour
     public Transform _player;
     public Transform _target;
     private bool _isActive;
+    public bool _isClosed;
     private Animator _fadeToBlack;
+    public TextPopUpManager _text;
+
 
     public void Start()
     {
@@ -16,7 +19,11 @@ public class PlayerTeleportController : MonoBehaviour
     }
     private void Update()
     {
-        if (_isActive && Input.GetKeyDown(KeyCode.E))
+        if(_isClosed == true && Input.GetKeyDown(KeyCode.E) && _isActive)
+        {
+            _text.ShowText("It's closed");
+        }
+        else if (_isActive && Input.GetKeyDown(KeyCode.E))
         {
             _fadeToBlack.SetTrigger("FadeStart");
             StartCoroutine(Teleport());

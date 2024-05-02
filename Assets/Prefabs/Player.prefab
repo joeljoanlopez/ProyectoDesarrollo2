@@ -317,7 +317,7 @@ Transform:
   m_GameObject: {fileID: 6658821436558530329}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 19.639814, y: 52.793747, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canHide: 0
   _hidingTransparency: 0.5
+  _currentTransparency: 1
 --- !u!1 &7781955578413969230
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +597,7 @@ MonoBehaviour:
   _damage: 10
   _ammo: 10
   _mags: 1
+  _text: {fileID: 0}
 --- !u!120 &5307531414630749270
 LineRenderer:
   serializedVersion: 2
