@@ -89,7 +89,21 @@ public class GunAttackHandler : MonoBehaviour
                 var _lootBoxHealth = _hit.transform.GetComponent<LootBoxHealth>();
                 if (_enemyHealth != null)
                 {
-                    _enemyHealth.TakeDamage(_damage);
+                    float _damageMultiplier = 1.0f;
+                    string hitboxTag = _hit.collider.tag;
+                    switch (hitboxTag)
+                    {
+                        case "Head":
+                            _damageMultiplier = 1.5f; 
+                            break;
+                        case "Torso":
+                            _damageMultiplier = 1.0f; 
+                            break;
+                        case "Limbs":
+                            _damageMultiplier = 0.8f; 
+                            break;
+                    }
+                            _enemyHealth.TakeDamage(_damage * _damageMultiplier);
                 }
                 else if (_lootBoxHealth != null)
                 {
@@ -101,6 +115,11 @@ public class GunAttackHandler : MonoBehaviour
                 var _endPosition = _gunPoint.position + transform.right * _aimDistance;
                 _trailScript.SetTargetPosition(_endPosition);
             }
+
+        }
+        else if (_ammo <= 0)
+        {
+            _text.ShowText("Out of ammo");
 
         }
     }

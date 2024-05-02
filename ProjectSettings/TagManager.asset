@@ -10,6 +10,9 @@ TagManager:
   - Health
   - Curtain
   - Enemy
+  - Head
+  - Torso
+  - Limbs
   layers:
   - Default
   - TransparentFX
