@@ -11,6 +11,8 @@ public class GunAttackHandler : MonoBehaviour
     public int _maxAmmo = 6;
     public int _mags = 0;
     public TextPopUpManager _text;
+    public Animator _animator;
+
 
     private float _holdDuration = 0;
     private WeaponHolderController _controller;
@@ -56,6 +58,7 @@ public class GunAttackHandler : MonoBehaviour
             _messageShown = false;
         }
 
+
     }
 
     public void Shoot()
@@ -63,6 +66,7 @@ public class GunAttackHandler : MonoBehaviour
         if (_ammo > 0)
         {
             _ammo -= 1;
+
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
             _trail.transform.SetParent(transform);
@@ -110,6 +114,16 @@ public class GunAttackHandler : MonoBehaviour
             _text.ShowText("Out of ammo");
 
         }
+       // if (Input.GetMouseButtonDown(1))
+        //{
+         //   _animator.SetBool("IsShooting", true);
+
+        //}
+        //if (Input.GetMouseButtonUp(1))
+        //{
+         //   _animator.SetBool("IsShooting", false);
+        //}
+
     }
 
     public void GetAmmo(int value)
