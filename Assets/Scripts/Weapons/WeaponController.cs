@@ -6,8 +6,6 @@ public class WeaponController : MonoBehaviour
     public UnityEvent OnAttack;
     public float _coolDown = 1f;
     public float _damage = 0;
-    public Animator _animator;
-
 
     private WeaponHolderController _controller;
     private float _currentCoolDown;
@@ -26,9 +24,9 @@ public class WeaponController : MonoBehaviour
             {
                 OnAttack?.Invoke();
                 _currentCoolDown = _coolDown;
-
             }
         }
+
         _currentCoolDown -= Time.deltaTime;
     }
 }
