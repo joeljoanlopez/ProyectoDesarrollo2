@@ -56,14 +56,17 @@ TagManager:
   - name: Semi-BackGround
     uniqueID: 3571699781
     locked: 0
+  - name: Ground
+    uniqueID: 624994067
+    locked: 0
   - name: Walls etc
     uniqueID: 4061925683
     locked: 0
   - name: Player
     uniqueID: 1345873875
     locked: 0
-  - name: Ground
-    uniqueID: 624994067
+  - name: Doors
+    uniqueID: 1983923025
     locked: 0
   - name: Weapons
     uniqueID: 3332072325
