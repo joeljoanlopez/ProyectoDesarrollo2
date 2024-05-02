@@ -144,5 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 6658821436558530329, guid: bf391a6d9ea73b242bbf61756e259f2a, type: 3}
-  _maxQuant: 4
-  _minQuant: 1
+  _maxQuant: 50
+  _minQuant: 50
