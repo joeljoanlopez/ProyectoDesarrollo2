@@ -8,13 +8,14 @@ public class GunAttackHandler : MonoBehaviour
     public GameObject _bulletTrail;
     public float _damage = 0;
     public int _ammo = 6;
+    public int _maxAmmo = 6;
     public int _mags = 0;
-    private float _holdDuration = 0;
     public TextPopUpManager _text;
 
-
+    private float _holdDuration = 0;
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
+    private bool _messageShown = false;
 
 
     private void Start()
@@ -28,53 +29,40 @@ public class GunAttackHandler : MonoBehaviour
         // Set the _aimRay direction and show if needed
         _aimRay.SetPosition(0, _gunPoint.position);
         _aimRay.SetPosition(1, transform.right * _aimDistance);
-
         _aimRay.enabled = _controller.Aiming;
+
         if (Input.GetKey(KeyCode.R))
-        {
-            _holdDuration = _holdDuration + Time.deltaTime;
+            _holdDuration += Time.deltaTime;
 
-        }
-        if (_holdDuration > 1 && Input.GetKeyUp(KeyCode.R)) 
+        if (_holdDuration >= 1 && !_messageShown)
         {
-            _holdDuration = 0;
             if (_mags > 3)
-            {
                 _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, will do for now");
-
-            }
             else if (_ammo <= 0 && _mags <= 0)
-            {
                 _text.ShowText("I have nothing left, Shit...");
-
-            }
             else
-            {
                 _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, I'm running low");
-
-            }
+            _messageShown = true;
         }
-        else if(_holdDuration < 1 && Input.GetKeyUp(KeyCode.R) && _ammo != 10 && _mags >0)
+        else if (Input.GetKeyUp(KeyCode.R) && _holdDuration < 1 && _ammo < 10 && _mags > 0)
         {
-            _mags = _mags - 1;
-            _ammo = 6;
-            _holdDuration = 0;
-
-
+            _mags -= 1;
+            _ammo = _maxAmmo;
         }
-        else if (Input.GetKeyUp(KeyCode.R))
+
+        if (Input.GetKeyUp(KeyCode.R))
         {
             _holdDuration = 0;
+            _messageShown = false;
         }
 
     }
 
     public void Shoot()
     {
-
         if (_ammo > 0)
         {
-            _ammo = _ammo - 1;
+            _ammo -= 1;
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
             _trail.transform.SetParent(transform);
@@ -94,16 +82,16 @@ public class GunAttackHandler : MonoBehaviour
                     switch (hitboxTag)
                     {
                         case "Head":
-                            _damageMultiplier = 1.5f; 
+                            _damageMultiplier = 1.5f;
                             break;
                         case "Torso":
-                            _damageMultiplier = 1.0f; 
+                            _damageMultiplier = 1.0f;
                             break;
                         case "Limbs":
-                            _damageMultiplier = 0.8f; 
+                            _damageMultiplier = 0.8f;
                             break;
                     }
-                            _enemyHealth.TakeDamage(_damage * _damageMultiplier);
+                    _enemyHealth.TakeDamage(_damage * _damageMultiplier);
                 }
                 else if (_lootBoxHealth != null)
                 {
@@ -117,14 +105,15 @@ public class GunAttackHandler : MonoBehaviour
             }
 
         }
-        else if (_ammo <= 0)
+        else
         {
             _text.ShowText("Out of ammo");
 
         }
     }
 
-    public void GetAmmo(int value){
+    public void GetAmmo(int value)
+    {
         _mags += value;
     }
 }

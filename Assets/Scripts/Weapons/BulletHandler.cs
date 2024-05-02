@@ -14,7 +14,7 @@ public class BulletHandler : MonoBehaviour
     {
         _startPosition = transform.position;
         _startPosition.z -= 1;
-        _currentLife = 1;
+        _currentLife = 1f;
     }
     void Update()
     {
