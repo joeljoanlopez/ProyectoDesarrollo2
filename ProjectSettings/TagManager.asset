@@ -62,6 +62,9 @@ TagManager:
   - name: Walls etc
     uniqueID: 4061925683
     locked: 0
+  - name: ObjectsA
+    uniqueID: 126567979
+    locked: 0
   - name: Player
     uniqueID: 1345873875
     locked: 0
