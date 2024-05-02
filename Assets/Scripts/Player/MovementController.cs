@@ -65,6 +65,10 @@ public class MovementController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(_horizontal * _speed, rb.velocity.y);
+        if (_isAiming)
+        {
+            _animator.SetBool("IsAiming", true);
+        }
         if(_horizontal != 0)
         {
             _animator.SetBool("IsMoving", true);
