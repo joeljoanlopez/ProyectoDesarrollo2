@@ -12,6 +12,7 @@ public class MovementController : MonoBehaviour
     private bool _isAiming = false;
     private float _currentDelay = 0;
     public bool _canMove;
+    Animator _animator;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -19,6 +20,7 @@ public class MovementController : MonoBehaviour
 
     void Start()
     {
+        _animator = GetComponent<Animator>();   
         _weaponController = GetComponentInChildren<WeaponController>();
         rb.velocity = new Vector2(_horizontal * _speed, rb.velocity.y);
     }
@@ -26,6 +28,7 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (_canMove)
         {
             if (Input.GetKey(KeyCode.Mouse1))
@@ -62,6 +65,14 @@ public class MovementController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(_horizontal * _speed, rb.velocity.y);
+        if(_horizontal != 0)
+        {
+            _animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            _animator.SetBool("IsMoving", false);
+        }
     }
     private void Flip()
     {
