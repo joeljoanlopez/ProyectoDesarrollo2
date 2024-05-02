@@ -69,6 +69,10 @@ public class MovementController : MonoBehaviour
         {
             _animator.SetBool("IsAiming", true);
         }
+        else if (!_isAiming) 
+        {
+            _animator.SetBool("IsAiming", false);
+        }
         if(_horizontal != 0)
         {
             _animator.SetBool("IsMoving", true);
