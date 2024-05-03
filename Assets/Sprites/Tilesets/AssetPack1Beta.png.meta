@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f422cf968df05942af838cf9e439ea2
+guid: b56bd242b0007ce48ad8fa948c44454d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WalkingCycleCharacter_0
+      name: AssetPack1Beta_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 7
-        width: 31
-        height: 88
+        x: 1
+        y: 114
+        width: 158
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10b8505e22b36e94c931fa3d556c4b36
-      internalID: -2035379674
+      spriteID: 41da6691acb39e24eb35091cd23befb0
+      internalID: -1460165627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingCycleCharacter_1
+      name: AssetPack1Beta_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 6
-        width: 28
-        height: 88
+        x: 160
+        y: 124
+        width: 56
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 140023333a64a394fb464c40f5cf4b46
-      internalID: -967195702
+      spriteID: 9b5ee39deb88ced45b5db480efbbecdc
+      internalID: -576320676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingCycleCharacter_2
+      name: AssetPack1Beta_2
       rect:
         serializedVersion: 2
-        x: 113
-        y: 6
-        width: 29
-        height: 89
+        x: 224
+        y: 119
+        width: 50
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,62 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 654ca055a05ee5c4b983d2303e3e419a
-      internalID: -67546064
+      spriteID: d60b4e85829f9d04d89280dfa5b23673
+      internalID: -1144209030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WalkingCycleCharacter_3
+      name: AssetPack1Beta_3
       rect:
         serializedVersion: 2
-        x: 158
-        y: 6
-        width: 34
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b5f13f253a205341b1314e9c93dbcdf
-      internalID: 1914480518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingCycleCharacter_4
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 7
-        width: 38
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9deee192ade8cc40aa7771dde9b0e9e
-      internalID: 624335454
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingCycleCharacter_5
-      rect:
-        serializedVersion: 2
-        x: 254
-        y: 8
+        x: 16
+        y: 10
         width: 32
-        height: 86
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,50 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0508c1053b383d4c8d083c6e77f15ce
-      internalID: 1837365585
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingCycleCharacter_6
-      rect:
-        serializedVersion: 2
-        x: 305
-        y: 8
-        width: 29
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3aa86401a105000449d4c9127862092a
-      internalID: -832990130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WalkingCycleCharacter_7
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 8
-        width: 28
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3c5d5eaa75649749af9c27ba499b37c
-      internalID: 220157601
+      spriteID: fc43ec4078f7c4f42b36972aa673e8c4
+      internalID: -689089244
       vertices: []
       indices: 
       edges: []
@@ -288,14 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WalkingCycleCharacter_0: -2035379674
-      WalkingCycleCharacter_1: -967195702
-      WalkingCycleCharacter_2: -67546064
-      WalkingCycleCharacter_3: 1914480518
-      WalkingCycleCharacter_4: 624335454
-      WalkingCycleCharacter_5: 1837365585
-      WalkingCycleCharacter_6: -832990130
-      WalkingCycleCharacter_7: 220157601
+      AssetPack1Beta_0: -1460165627
+      AssetPack1Beta_1: -576320676
+      AssetPack1Beta_2: -1144209030
+      AssetPack1Beta_3: -689089244
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
