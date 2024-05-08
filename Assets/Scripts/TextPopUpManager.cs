@@ -13,7 +13,6 @@ public class TextPopUpManager : MonoBehaviour
 
     void Update()
     {
-        print(_textTime);
         if (_activeText)
         {
             _textTime += Time.deltaTime;
