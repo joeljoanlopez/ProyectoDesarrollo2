@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private Vector3 offset = new Vector3(0, 0, -10);
-    private float smoothTime = 0.25f;
-    private Vector3 velocity = Vector3.zero;
-    [SerializeField] private Transform target;
-    void Start()
-    {
-        
-    }
+    public bool _smooth = true;
+    [SerializeField] private Transform _target;
+    private Vector3 _offset = new Vector3(0, 2, -10);
+    private float _smoothTime = 0.25f;
+    private Vector3 _velocity = Vector3.zero;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetPosition = target.position + offset;
-        targetPosition.y = target.position.y + 2;
-        transform.position = Vector3.SmoothDamp(transform.position,targetPosition,ref velocity,smoothTime);
+        if (_smooth)
+        {
+            Vector3 targetPosition = _target.position + _offset;
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, _smoothTime);
+        }
+        else
+        {
+            transform.position = _target.position + _offset;
+        }
     }
 }
