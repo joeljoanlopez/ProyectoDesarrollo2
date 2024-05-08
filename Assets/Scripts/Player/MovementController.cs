@@ -4,36 +4,40 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
     private WeaponController _weaponController;
+    private WeaponHolderController _weaponHolderController;
     private float _horizontal;
-    public float _speed = 4f;
+    public float _walkingSpeed = 4f;
+    public float _runningSpeed = 8f;
+    public float _aimingSpeed = 2f;
     private float _aimDelay;
     private bool _isFacingRight = true;
+    public bool FacingRight { get { return _isFacingRight; } }
     private bool _isAiming = false;
     private float _currentDelay = 0;
     public bool _canMove;
     Animator _animator;
-
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    private float _speed;
 
     void Start()
     {
-        _animator = GetComponent<Animator>();   
-        _weaponController = GetComponentInChildren<WeaponController>();
+        _animator = GetComponent<Animator>();
+        _weaponHolderController = GetComponentInChildren<WeaponHolderController>();
         rb.velocity = new Vector2(_horizontal * _speed, rb.velocity.y);
+        _speed = _walkingSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         if (_canMove)
         {
             if (Input.GetKey(KeyCode.Mouse1))
             {
-                if (_speed > 2.0f)
+                if (_speed > _aimingSpeed)
                 {
                     _speed -= 0.5f;
                 }
@@ -44,12 +48,12 @@ public class MovementController : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.LeftShift))
             {
-                _speed = 8f;
+                _speed = _runningSpeed;
                 _isAiming = false;
             }
             else
             {
-                _speed = 4f;
+                _speed = _walkingSpeed;
                 _isAiming = false;
             }
             _horizontal = Input.GetAxisRaw("Horizontal");
@@ -69,11 +73,11 @@ public class MovementController : MonoBehaviour
         {
             _animator.SetBool("IsAiming", true);
         }
-        else if (!_isAiming) 
+        else if (!_isAiming)
         {
             _animator.SetBool("IsAiming", false);
         }
-        if(_horizontal != 0)
+        if (_horizontal != 0)
         {
             _animator.SetBool("IsMoving", true);
         }
@@ -93,10 +97,8 @@ public class MovementController : MonoBehaviour
             else
             {
                 _isFacingRight = !_isFacingRight;
-                // Vector3 _localScale = transform.localScale;
-                // _localScale.x = -_localScale.x;
-                // transform.localScale = _localScale;
-                GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+                // GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+                transform.Rotate(0f, 180f, 0f);
                 _currentDelay = 0f;
             }
         }

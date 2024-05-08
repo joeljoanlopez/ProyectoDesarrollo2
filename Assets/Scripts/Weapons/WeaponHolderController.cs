@@ -4,19 +4,21 @@ using UnityEngine;
 public class WeaponHolderController : MonoBehaviour
 {
     public GameObject _lantern;
+    public float _maxAimAngle = 30;
 
+    private MovementController _movementController;
     private int _currentWeaponIndex = 0;
     private GameObject[] _weapons;
     private GameObject _currentWeapon;
     private int _totalWeapons;
-
     private bool _isAiming;
-
     public bool Aiming
     { get { return _isAiming; } }
 
     private void Start()
     {
+        _movementController = GetComponentInParent<MovementController>();
+
         // Get number of weapons and initialize array
         _totalWeapons = transform.childCount;
         _weapons = new GameObject[_totalWeapons];
@@ -56,6 +58,20 @@ public class WeaponHolderController : MonoBehaviour
         Vector3 mouseOnScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mouseOnScreen - transform.position;
         float angle = MathF.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        print(angle);
+        if (_movementController.FacingRight)
+        {
+            if (angle > _maxAimAngle)
+                angle = _maxAimAngle;
+            else if (angle < -_maxAimAngle)
+                angle = -_maxAimAngle;
+        }
+        else{
+            if (angle > -(180 - _maxAimAngle) && angle < -90)
+                angle = -(180 - _maxAimAngle);
+            else if (angle < (180 - _maxAimAngle) && angle > 90)
+                angle = 180 - _maxAimAngle;
+        }
 
         //return the angle
         return Quaternion.Euler(new Vector3(0f, 0f, angle));
