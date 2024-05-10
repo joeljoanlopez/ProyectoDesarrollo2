@@ -5,17 +5,20 @@ public class PlayerTeleportController : MonoBehaviour
 {
     public Transform _player;
     public Transform _target;
-    private bool _isActive;
     public bool _isClosed;
-    private Animator _fadeToBlack;
     public TextPopUpManager _text;
 
+    private GameObject _camera;
+    private CameraFollow _cameraFollow;
+    private bool _isActive;
+    private Animator _fadeToBlack;
 
     public void Start()
     {
         _isActive = false;
         _fadeToBlack = GameObject.FindWithTag("Curtain").GetComponent<Animator>();
-
+        _camera = GameObject.FindWithTag("MainCamera");
+        _cameraFollow = _camera.GetComponent<CameraFollow>();
     }
     private void Update()
     {
@@ -32,8 +35,11 @@ public class PlayerTeleportController : MonoBehaviour
 
     private IEnumerator Teleport()
     {
+        _cameraFollow._smooth = false;
         yield return new WaitForSeconds(0.5f);
         _player.transform.position = _target.position;
+        yield return new WaitForSeconds(0.5f);
+        _cameraFollow._smooth = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
