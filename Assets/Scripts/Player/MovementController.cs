@@ -9,7 +9,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private WeaponController _weaponController;
     private WeaponHolderController _weaponHolderController;
-    private float _horizontal;
+    public float _horizontal;
     public float _walkingSpeed = 4f;
     public float _runningSpeed = 8f;
     public float _aimingSpeed = 2f;
@@ -20,7 +20,7 @@ public class MovementController : MonoBehaviour
     private float _currentDelay = 0;
     public bool _canMove;
     Animator _animator;
-    private float _speed;
+    public float _speed;
 
     void Start()
     {
