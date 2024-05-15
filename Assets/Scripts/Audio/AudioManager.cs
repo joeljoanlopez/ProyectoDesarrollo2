@@ -16,6 +16,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip MainTheme;
     public AudioClip PianoA;
     public AudioClip ScaryEffect;
+    public AudioClip GunShot;
+    public AudioClip Recharge;
+    public AudioClip ShellHittingDown;
 
 
     private void Start()
@@ -24,4 +27,9 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
     
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
+    }
+
 }
