@@ -37,7 +37,7 @@ public class TextPopUpManager : MonoBehaviour
         }
 
         _textComponent.text = "";
-        StopCoroutine("AnimateText");
+        StopCoroutine("AnimateText");    
 
         StartCoroutine(AnimateText(message));
     }
