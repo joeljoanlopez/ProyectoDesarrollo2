@@ -13,12 +13,18 @@ public class GunAttackHandler : MonoBehaviour
     public int _mags = 0;
     public TextPopUpManager _text;
 
+    AudioManager _audioManager;
+
     private float _holdDuration = 0;
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
     private bool _messageShown = false;
     private Light2D _light;
 
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     private void Start()
     {
@@ -66,7 +72,7 @@ public class GunAttackHandler : MonoBehaviour
     {
         if (_ammo > 0)
         {
-            _light.enabled = true;
+            _audioManager.PlaySFX(_audioManager.GunShot);
             _ammo -= 1;
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);

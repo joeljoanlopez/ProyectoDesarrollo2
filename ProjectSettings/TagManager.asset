@@ -13,6 +13,7 @@ TagManager:
   - Head
   - Torso
   - Limbs
+  - Audio
   layers:
   - Default
   - TransparentFX
