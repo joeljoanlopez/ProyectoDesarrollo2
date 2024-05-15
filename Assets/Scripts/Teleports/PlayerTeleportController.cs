@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerTeleportController : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class PlayerTeleportController : MonoBehaviour
     public Transform _target;
     public bool _isClosed;
     public TextPopUpManager _text;
+    public string _closedMessage = "It's closed";
+    public UnityEvent _tryOpen;
 
     private GameObject _camera;
     private CameraFollow _cameraFollow;
@@ -20,17 +23,19 @@ public class PlayerTeleportController : MonoBehaviour
         _camera = GameObject.FindWithTag("MainCamera");
         _cameraFollow = _camera.GetComponent<CameraFollow>();
     }
+
     private void Update()
     {
         if(_isClosed == true && Input.GetKeyDown(KeyCode.E) && _isActive)
         {
-            _text.ShowText("It's closed");
+            _text.ShowText(_closedMessage);
         }
         else if (_isActive && Input.GetKeyDown(KeyCode.E))
         {
             _fadeToBlack.SetTrigger("FadeStart");
             StartCoroutine(Teleport());
         }
+        _tryOpen?.Invoke();
     }
 
     private IEnumerator Teleport()
