@@ -58,7 +58,6 @@ public class WeaponHolderController : MonoBehaviour
         Vector3 mouseOnScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mouseOnScreen - transform.position;
         float angle = MathF.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        print(angle);
         if (_movementController.FacingRight)
         {
             if (angle > _maxAimAngle)

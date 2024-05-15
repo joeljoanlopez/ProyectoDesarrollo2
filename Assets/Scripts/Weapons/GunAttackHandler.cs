@@ -19,7 +19,7 @@ public class GunAttackHandler : MonoBehaviour
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
     private bool _messageShown = false;
-    private Light2D _light;
+    public Light2D _light;
 
     private void Awake()
     {
@@ -30,8 +30,7 @@ public class GunAttackHandler : MonoBehaviour
     {
         _aimRay = GetComponent<LineRenderer>();
         _controller = GetComponentInParent<WeaponHolderController>();
-        _light = GetComponent<Light2D>();
-
+        _light.intensity = 0;
     }
 
     public void Update()
@@ -65,6 +64,11 @@ public class GunAttackHandler : MonoBehaviour
             _holdDuration = 0;
             _messageShown = false;
         }
+        if (_light.intensity > 0)
+        {
+
+            _light.intensity -= 0.5f;
+        }
 
     }
 
@@ -75,11 +79,11 @@ public class GunAttackHandler : MonoBehaviour
             _audioManager.PlaySFX(_audioManager.GunShot);
             _audioManager.PlaySFX(_audioManager.ShellHittingDown);
             _ammo -= 1;
+            _light.intensity = 10;
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
             _trail.transform.SetParent(transform);
             var _trailScript = _trail.GetComponent<BulletHandler>();
-
             if (_hit.collider)
             {
                 _trailScript.SetTargetPosition(_hit.point);
