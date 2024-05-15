@@ -26,16 +26,17 @@ public class PlayerTeleportController : MonoBehaviour
 
     private void Update()
     {
-        if(_isClosed == true && Input.GetKeyDown(KeyCode.E) && _isActive)
+        if (_isActive && Input.GetKeyDown(KeyCode.E))
         {
-            _text.ShowText(_closedMessage);
+            if (_isClosed)
+                _text.ShowText(_closedMessage);
+            else
+            {
+                _fadeToBlack.SetTrigger("FadeStart");
+                StartCoroutine(Teleport());
+            }
+            _tryOpen?.Invoke();
         }
-        else if (_isActive && Input.GetKeyDown(KeyCode.E))
-        {
-            _fadeToBlack.SetTrigger("FadeStart");
-            StartCoroutine(Teleport());
-        }
-        _tryOpen?.Invoke();
     }
 
     private IEnumerator Teleport()
