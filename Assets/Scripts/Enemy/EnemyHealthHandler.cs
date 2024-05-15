@@ -11,6 +11,11 @@ public class EnemyHealthHandler : MonoBehaviour
 
     private GameObject _drop;
 
+    AudioManager _audioManager;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     public void Start()
     {
         _currentHealth = _maxHealth;
@@ -30,6 +35,8 @@ public class EnemyHealthHandler : MonoBehaviour
         _currentHealth -= value;
         popUpText.text = value.ToString();
         Instantiate(popUpDamagePrefab, transform.position, Quaternion.identity);
+        _audioManager.PlaySFX(_audioManager.EnemyHit);
+
     }
 
     public void Die()

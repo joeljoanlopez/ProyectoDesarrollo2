@@ -7,6 +7,11 @@ public class HealthManager : MonoBehaviour
 {
     public float _health = 100f;
 
+    AudioManager _audioManager;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
@@ -31,6 +36,8 @@ public class HealthManager : MonoBehaviour
     public void RemoveHealth(float value)
     {
         _health -= value;
+        _audioManager.PlaySFX(_audioManager.PlayerTakeDamage);
+
     }
 
     void RestartScene()
