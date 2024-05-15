@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 130b4a425a4d99045a63538921b523ad
+guid: f51a957ee1a14134799130d8a7f9b1c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,196 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NeedMoreBullets_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 12
+        width: 36
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08ad892cc68e5648a3269bfb2bf303a
+      internalID: -464004359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 12
+        width: 33
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e868c75dd0031d4b967a0d5b729ac18
+      internalID: -1291221716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 12
+        width: 34
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1d58e3b7c2213438374c8132c8cbed
+      internalID: 1089406498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 12
+        width: 34
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26411bf5ed27cf6489308097a2bbb33f
+      internalID: 1250984950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_4
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 12
+        width: 34
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29183a0e2785fda45b2a070741db11be
+      internalID: -292636227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 12
+        width: 34
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea81424eb3adc74a84fe892dacc148d
+      internalID: 1604963389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 12
+        width: 34
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea323f4ad503e7143a0cd8578d219ea9
+      internalID: -54926876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_7
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 12
+        width: 33
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33aa1efbdcd00449afebdb87d12d66b
+      internalID: 1033746062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NeedMoreBullets_8
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 12
+        width: 38
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e396708f082bdb543ad5217cb0f8ea7e
+      internalID: 1931429346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +308,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NeedMoreBullets_0: -464004359
+      NeedMoreBullets_1: -1291221716
+      NeedMoreBullets_2: 1089406498
+      NeedMoreBullets_3: 1250984950
+      NeedMoreBullets_4: -292636227
+      NeedMoreBullets_5: 1604963389
+      NeedMoreBullets_6: -54926876
+      NeedMoreBullets_7: 1033746062
+      NeedMoreBullets_8: 1931429346
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

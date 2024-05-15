@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9f277e959c789864d96e2fbb471d5a6e
+guid: 3034b6f9ad7ffa449bf04919f936c42f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Poses Finales_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 124
+        width: 38
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2366ec1cb131d264988d0a81d45312d5
+      internalID: 693012233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poses Finales_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 124
+        width: 36
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a47f947ccb1aa4695017a593e0749c
+      internalID: 1357692025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poses Finales_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 124
+        width: 36
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66eedbc3f4e8ee541b744c1ada0577a6
+      internalID: 160630913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poses Finales_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 124
+        width: 34
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f79b672c9d90544280250b3344aa893
+      internalID: 1966920184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poses Finales_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 12
+        width: 34
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6078c3c273d6d04b87fa2a9b9724c75
+      internalID: -1664937263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poses Finales_5
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 12
+        width: 48
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ad13f350e95a04d965fd760681ca17
+      internalID: 918638691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poses Finales_6
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 12
+        width: 38
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4866cbdbbb6de4d8ed35980bdcd4a2
+      internalID: 98495861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poses Finales_7
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 12
+        width: 42
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f699003eda98ad543b026301f148e4c0
+      internalID: 2083395166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +287,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Poses Finales_0: 693012233
+      Poses Finales_1: 1357692025
+      Poses Finales_2: 160630913
+      Poses Finales_3: 1966920184
+      Poses Finales_4: -1664937263
+      Poses Finales_5: 918638691
+      Poses Finales_6: 98495861
+      Poses Finales_7: 2083395166
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
