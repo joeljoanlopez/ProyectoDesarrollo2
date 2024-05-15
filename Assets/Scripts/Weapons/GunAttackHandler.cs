@@ -14,6 +14,7 @@ public class GunAttackHandler : MonoBehaviour
     public TextPopUpManager _text;
 
     AudioManager _audioManager;
+    Animator _animator;
 
     private float _holdDuration = 0;
     private WeaponHolderController _controller;
@@ -31,6 +32,7 @@ public class GunAttackHandler : MonoBehaviour
         _aimRay = GetComponent<LineRenderer>();
         _controller = GetComponentInParent<WeaponHolderController>();
         _light.intensity = 0;
+
     }
 
     public void Update()
@@ -39,7 +41,6 @@ public class GunAttackHandler : MonoBehaviour
         _aimRay.SetPosition(0, _gunPoint.position);
         _aimRay.SetPosition(1, transform.right * _aimDistance);
         _aimRay.enabled = _controller.Aiming;
-
         if (Input.GetKey(KeyCode.R))
             _holdDuration += Time.deltaTime;
 
@@ -80,6 +81,7 @@ public class GunAttackHandler : MonoBehaviour
             _audioManager.PlaySFX(_audioManager.ShellHittingDown);
             _ammo -= 1;
             _light.intensity = 10;
+
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
             _trail.transform.SetParent(transform);
