@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GunAttackHandler : MonoBehaviour
 {
@@ -16,12 +17,15 @@ public class GunAttackHandler : MonoBehaviour
     private WeaponHolderController _controller;
     private LineRenderer _aimRay;
     private bool _messageShown = false;
+    private Light2D _light;
 
 
     private void Start()
     {
         _aimRay = GetComponent<LineRenderer>();
         _controller = GetComponentInParent<WeaponHolderController>();
+        _light = GetComponent<Light2D>();
+
     }
 
     public void Update()
@@ -62,6 +66,7 @@ public class GunAttackHandler : MonoBehaviour
     {
         if (_ammo > 0)
         {
+            _light.enabled = true;
             _ammo -= 1;
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
