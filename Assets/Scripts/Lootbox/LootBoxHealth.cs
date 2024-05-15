@@ -9,7 +9,13 @@ public class LootBoxHealth : MonoBehaviour
     public GameObject popUpDamagePrefab;
     public TMP_Text _popUpText;
 
+    AudioManager _audioManager;
+
     private GameObject _drop;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     public void Start()
     {
@@ -36,5 +42,7 @@ public class LootBoxHealth : MonoBehaviour
         // Animacion de muerte
         _lootBoxDrop.DropSomething(_drop);
         Destroy(gameObject);
+        _audioManager.PlaySFX(_audioManager.BoxBreak);
+
     }
 }
