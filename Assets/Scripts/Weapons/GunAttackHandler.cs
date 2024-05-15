@@ -73,6 +73,7 @@ public class GunAttackHandler : MonoBehaviour
         if (_ammo > 0)
         {
             _audioManager.PlaySFX(_audioManager.GunShot);
+            _audioManager.PlaySFX(_audioManager.ShellHittingDown);
             _ammo -= 1;
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);

@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip GunShot;
     public AudioClip Recharge;
     public AudioClip ShellHittingDown;
+    public AudioClip BoxBreak;
+    public AudioClip Door;
 
 
     private void Start()
