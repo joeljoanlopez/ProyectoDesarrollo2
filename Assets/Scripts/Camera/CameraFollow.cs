@@ -24,10 +24,6 @@ public class CameraFollow : MonoBehaviour
             if (_target.GetComponent<MovementController>()._horizontal != 0){
                 xOffset = _target.GetComponent<MovementController>()._horizontal * 3;
             }
-            else
-            {
-                xOffset = xOffset;
-            }
 
             // Apply the horizontal offset
             targetPosition.x += xOffset;
