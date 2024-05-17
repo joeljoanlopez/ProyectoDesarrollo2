@@ -16,6 +16,11 @@ public class PlayerTeleportController : MonoBehaviour
     private bool _isActive;
     private Animator _fadeToBlack;
 
+    AudioManager _audioManager;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     public void Start()
     {
         _isActive = false;
@@ -32,6 +37,7 @@ public class PlayerTeleportController : MonoBehaviour
                 _text.ShowText(_closedMessage);
             else
             {
+                _audioManager.PlaySFX(_audioManager.OpenCloseDoor);
                 _fadeToBlack.SetTrigger("FadeStart");
                 StartCoroutine(Teleport());
             }
