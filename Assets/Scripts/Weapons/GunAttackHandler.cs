@@ -21,6 +21,7 @@ public class GunAttackHandler : MonoBehaviour
     private LineRenderer _aimRay;
     private bool _messageShown = false;
     public Light2D _light;
+    public GameObject _particles;
 
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class GunAttackHandler : MonoBehaviour
         _aimRay = GetComponent<LineRenderer>();
         _controller = GetComponentInParent<WeaponHolderController>();
         _light.intensity = 0;
-
+        _particles.SetActive(false);
     }
 
     public void Update()
@@ -71,6 +72,10 @@ public class GunAttackHandler : MonoBehaviour
 
             _light.intensity -= 0.5f;
         }
+        if (_light.intensity <= 0)
+        {
+            _particles.SetActive(false);
+        }
 
     }
 
@@ -82,6 +87,9 @@ public class GunAttackHandler : MonoBehaviour
             _audioManager.PlaySFX(_audioManager.ShellHittingDown);
             _ammo -= 1;
             _light.intensity = 10;
+            _particles.SetActive(true);
+
+
 
             var _hit = Physics2D.Raycast(_gunPoint.position, transform.right, _aimDistance);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
