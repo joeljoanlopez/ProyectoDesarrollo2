@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Recharge;
     public AudioClip ShellHittingDown;
     public AudioClip BoxBreak;
-    public AudioClip DoorOpen;
+    public AudioClip OpenCloseDoor;
     public AudioClip EnemyHit;
     public AudioClip PlayerTakeDamage;
 
