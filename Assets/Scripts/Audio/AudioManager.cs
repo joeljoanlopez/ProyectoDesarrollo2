@@ -23,7 +23,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip OpenCloseDoor;
     public AudioClip EnemyHit;
     public AudioClip PlayerTakeDamage;
-
+    public AudioClip Huh1;
+    public AudioClip Huh2;
+    public AudioClip Huh3;
+    public AudioClip Huh4;
+    public AudioClip Huh5;
+    public AudioClip Huh6;
 
     private void Start()
     {
