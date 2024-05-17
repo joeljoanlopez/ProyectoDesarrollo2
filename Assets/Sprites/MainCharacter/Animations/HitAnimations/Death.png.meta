@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3034b6f9ad7ffa449bf04919f936c42f
+guid: be6d7e56f158c1f47a063379eac607a2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Poses Finales_0
+      name: Death_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 124
-        width: 38
-        height: 89
+        x: 0
+        y: 0
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2366ec1cb131d264988d0a81d45312d5
-      internalID: 693012233
+      spriteID: b41b3089f964c8e4599e2a401c1a4875
+      internalID: -1831257600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poses Finales_1
+      name: Death_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 124
-        width: 36
-        height: 89
+        x: 64
+        y: 0
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4a47f947ccb1aa4695017a593e0749c
-      internalID: 1357692025
+      spriteID: 141b4b8906eeb4548bc487b3a996c83f
+      internalID: -621316825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poses Finales_2
+      name: Death_2
       rect:
         serializedVersion: 2
-        x: 143
-        y: 124
-        width: 36
-        height: 89
+        x: 128
+        y: 0
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66eedbc3f4e8ee541b744c1ada0577a6
-      internalID: 160630913
+      spriteID: 4dc551e372a42dd449b020ec3ab5399b
+      internalID: -396994732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poses Finales_3
+      name: Death_3
       rect:
         serializedVersion: 2
-        x: 208
-        y: 124
-        width: 34
-        height: 89
+        x: 192
+        y: 0
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f79b672c9d90544280250b3344aa893
-      internalID: 1966920184
+      spriteID: 152e39b9ec2f40f42a8a0467681a45bb
+      internalID: -1377905641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poses Finales_4
+      name: Death_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 12
-        width: 34
-        height: 89
+        x: 256
+        y: 0
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6078c3c273d6d04b87fa2a9b9724c75
-      internalID: -1664937263
+      spriteID: f360d4afe8db1ad478323d069a258680
+      internalID: 1313754927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poses Finales_5
+      name: Death_5
       rect:
         serializedVersion: 2
-        x: 75
-        y: 12
-        width: 48
-        height: 84
+        x: 320
+        y: 0
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5ad13f350e95a04d965fd760681ca17
-      internalID: 918638691
+      spriteID: 40c38b8427fc4ea43b2506a419d231e0
+      internalID: -80755704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Poses Finales_6
+      name: Death_6
       rect:
         serializedVersion: 2
-        x: 138
-        y: 12
-        width: 38
-        height: 84
+        x: 384
+        y: 0
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,29 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df4866cbdbbb6de4d8ed35980bdcd4a2
-      internalID: 98495861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Poses Finales_7
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 12
-        width: 42
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f699003eda98ad543b026301f148e4c0
-      internalID: 2083395166
+      spriteID: 31f8532ecb5755b4798ef37c690eb819
+      internalID: 660516846
       vertices: []
       indices: 
       edges: []
@@ -288,14 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Poses Finales_0: 693012233
-      Poses Finales_1: 1357692025
-      Poses Finales_2: 160630913
-      Poses Finales_3: 1966920184
-      Poses Finales_4: -1664937263
-      Poses Finales_5: 918638691
-      Poses Finales_6: 98495861
-      Poses Finales_7: 2083395166
+      Death_0: -1831257600
+      Death_1: -621316825
+      Death_2: -396994732
+      Death_3: -1377905641
+      Death_4: 1313754927
+      Death_5: -80755704
+      Death_6: 660516846
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

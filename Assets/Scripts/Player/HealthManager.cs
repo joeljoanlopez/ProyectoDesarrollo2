@@ -7,10 +7,15 @@ public class HealthManager : MonoBehaviour
 {
     public float _health = 100f;
     public float _stunTime = 0.5f;
+    public float timer = 0f;
+    public bool gotHit;
+    public bool _isDead;
     AudioManager _audioManager;
+    public float _deathTimer;
 
     private MovementController _movementController;
     private WeaponHolderController _weaponHolderController;
+    private Animator _animator;
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -19,6 +24,8 @@ public class HealthManager : MonoBehaviour
     private void Start() {
         _movementController = GetComponent<MovementController>();
         _weaponHolderController = GetComponent<WeaponHolderController>();
+        _animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -33,8 +40,32 @@ public class HealthManager : MonoBehaviour
         }
         if (_health <= 0)
         {
+            _isDead = true;
+        }
+        if (gotHit)
+        {
+            timer = timer + Time.deltaTime;
+        }
+        if (timer >= _stunTime)
+        {
+            gotHit = false;
+            timer = 0f;
+            _animator.SetBool("Got Hit", false);
+        }
+        if (_health <= 0 && gotHit == false)
+        {
+            _isDead = true;
+        }
+        if (_isDead)
+        {
+            _animator.SetBool("IsDead", true);
+            _deathTimer += Time.deltaTime;
+        }
+        if(_deathTimer >= 1.20f)
+        {
             RestartScene();
         }
+
     }
 
     public void AddHealth(int value)
@@ -46,6 +77,8 @@ public class HealthManager : MonoBehaviour
     {
         _health -= value;
         _audioManager.PlaySFX(_audioManager.PlayerTakeDamage);
+        gotHit = true;
+        _animator.SetBool("Got Hit", true);
         // Animacion
         StartCoroutine(GetHit());
     }
