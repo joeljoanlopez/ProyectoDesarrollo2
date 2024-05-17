@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("---------- Audio Clip ----------")]
 
-    public AudioClip DarkAmbienceA;
+    public AudioClip Background;
     public AudioClip DarkAmbienceB;
     public AudioClip CombatAlways;
     public AudioClip CombatBattle;
@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicSource.clip = DarkAmbienceA;
+        musicSource.clip = Background;
         musicSource.Play();
     }
     

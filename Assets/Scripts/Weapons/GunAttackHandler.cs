@@ -56,7 +56,6 @@ public class GunAttackHandler : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.R) && _holdDuration < 1 && _ammo < 10 && _mags > 0)
         {
-            _audioManager.PlaySFX(_audioManager.Recharge);
             _mags -= 1;
             _ammo = _maxAmmo;
         }
