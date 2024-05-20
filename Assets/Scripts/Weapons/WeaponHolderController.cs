@@ -12,6 +12,7 @@ public class WeaponHolderController : MonoBehaviour
     private GameObject _currentWeapon;
     private int _totalWeapons;
     private bool _isAiming;
+    Animator _animator;
     public bool Aiming
     { get { return _isAiming; } }
 
@@ -33,15 +34,24 @@ public class WeaponHolderController : MonoBehaviour
         // Set current weapon
         _weapons[_currentWeaponIndex].SetActive(true);
         _currentWeapon = _weapons[_currentWeaponIndex];
+        _animator = GetComponentInParent<Animator>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+            _animator.SetInteger("WhatWeapon", 0);
             ChangeWeapon(0);
 
+        }
+
         else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _animator.SetInteger("WhatWeapon", 1);
             ChangeWeapon(1);
+
+        }
 
 
         _isAiming = Input.GetMouseButton(1);
