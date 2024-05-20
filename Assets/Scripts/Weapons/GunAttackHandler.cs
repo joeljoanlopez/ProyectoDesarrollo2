@@ -24,6 +24,7 @@ public class GunAttackHandler : MonoBehaviour
     public GameObject _particles;
     private float _timer = 0;
     private bool _recharge;
+    private bool _checkrecharge;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class GunAttackHandler : MonoBehaviour
 
         if (_holdDuration >= 1 && !_messageShown)
         {
+            _checkrecharge = true;
             if (_mags > 3)
                 _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, will do for now");
             else if (_ammo <= 0 && _mags <= 0)
@@ -58,6 +60,7 @@ public class GunAttackHandler : MonoBehaviour
             else
                 _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, I'm running low");
             _messageShown = true;
+            _animator.SetBool("IsChecking", true);
         }
         else if (Input.GetKeyUp(KeyCode.R) && _holdDuration < 1 && _ammo < 10 && _mags > 0)
         {
@@ -89,6 +92,16 @@ public class GunAttackHandler : MonoBehaviour
             {
                 _animator.SetBool("IsRecharging", false);
                 _recharge = false;
+                _timer = 0;
+            }
+        }
+        if (_checkrecharge)
+        {
+            _timer += Time.deltaTime;
+            if (_timer >= 1.20)
+            {
+                _animator.SetBool("IsChecking", false);
+                _checkrecharge = false;
                 _timer = 0;
             }
         }
