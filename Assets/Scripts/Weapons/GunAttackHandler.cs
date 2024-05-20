@@ -22,6 +22,8 @@ public class GunAttackHandler : MonoBehaviour
     private bool _messageShown = false;
     public Light2D _light;
     public GameObject _particles;
+    private float _timer = 0;
+    private bool _recharge;
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class GunAttackHandler : MonoBehaviour
         _controller = GetComponentInParent<WeaponHolderController>();
         _light.intensity = 0;
         _particles.SetActive(false);
+        _animator = GetComponentInParent<Animator>();
+
     }
 
     public void Update()
@@ -58,6 +62,8 @@ public class GunAttackHandler : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.R) && _holdDuration < 1 && _ammo < 10 && _mags > 0)
         {
             _audioManager.PlaySFX(_audioManager.Recharge);
+            _animator.SetBool("IsRecharging", true);
+            _recharge = true;
             _mags -= 1;
             _ammo = _maxAmmo;
         }
@@ -75,6 +81,16 @@ public class GunAttackHandler : MonoBehaviour
         if (_light.intensity <= 0)
         {
             _particles.SetActive(false);
+        }
+        if (_recharge == true)
+        {
+            _timer += Time.deltaTime;
+            if(_timer >= 1.20)
+            {
+                _animator.SetBool("IsRecharging", false);
+                _recharge = false;
+                _timer = 0;
+            }
         }
 
     }

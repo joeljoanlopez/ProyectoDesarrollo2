@@ -61,7 +61,7 @@ public class HealthManager : MonoBehaviour
             _animator.SetBool("IsDead", true);
             _deathTimer += Time.deltaTime;
         }
-        if(_deathTimer >= 1.20f)
+        if(_deathTimer >= 2.0f)
         {
             RestartScene();
         }

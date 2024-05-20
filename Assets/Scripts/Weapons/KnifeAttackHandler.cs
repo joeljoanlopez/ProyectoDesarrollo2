@@ -11,6 +11,7 @@ public class KnifeAttackHandler : MonoBehaviour
     private Collider2D _knifeCollider;
     private int _attackCount;
     private float _currentComboTime;
+    Animator _animator;
 
     private void Start(){
         _currentComboTime = _comboTime;
@@ -18,6 +19,7 @@ public class KnifeAttackHandler : MonoBehaviour
         _knife.enabled = false;
         _knifeCollider = GetComponent<Collider2D>();
         _knifeCollider.enabled = false;
+        _animator = GetComponentInParent<Animator>();
     }
 
     private void Update(){
@@ -44,10 +46,13 @@ public class KnifeAttackHandler : MonoBehaviour
     private IEnumerator Slice()
     {
         _knife.enabled = true;
+        _animator.SetBool("IsStriking", true);
         _knifeCollider.enabled = true;
         yield return new WaitForSeconds(0.5f);
         _knife.enabled = false;
         _knifeCollider.enabled = false;
+        _animator.SetBool("IsStriking", false);
+
     }
 
     private void OnTriggerEnter2D (Collider2D other){
