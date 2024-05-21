@@ -25,10 +25,12 @@ public class GunAttackHandler : MonoBehaviour
     private float _timer = 0;
     private bool _recharge;
     private bool _checkrecharge;
+    private MovementController _movement;
 
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        _movement = GetComponentInParent<MovementController>();
     }
 
     private void Start()
@@ -53,6 +55,7 @@ public class GunAttackHandler : MonoBehaviour
         if (_holdDuration >= 1 && !_messageShown)
         {
             _checkrecharge = true;
+            _movement._canMove = false;
             if (_mags > 3)
                 _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, will do for now");
             else if (_ammo <= 0 && _mags <= 0)
@@ -66,6 +69,7 @@ public class GunAttackHandler : MonoBehaviour
         {
             _audioManager.PlaySFX(_audioManager.Recharge);
             _animator.SetBool("IsRecharging", true);
+            _movement._canMove = false;
             _recharge = true;
             _mags -= 1;
             _ammo = _maxAmmo;
@@ -92,6 +96,7 @@ public class GunAttackHandler : MonoBehaviour
             {
                 _animator.SetBool("IsRecharging", false);
                 _recharge = false;
+                _movement._canMove = true;
                 _timer = 0;
             }
         }
@@ -103,6 +108,7 @@ public class GunAttackHandler : MonoBehaviour
                 _animator.SetBool("IsChecking", false);
                 _checkrecharge = false;
                 _timer = 0;
+                _movement._canMove = true;
             }
         }
 
