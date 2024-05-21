@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class HealthManager : MonoBehaviour
     private MovementController _movementController;
     private WeaponHolderController _weaponHolderController;
     private Animator _animator;
+    
+    public Image portraitImage; 
+    public Sprite portrait100; 
+    public Sprite portrait60;  
+    public Sprite portrait30;
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -25,6 +31,7 @@ public class HealthManager : MonoBehaviour
         _movementController = GetComponent<MovementController>();
         _weaponHolderController = GetComponent<WeaponHolderController>();
         _animator = GetComponent<Animator>();
+        UpdatePortrait();
 
     }
 
@@ -71,6 +78,8 @@ public class HealthManager : MonoBehaviour
     public void AddHealth(int value)
     {
         _health += value;
+        UpdatePortrait();
+
     }
 
     public void RemoveHealth(float value)
@@ -79,6 +88,7 @@ public class HealthManager : MonoBehaviour
         _audioManager.PlaySFX(_audioManager.PlayerTakeDamage);
         gotHit = true;
         _animator.SetBool("Got Hit", true);
+        UpdatePortrait();
         // Animacion
         StartCoroutine(GetHit());
     }
@@ -95,5 +105,20 @@ public class HealthManager : MonoBehaviour
         yield return new WaitForSeconds(_stunTime);
         _movementController._canMove = true;
         _weaponHolderController.gameObject.SetActive(true);
+    }
+    private void UpdatePortrait()
+    {
+        if (_health > 60f)
+        {
+            portraitImage.sprite = portrait100;
+        }
+        else if (_health > 30f)
+        {
+            portraitImage.sprite = portrait60;
+        }
+        else
+        {
+            portraitImage.sprite = portrait30;
+        }
     }
 }
