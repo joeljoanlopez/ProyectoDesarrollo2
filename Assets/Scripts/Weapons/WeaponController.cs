@@ -6,6 +6,7 @@ public class WeaponController : MonoBehaviour
     public UnityEvent OnAttack;
     public float _coolDown = 1f;
     public float _damage = 0;
+    public GameObject _GunArm;
 
     private WeaponHolderController _controller;
     private float _currentCoolDown;
@@ -26,6 +27,9 @@ public class WeaponController : MonoBehaviour
                 _currentCoolDown = _coolDown;
             }
         }
+
+        if (_GunArm != null)
+            _GunArm.SetActive((_controller.CurrentWeaponIndex == 1) && (_controller.Aiming));
 
         _currentCoolDown -= Time.deltaTime;
     }

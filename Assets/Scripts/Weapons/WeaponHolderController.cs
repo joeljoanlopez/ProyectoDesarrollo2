@@ -9,6 +9,7 @@ public class WeaponHolderController : MonoBehaviour
 
     private MovementController _movementController;
     private int _currentWeaponIndex = 0;
+    public int CurrentWeaponIndex { get { return _currentWeaponIndex; } }
     private GameObject[] _weapons;
     private GameObject _currentWeapon;
     private int _totalWeapons;
@@ -63,6 +64,7 @@ public class WeaponHolderController : MonoBehaviour
             {
                 transform.rotation = GetRotation();
                 _lantern.transform.rotation = Quaternion.Euler(GetRotation().eulerAngles - new Vector3(0f, 0f, 90f));
+
             }
             else
             {
