@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class WeaponHolderController : MonoBehaviour
@@ -40,7 +41,7 @@ public class WeaponHolderController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
+        {
             _animator.SetInteger("WhatWeapon", 0);
             ChangeWeapon(0);
 
@@ -53,12 +54,20 @@ public class WeaponHolderController : MonoBehaviour
 
         }
 
+        _lantern.transform.rotation = _movementController.FacingRight ? Quaternion.Euler(Vector3.back * 90) : Quaternion.Euler(Vector3.forward * 90);
 
         _isAiming = Input.GetMouseButton(1);
         if (_isAiming)
         {
-            transform.rotation = GetRotation();
-            _lantern.transform.rotation = Quaternion.Euler(GetRotation().eulerAngles - new Vector3(0f, 0f, 90f));
+            if (_currentWeaponIndex == 1)
+            {
+                transform.rotation = GetRotation();
+                _lantern.transform.rotation = Quaternion.Euler(GetRotation().eulerAngles - new Vector3(0f, 0f, 90f));
+            }
+            else
+            {
+                transform.rotation = _movementController.FacingRight ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(Vector3.forward * 180);
+            }
         }
     }
 
@@ -75,7 +84,8 @@ public class WeaponHolderController : MonoBehaviour
             else if (angle < -_maxAimAngle)
                 angle = -_maxAimAngle;
         }
-        else{
+        else
+        {
             if (angle > -(180 - _maxAimAngle) && angle < -90)
                 angle = -(180 - _maxAimAngle);
             else if (angle < (180 - _maxAimAngle) && angle > 90)
