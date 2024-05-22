@@ -4,10 +4,18 @@ public class ChaseBehavior : StateMachineBehaviour
 {
     private GameObject _player;
     private EnemyAIController _AI;
+
+    AudioManager _audioManager;
+
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _player = GameObject.FindWithTag("Player");
         _AI = animator.GetComponent<EnemyAIController>();
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        _audioManager.ChangeMusic(_audioManager.CombatBattle);
+
+
+
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)

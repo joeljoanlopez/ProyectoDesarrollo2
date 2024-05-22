@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("---------- Audio Clip ----------")]
 
-    public AudioClip DarkiAmbienceA;
+    public AudioClip DarkAmbienceA;
     public AudioClip DarkAmbienceB;
     public AudioClip CombatAlways;
     public AudioClip CombatBattle;
@@ -29,16 +29,28 @@ public class AudioManager : MonoBehaviour
     public AudioClip Huh4;
     public AudioClip Huh5;
     public AudioClip Huh6;
+    public AudioClip Enemigo1;
+    public AudioClip Enemigo2;
+    public AudioClip Enemigo3;
 
     private void Start()
     {
-        musicSource.clip = DarkiAmbienceA;
+        musicSource.clip = DarkAmbienceB;
         musicSource.Play();
     }
     
     public void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);
+    }
+    public void ChangeMusic(AudioClip newClip)
+    {
+        if (musicSource.clip != newClip)
+        {
+            musicSource.Stop();
+            musicSource.clip = newClip;
+            musicSource.Play();
+        }
     }
 
 }
