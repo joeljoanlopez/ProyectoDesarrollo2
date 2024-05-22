@@ -1,0 +1,3 @@
+La animacion de andar no es a 0,7 milisegundos como todas las otras
+
+esta va a 1,2 milisegundos. Cuando se haga la animacion borrar este documento
