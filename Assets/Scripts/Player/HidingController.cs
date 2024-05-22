@@ -24,9 +24,13 @@ public class HidingController : MonoBehaviour
     private void Update()
     {
         if (_canHide && Input.GetKeyDown(KeyCode.E))
+        {
             _hiding = !_hiding;
+            if (!_hiding) _movementController._canMove = true;
+        }
 
-        _movementController._canMove = !_hiding;
+        if (_hiding)
+            _movementController._canMove = false;
         _currentTransparency = _hiding ? _hidingTransparency : 1f;
 
         if (_enemy != null)
