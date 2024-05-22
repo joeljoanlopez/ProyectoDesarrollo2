@@ -6,6 +6,7 @@ public class WeaponHolderController : MonoBehaviour
 {
     public GameObject _lantern;
     public float _maxAimAngle = 30;
+    public GameObject _GunArm;
 
     private MovementController _movementController;
     private int _currentWeaponIndex = 0;
@@ -14,13 +15,15 @@ public class WeaponHolderController : MonoBehaviour
     private GameObject _currentWeapon;
     private int _totalWeapons;
     private bool _isAiming;
-    Animator _animator;
     public bool Aiming
     { get { return _isAiming; } }
+    private Animator _animator;
+    private SpriteRenderer _GunFlipper;
 
     private void Start()
     {
         _movementController = GetComponentInParent<MovementController>();
+        _GunFlipper = _GunArm.GetComponent<SpriteRenderer>();
 
         // Get number of weapons and initialize array
         _totalWeapons = transform.childCount;
@@ -45,17 +48,15 @@ public class WeaponHolderController : MonoBehaviour
         {
             _animator.SetInteger("WhatWeapon", 0);
             ChangeWeapon(0);
-
         }
-
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _animator.SetInteger("WhatWeapon", 1);
             ChangeWeapon(1);
-
         }
 
         _lantern.transform.rotation = _movementController.FacingRight ? Quaternion.Euler(Vector3.back * 90) : Quaternion.Euler(Vector3.forward * 90);
+        _GunArm.SetActive(false);
 
         _isAiming = Input.GetMouseButton(1);
         if (_isAiming)
@@ -64,7 +65,8 @@ public class WeaponHolderController : MonoBehaviour
             {
                 transform.rotation = GetRotation();
                 _lantern.transform.rotation = Quaternion.Euler(GetRotation().eulerAngles - new Vector3(0f, 0f, 90f));
-
+                _GunArm.SetActive(true);
+                _GunFlipper.flipY = !_movementController.FacingRight;
             }
             else
             {
