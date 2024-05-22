@@ -28,9 +28,6 @@ public class WeaponController : MonoBehaviour
             }
         }
 
-        if (_GunArm != null)
-            _GunArm.SetActive((_controller.CurrentWeaponIndex == 1) && (_controller.Aiming));
-
         _currentCoolDown -= Time.deltaTime;
     }
 }
