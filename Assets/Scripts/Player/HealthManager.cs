@@ -29,10 +29,9 @@ public class HealthManager : MonoBehaviour
 
     private void Start() {
         _movementController = GetComponent<MovementController>();
-        _weaponHolderController = GetComponent<WeaponHolderController>();
+        _weaponHolderController = GetComponentInChildren<WeaponHolderController>();
         _animator = GetComponent<Animator>();
         UpdatePortrait();
-
     }
 
     void Update()

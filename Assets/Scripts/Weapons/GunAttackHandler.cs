@@ -40,7 +40,7 @@ public class GunAttackHandler : MonoBehaviour
         _light.intensity = 0;
         _particles.SetActive(false);
         _animator = GetComponentInParent<Animator>();
-
+        print(_movement != null);
     }
 
     public void Update()
@@ -64,6 +64,7 @@ public class GunAttackHandler : MonoBehaviour
                 _text.ShowText(_mags + " mags and " + _ammo + " in the chamber, I'm running low");
             _messageShown = true;
             _animator.SetBool("IsChecking", true);
+            _timer = 0;
         }
         else if (Input.GetKeyUp(KeyCode.R) && _holdDuration < 1 && _ammo < 10 && _mags > 0)
         {
@@ -73,6 +74,7 @@ public class GunAttackHandler : MonoBehaviour
             _recharge = true;
             _mags -= 1;
             _ammo = _maxAmmo;
+            _timer = 0;
         }
 
         if (Input.GetKeyUp(KeyCode.R))
@@ -82,14 +84,14 @@ public class GunAttackHandler : MonoBehaviour
         }
         if (_light.intensity > 0)
         {
-
             _light.intensity -= 0.5f;
         }
         if (_light.intensity <= 0)
         {
             _particles.SetActive(false);
         }
-        if (_recharge == true)
+
+        if (_recharge)
         {
             _timer += Time.deltaTime;
             if(_timer >= 1.20)
@@ -111,7 +113,6 @@ public class GunAttackHandler : MonoBehaviour
                 _movement._canMove = true;
             }
         }
-
     }
 
     public void Shoot()
