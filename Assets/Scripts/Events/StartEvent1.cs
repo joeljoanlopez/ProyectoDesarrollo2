@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class StartEvent : MonoBehaviour
+public class StartEvent1 : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Mannequin1;
     public GameObject Mannequin2;
-    public GameObject Text;
+    public GameObject Manneq;
+    public GameObject Enemigo;
     private bool _isActive;
     private bool _eventOver;
     public TextPopUpManager _text;
     public Transform _player;
+
 
 
     void Start()
@@ -25,19 +27,19 @@ public class StartEvent : MonoBehaviour
     {
         if (_isActive)
         {
-            if (_eventOver && Input.GetKeyDown(KeyCode.E))
+            if (_eventOver == false && Input.GetKeyDown(KeyCode.E))
+            {
+                _text.ShowText("It's closed");
+            }
+            else if (_eventOver && Input.GetKeyDown(KeyCode.E))
             {
                 Mannequin1.SetActive(false);
                 Mannequin2.SetActive(true);
-                _text.ShowText("It's closed but there seems to be have a key to another door in it");
-                Text.SetActive(true);
+                _text.ShowText("It's closed but else something opened");
+                Manneq.SetActive(false);
+                Enemigo.SetActive(true);
 
-                // Deactivate the trigger
                 _eventOver = false;
-            }
-            else if (_eventOver == false)
-            {
-                _text.ShowText("It's closed and I already took the key");
             }
         }
 
