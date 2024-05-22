@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AimingGun
+  m_Name: Aiming Walking
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,13 +22,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 786902364, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
-    - time: 0.2
+    - time: 0.18333334
       value: {fileID: -1534223559, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
     - time: 0.4
       value: {fileID: -688088457, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
     - time: 0.6
-      value: {fileID: -1534223559, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
-    - time: 0.8
       value: {fileID: 786902364, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
     attribute: m_Sprite
     path: 
@@ -55,19 +53,18 @@ AnimationClip:
     - {fileID: 786902364, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
     - {fileID: -1534223559, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
     - {fileID: -688088457, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
-    - {fileID: -1534223559, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
     - {fileID: 786902364, guid: f724838a05bd76f4ca8b485bd4764b13, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.81666666
+    m_StopTime: 0.6166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
