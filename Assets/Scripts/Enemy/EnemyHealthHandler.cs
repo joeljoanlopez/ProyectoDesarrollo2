@@ -42,6 +42,8 @@ public class EnemyHealthHandler : MonoBehaviour
     public void Die()
     {
         // Animacion de muerte
+        _audioManager.ChangeMusic(_audioManager.DarkAmbienceB);
+
         _enemyDrop.DropSomething(_drop);
         Destroy(gameObject);
     }
