@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class StartEvent1 : MonoBehaviour
+public class StartEvent4 : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Mannequin1;
-    public GameObject Mannequin2;
-    public GameObject Manneq;
-    public GameObject Enemigo;
+    public PlayerTeleportController _teleport;
+    public GameObject Text;
     private bool _isActive;
     private bool _eventOver;
     public TextPopUpManager _text;
     public Transform _player;
-
+    public PlayerTeleportController _playerTeleportController;
 
 
     void Start()
     {
-        _eventOver = true;
+        _eventOver = false;
     }
 
     // Update is called once per frame
@@ -27,19 +25,16 @@ public class StartEvent1 : MonoBehaviour
     {
         if (_isActive)
         {
-            if (_eventOver == false && Input.GetKeyDown(KeyCode.E))
+            if (_eventOver == false)
             {
-                _text.ShowText("It's closed");
+                _teleport._isClosed = false;
+                _playerTeleportController._isClosed = false;
+                _text.ShowText("There's a key here");
+                _eventOver = true;
             }
-            else if (_eventOver && Input.GetKeyDown(KeyCode.E))
+            else if (_eventOver)
             {
-                Mannequin1.SetActive(false);
-                Mannequin2.SetActive(true);
-                _text.ShowText("It's closed but something else opened");
-                Manneq.SetActive(false);
-                Enemigo.SetActive(true);
 
-                _eventOver = false;
             }
         }
 
