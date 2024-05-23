@@ -145,13 +145,13 @@ public class GunAttackHandler : MonoBehaviour
                     switch (hitboxTag)
                     {
                         case "Head":
-                            _damageMultiplier = 1.5f;
+                            _damageMultiplier = 2f;
                             break;
                         case "Torso":
-                            _damageMultiplier = 1.0f;
+                            _damageMultiplier = 1.5f;
                             break;
                         case "Limbs":
-                            _damageMultiplier = 0.8f;
+                            _damageMultiplier = 1.0f;
                             break;
                     }
                     _enemyHealth.TakeDamage(_damage * _damageMultiplier);
