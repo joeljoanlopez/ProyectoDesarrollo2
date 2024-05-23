@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PathFollower : MonoBehaviour
@@ -24,7 +25,7 @@ public class PathFollower : MonoBehaviour
     private void Update()
     {
         if (_moving)
-            transform.position = Vector2.MoveTowards(transform.position, _currentWP.position, _speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(_currentWP.position.x, transform.position.y), _speed * Time.deltaTime);
     }
 
     public void NextWP()
@@ -35,7 +36,7 @@ public class PathFollower : MonoBehaviour
 
     public bool ArrivedAtWP()
     {
-        return Vector2.Distance(transform.position, _currentWP.position) < _distChange;
+        return Math.Abs(transform.position.x - _currentWP.position.x) < _distChange;
     }
 
     public void Move()
