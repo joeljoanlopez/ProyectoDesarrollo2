@@ -14,6 +14,7 @@ TagManager:
   - Torso
   - Limbs
   - Audio
+  - GameManager
   layers:
   - Default
   - TransparentFX
