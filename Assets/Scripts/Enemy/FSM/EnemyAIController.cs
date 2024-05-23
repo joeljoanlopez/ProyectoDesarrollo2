@@ -21,7 +21,6 @@ public class EnemyAIController : MonoBehaviour
         _player = GameObject.FindWithTag("Player");
         _hidingController = _player.GetComponent<HidingController>();
         _gm = GameObject.FindWithTag("GameManager");
-        _room = _gm.GetLevelNumber(this.GetComponent<Collider2D>());
     }
 
     // Update is called once per frame

@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomController : MonoBehaviour
+public class RoomHandler : MonoBehaviour
 {
     private Collider2D _player;
     public GameObject _levelParent;
@@ -12,7 +14,7 @@ public class RoomController : MonoBehaviour
     {
         _levelNumber = _levelParent.transform.childCount;
         _levels = new GameObject[_levelNumber];
-        _player = GameObject.FindWithTag("Player");
+        _player = GameObject.FindWithTag("Player").GetComponent<Collider2D>();
 
         for (int i = 0; i < _levelNumber; i++)
         {
@@ -41,5 +43,6 @@ public class RoomController : MonoBehaviour
 
             if (!_found) _currentLevel++;
         }
+        return _currentLevel;
     }
 }
