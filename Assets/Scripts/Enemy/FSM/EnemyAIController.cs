@@ -13,11 +13,15 @@ public class EnemyAIController : MonoBehaviour
     public float Distance { get { return _distance; } }
     private bool _hiding;
     public bool Hiding { get { return _hiding; } }
+    private int _room;
+    private GameObject _gm;
 
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
         _hidingController = _player.GetComponent<HidingController>();
+        _gm = GameObject.FindWithTag("GameManager");
+        _room = _gm.GetLevelNumber(this.GetComponent<Collider2D>());
     }
 
     // Update is called once per frame

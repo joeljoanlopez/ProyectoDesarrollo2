@@ -13,9 +13,6 @@ public class ChaseBehavior : StateMachineBehaviour
         _AI = animator.GetComponent<EnemyAIController>();
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         _audioManager.ChangeMusic(_audioManager.CombatBattle);
-
-
-
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
