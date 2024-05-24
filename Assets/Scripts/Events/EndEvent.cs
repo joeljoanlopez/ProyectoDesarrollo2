@@ -4,7 +4,6 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EndEvent : MonoBehaviour
 {

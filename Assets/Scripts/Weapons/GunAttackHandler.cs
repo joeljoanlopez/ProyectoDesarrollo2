@@ -128,7 +128,7 @@ public class GunAttackHandler : MonoBehaviour
 
             for (int i = 0; i < _enemies.Length; i++)
             {
-                _enemies[i].GetComponent<Animator>().SetTrigger("Chase");
+                //_enemies[i].GetComponent<Animator>().SetTrigger("Chase");
             }
 
 

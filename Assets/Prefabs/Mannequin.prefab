@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -962894971
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: b6678b615774a934982dfb96f6146cdc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.1953125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &7394558676719918260
@@ -342,6 +342,7 @@ MonoBehaviour:
   _detectionRange: 50
   _attackDistance: 3
   _collider: {fileID: 4441337653932267702}
+  _room: 0
 --- !u!114 &4983324685278040870
 MonoBehaviour:
   m_ObjectHideFlags: 0
