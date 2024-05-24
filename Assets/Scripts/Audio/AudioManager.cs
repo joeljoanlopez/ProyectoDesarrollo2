@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Enemigo1;
     public AudioClip Enemigo2;
     public AudioClip Enemigo3;
+    public AudioClip Step;
 
     private void Start()
     {

@@ -15,13 +15,20 @@ public class MovementController : MonoBehaviour
     public float _aimingSpeed = 2f;
     private float _aimDelay;
     private bool _isFacingRight = true;
+    AudioManager _audioManager;
+
     public bool FacingRight { get { return _isFacingRight; } }
     private bool _isAiming = false;
     private float _currentDelay = 0;
     public bool _canMove;
     Animator _animator;
     public float _speed;
+    public float _timer;
 
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -57,6 +64,18 @@ public class MovementController : MonoBehaviour
                 _isAiming = false;
             }
             _horizontal = Input.GetAxisRaw("Horizontal");
+            if (_horizontal >0 || _horizontal < 0)
+            {
+                if (_timer <= 0.5f)
+                {
+                    _timer += Time.deltaTime;
+                }
+                else
+                {
+                    _audioManager.PlaySFX(_audioManager.Step);
+                    _timer = 0.0f;
+                }
+            }
 
             Flip();
         }
