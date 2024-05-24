@@ -14,9 +14,13 @@ public class StartEvent3 : MonoBehaviour
     public float _timer;
     private bool _stop = true;
     public Animator _animator;
+    AudioManager _audioManager;
 
 
-
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         _eventOver = true;

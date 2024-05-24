@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     public bool _smooth = false;
     [SerializeField] private Transform _target;
     private Vector3 _offset = new Vector3(0, 2, -10);
-    private float _smoothTime = 0.25f;
+    private float _smoothTime = 0.1f;
     private Vector3 _velocity = Vector3.zero;
     float xOffset = 0; 
 
