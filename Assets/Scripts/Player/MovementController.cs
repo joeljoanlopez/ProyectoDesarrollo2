@@ -66,15 +66,43 @@ public class MovementController : MonoBehaviour
             _horizontal = Input.GetAxisRaw("Horizontal");
             if (_horizontal >0 || _horizontal < 0)
             {
-                if (_timer <= 0.5f)
+                if(_speed == 8)
                 {
-                    _timer += Time.deltaTime;
+                    if (_timer <= 0.35f)
+                    {
+                        _timer += Time.deltaTime;
+                    }
+                    else
+                    {
+                        _audioManager.PlaySFX(_audioManager.Step);
+                        _timer = 0.0f;
+                    }
                 }
-                else
+                else if(_speed == 4)
                 {
-                    _audioManager.PlaySFX(_audioManager.Step);
-                    _timer = 0.0f;
+                    if (_timer <= 0.5f)
+                    {
+                        _timer += Time.deltaTime;
+                    }
+                    else
+                    {
+                        _audioManager.PlaySFX(_audioManager.Step);
+                        _timer = 0.0f;
+                    }
                 }
+                else if (_speed == 2)
+                {
+                    if (_timer <= 0.8f)
+                    {
+                        _timer += Time.deltaTime;
+                    }
+                    else
+                    {
+                        _audioManager.PlaySFX(_audioManager.Step);
+                        _timer = 0.0f;
+                    }
+                }
+
             }
 
             Flip();
