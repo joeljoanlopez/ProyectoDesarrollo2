@@ -9,6 +9,7 @@ public class BulletHandler : MonoBehaviour
     private Vector3 _targetPosition;
     private Vector3 direction = Vector3.right;
     private float _currentLife;
+    private GameObject[] _enemies;
     
     void Start()
     {

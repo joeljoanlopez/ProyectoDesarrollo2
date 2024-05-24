@@ -26,6 +26,7 @@ public class GunAttackHandler : MonoBehaviour
     private bool _recharge;
     private bool _checkrecharge;
     private MovementController _movement;
+    private GameObject[] _enemies;
 
     private void Awake()
     {
@@ -40,7 +41,7 @@ public class GunAttackHandler : MonoBehaviour
         _light.intensity = 0;
         _particles.SetActive(false);
         _animator = GetComponentInParent<Animator>();
-        print(_movement != null);
+        _enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     public void Update()
@@ -94,7 +95,7 @@ public class GunAttackHandler : MonoBehaviour
         if (_recharge)
         {
             _timer += Time.deltaTime;
-            if(_timer >= 1.20)
+            if (_timer >= 1.20)
             {
                 _animator.SetBool("IsRecharging", false);
                 _recharge = false;
@@ -124,6 +125,11 @@ public class GunAttackHandler : MonoBehaviour
             _ammo -= 1;
             _light.intensity = 10;
             _particles.SetActive(true);
+
+            for (int i = 0; i < _enemies.Length; i++)
+            {
+                _enemies[i].GetComponent<Animator>().SetTrigger("Chase");
+            }
 
 
 
