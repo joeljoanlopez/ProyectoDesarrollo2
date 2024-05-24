@@ -94,7 +94,6 @@ public class HealthManager : MonoBehaviour
 
     void RestartScene()
     {
-        _audioManager.ChangeMusic(_audioManager.DarkAmbienceB);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

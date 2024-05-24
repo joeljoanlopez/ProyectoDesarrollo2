@@ -16,6 +16,7 @@ public class HearingDetector : MonoBehaviour
     {
         _player = GameObject.FindWithTag("Player");
         _detected = false;
+        _audioManager.ChangeMusic(_audioManager.CombatAlways);
 
     }
 
@@ -24,6 +25,5 @@ public class HearingDetector : MonoBehaviour
         var _distance = Vector2.Distance(transform.position, _player.transform.position);
         var _detectionCalc = Math.Abs(_player.GetComponent<Rigidbody2D>().velocity.x) / _distance * 25;
         _detected = _detectionSound < _detectionCalc;
-
     }
 }
