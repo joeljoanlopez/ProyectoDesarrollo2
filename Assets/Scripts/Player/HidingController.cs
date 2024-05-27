@@ -13,7 +13,11 @@ public class HidingController : MonoBehaviour
 
     private GameObject _enemy;
     private MovementController _movementController;
-
+    AudioManager _audioManager;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     public void Start()
     {
         _hiding = false;
@@ -30,9 +34,11 @@ public class HidingController : MonoBehaviour
         }
 
         if (_hiding)
+        {
+            _audioManager.ChangeMusic(_audioManager.CombatAlways);
             _movementController._canMove = false;
-        _currentTransparency = _hiding ? _hidingTransparency : 1f;
-
+            _currentTransparency = _hiding ? _hidingTransparency : 1f;
+        }
         if (_enemy != null)
             Physics2D.IgnoreLayerCollision(gameObject.layer, _enemy.layer, _hiding);
         else

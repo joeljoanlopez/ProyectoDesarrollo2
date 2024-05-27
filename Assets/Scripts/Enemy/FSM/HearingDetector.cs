@@ -16,7 +16,6 @@ public class HearingDetector : MonoBehaviour
     {
         _player = GameObject.FindWithTag("Player");
         _detected = false;
-        _audioManager.ChangeMusic(_audioManager.CombatAlways);
 
     }
 
