@@ -18,7 +18,11 @@ public class EnemyAIController : MonoBehaviour
     public int Room { get { return _room; } }
     private GameObject _gm;
     private RoomHandler _roomHandler;
-
+    AudioManager _audioManager;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -33,6 +37,11 @@ public class EnemyAIController : MonoBehaviour
         _room = _roomHandler.GetLevelNumber(_collider);
         _distance = Vector2.Distance(transform.position, _player.transform.position);
         _hiding = !_hidingController.Targettable || (_room != _roomHandler.PlayerLevel());
+        if (_room == _roomHandler.PlayerLevel())
+        {
+            _audioManager.ChangeMusic(_audioManager.CombatAlways);
+
+        }
     }
 
     public Vector3 PlayerDirection()
