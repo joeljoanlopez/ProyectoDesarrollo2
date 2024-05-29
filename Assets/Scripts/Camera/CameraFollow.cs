@@ -5,31 +5,25 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CameraFollow : MonoBehaviour
 {
-    public bool _smooth = false;
-    [SerializeField] private Transform _target;
+    public bool _smooth = true;
+    public Transform _target;
     private Vector3 _offset = new Vector3(0, 2, -10);
     private float _smoothTime = 0.1f;
-    private Vector3 _velocity = Vector3.zero;
-    float xOffset = 0; 
 
     // Update is called once per frame
     void Update()
     {
         if (_target != null)
         {
-            // Calculate the target position with the offset
-            Vector3 targetPosition = _target.position + _offset;
-
             // Calculate the offset based on the player's horizontal movement
-            if (_target.GetComponent<MovementController>()._horizontal != 0){
-                xOffset = _target.GetComponent<MovementController>()._horizontal * 3;
+            if (_target.GetComponent<MovementController>()._horizontal != 0)
+            {
+                _offset.x = _target.GetComponent<MovementController>()._horizontal * 3;
             }
 
-            // Apply the horizontal offset
-            targetPosition.x += xOffset;
             if (_smooth)
             {
-                transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, _smoothTime);
+                transform.position = Vector3.Lerp(transform.position, _target.position + _offset, _smoothTime);
             }
             else
             {
