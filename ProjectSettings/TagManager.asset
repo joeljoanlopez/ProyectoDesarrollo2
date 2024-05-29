@@ -70,6 +70,9 @@ TagManager:
   - name: Player
     uniqueID: 1345873875
     locked: 0
+  - name: ObjectsB
+    uniqueID: 2620235259
+    locked: 0
   - name: Doors
     uniqueID: 1983923025
     locked: 0
