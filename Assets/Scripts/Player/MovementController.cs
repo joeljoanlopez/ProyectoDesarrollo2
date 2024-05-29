@@ -64,9 +64,9 @@ public class MovementController : MonoBehaviour
                 _isAiming = false;
             }
             _horizontal = Input.GetAxisRaw("Horizontal");
-            if (_horizontal >0 || _horizontal < 0)
+            if (_horizontal > 0 || _horizontal < 0)
             {
-                if(_speed == 8)
+                if (_speed == 8)
                 {
                     if (_timer <= 0.35f)
                     {
@@ -78,7 +78,7 @@ public class MovementController : MonoBehaviour
                         _timer = 0.0f;
                     }
                 }
-                else if(_speed == 4)
+                else if (_speed == 4)
                 {
                     if (_timer <= 0.5f)
                     {
@@ -135,19 +135,10 @@ public class MovementController : MonoBehaviour
     }
     private void Flip()
     {
-        if (_isAiming == false && (_isFacingRight && (_horizontal < 0f) || !_isFacingRight && (_horizontal > 0f)))
+        if (!_isAiming && ((_isFacingRight && (_horizontal < 0f)) || (!_isFacingRight && (_horizontal > 0f))))
         {
-            if (_currentDelay < _speed)
-            {
-                _currentDelay += 0.5f;
-            }
-            else
-            {
-                _isFacingRight = !_isFacingRight;
-                // GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
-                transform.Rotate(0f, 180f, 0f);
-                _currentDelay = 0f;
-            }
+            _isFacingRight = !_isFacingRight;
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }
