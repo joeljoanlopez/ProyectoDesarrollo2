@@ -7,11 +7,7 @@ public class HearingDetector : MonoBehaviour
     private GameObject _player;
     private bool _detected;
     public bool Detected { get { return _detected; } }
-    AudioManager _audioManager;
-    private void Awake()
-    {
-        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
+
     private void Start()
     {
         _player = GameObject.FindWithTag("Player");

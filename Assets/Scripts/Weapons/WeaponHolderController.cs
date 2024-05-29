@@ -66,7 +66,6 @@ public class WeaponHolderController : MonoBehaviour
             if (_currentWeaponIndex == 1)
             {
                 transform.rotation = GetRotation();
-                _lantern.transform.rotation = Quaternion.Euler(GetRotation().eulerAngles - new Vector3(0f, 0f, 90f));
                 _GunArmRight.SetActive(_movementController.FacingRight);
                 _GunArmLeft.SetActive(!_movementController.FacingRight);
             }

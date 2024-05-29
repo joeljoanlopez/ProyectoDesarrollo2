@@ -33,8 +33,6 @@ public class LootBoxHealth : MonoBehaviour
     {
         // Animacion de damage
         _currentHealth -= value;
-        _popUpText.text = value.ToString();
-        Instantiate(popUpDamagePrefab, transform.position, Quaternion.identity);
     }
 
     public void Die()
