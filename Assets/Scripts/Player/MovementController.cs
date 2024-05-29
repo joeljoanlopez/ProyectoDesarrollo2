@@ -19,7 +19,6 @@ public class MovementController : MonoBehaviour
 
     public bool FacingRight { get { return _isFacingRight; } }
     private bool _isAiming = false;
-    private float _currentDelay = 0;
     public bool _canMove;
     Animator _animator;
     public float _speed;
