@@ -39,9 +39,7 @@ public class HidingController : MonoBehaviour
             _audioManager.ChangeMusic(_audioManager.CombatHidden);
             _movementController._canMove = false;
         }
-        else{
-            _audioManager.ChangeMusic(_audioManager.DarkAmbienceA);
-        }
+
 
         if (_enemy != null)
             Physics2D.IgnoreLayerCollision(gameObject.layer, _enemy.layer, _hiding);

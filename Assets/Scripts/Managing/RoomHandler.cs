@@ -9,7 +9,11 @@ public class RoomHandler : MonoBehaviour
 
     private GameObject[] _levels;
     private int _levelNumber;
-
+        AudioManager _audioManager;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         _levelNumber = _levelParent.transform.childCount;
