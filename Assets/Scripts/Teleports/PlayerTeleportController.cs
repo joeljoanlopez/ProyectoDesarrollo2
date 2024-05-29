@@ -10,6 +10,8 @@ public class PlayerTeleportController : MonoBehaviour
     public TextPopUpManager _text;
     public string _closedMessage = "It's closed";
     public UnityEvent _tryOpen;
+    public GameObject _e;
+    public GameObject _box;
 
     private GameObject _camera;
     private CameraFollow _cameraFollow;
@@ -27,6 +29,8 @@ public class PlayerTeleportController : MonoBehaviour
         _fadeToBlack = GameObject.FindWithTag("Curtain").GetComponent<Animator>();
         _camera = GameObject.FindWithTag("MainCamera");
         _cameraFollow = _camera.GetComponent<CameraFollow>();
+        _e.SetActive(false);
+        _box.SetActive(false);
     }
 
     private void Update()
@@ -59,12 +63,16 @@ public class PlayerTeleportController : MonoBehaviour
         if (other.tag == _player.tag)
         {
             _isActive = true;
+            _e.SetActive(true); 
+            _box.SetActive(true);
         }
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
         _isActive = false;
+        _e.SetActive(false);
+        _box.SetActive(false);
     }
 
 }
