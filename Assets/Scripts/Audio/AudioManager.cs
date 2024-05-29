@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Enemigo2;
     public AudioClip Enemigo3;
     public AudioClip Step;
+    public AudioClip Sword;
 
     private void Start()
     {

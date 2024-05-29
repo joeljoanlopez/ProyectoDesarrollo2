@@ -12,7 +12,11 @@ public class KnifeAttackHandler : MonoBehaviour
     private int _attackCount;
     private float _currentComboTime;
     Animator _animator;
-
+    AudioManager _audioManager;
+    private void Awake()
+    {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start(){
         _currentComboTime = _comboTime;
         _knife = GetComponent<SpriteRenderer>();
@@ -31,6 +35,7 @@ public class KnifeAttackHandler : MonoBehaviour
     {
         if (_attackCount < _maxAttacks)
         {
+            _audioManager.PlaySFX(_audioManager.Sword);
             StartCoroutine(Slice());
             // mandar evento de damage
             _currentComboTime = _comboTime;
