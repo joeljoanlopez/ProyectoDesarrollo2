@@ -9,7 +9,7 @@ public class RoomHandler : MonoBehaviour
 
     private GameObject[] _levels;
     private int _levelNumber;
-        AudioManager _audioManager;
+    AudioManager _audioManager;
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -48,5 +48,21 @@ public class RoomHandler : MonoBehaviour
             if (!_found) _currentLevel++;
         }
         return _currentLevel;
+    }
+     public bool IsEnemyInRoom()
+    {
+        int currentLevel = PlayerLevel();
+        Collider2D[] colliders = _levels[currentLevel].GetComponentsInChildren<Collider2D>();
+
+        foreach (Collider2D col in colliders)
+        {
+            if (col.tag ==("Enemy"))
+            {
+                // Reproduce la música cuando se detecta un enemigo
+                _audioManager.ChangeMusic(_audioManager.DarkAmbienceA);
+                return true;
+            }
+        }
+        return false;
     }
 }
