@@ -14,6 +14,7 @@ public class StartEvent3 : MonoBehaviour
     public float _timer;
     private bool _stop = true;
     public Animator _animator;
+    public GameObject _E, _box;
     AudioManager _audioManager;
 
 
@@ -62,6 +63,8 @@ public class StartEvent3 : MonoBehaviour
         if (other.tag == _player.tag)
         {
             _isActive = _stop;
+            _E.SetActive(true);
+            _box.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -69,6 +72,8 @@ public class StartEvent3 : MonoBehaviour
         if (other.tag == _player.tag)
         {
             _isActive = false;
+            _E.SetActive(false);
+            _box.SetActive(false);
         }
     }
 }
