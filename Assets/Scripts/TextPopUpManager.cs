@@ -7,8 +7,10 @@ public class TextPopUpManager : MonoBehaviour
 {
 
     public GameObject _textPopUp;
+    public bool _isTimed = true;
+
     private bool _activeText = false;
-    public float _textTime = 0;
+    private float _textTime = 0;
     private TextMeshProUGUI _textComponent;
     private int _alea;
     private bool _canTalk;
@@ -24,7 +26,7 @@ public class TextPopUpManager : MonoBehaviour
         if (_activeText)
         {
             _textTime += Time.deltaTime;
-            if (_textTime > 3)
+            if (_isTimed && _textTime > 3)
             {
                 _activeText = false;
                 _textPopUp.SetActive(false);
