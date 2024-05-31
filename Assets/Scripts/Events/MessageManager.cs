@@ -11,10 +11,11 @@ public class NewBehaviourScript : MonoBehaviour
     private GameObject _player;
     private TextPopUpManager _textManager;
     private Animator _animator;
+    public MovementController _movementController;
     private bool _canShow;
     private float _messageTimer;
     private bool _messageShowing;
-
+    public GameObject _interact;
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -34,13 +35,17 @@ public class NewBehaviourScript : MonoBehaviour
                 {
                     StartCoroutine(ShowMessage());
                     _messageShowing = true;
+                    _movementController._canMove = false;
                 }
+
                 else
                 {
-                    if (_messageTimer <= 0f)
+                    if (_messageTimer <= 1f)
                     {
                         _animator.SetTrigger("HideMessage");
                         _messageShowing = false;
+                        _movementController._canMove = true;
+
                     }
                 }
             }
@@ -53,12 +58,15 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (other.tag == _player.tag)
             _canShow = true;
+        _interact.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == _player.tag)
             _canShow = false;
+        _interact.SetActive(false);
+
     }
 
     private IEnumerator ShowMessage()
