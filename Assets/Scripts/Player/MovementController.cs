@@ -15,8 +15,8 @@ public class MovementController : MonoBehaviour
     public float _aimingSpeed = 2f;
     private float _aimDelay;
     private bool _isFacingRight = true;
-    AudioManager _audioManager;
 
+    AudioManager _audioManager;
     public bool FacingRight { get { return _isFacingRight; } }
     private bool _isAiming = false;
     public bool _canMove;
