@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5085972961258829232}
   - component: {fileID: 1015244154481707504}
   - component: {fileID: 7189230740694527010}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PixelType Font_30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1052624807
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 681729607, guid: a824e3c7fae416d4aa83094dad1b1ea0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8802731257293964216}
   - component: {fileID: 502717084968943555}
   - component: {fileID: 1722905676414662643}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 8139356283193327202}
   - component: {fileID: 3937407896915375237}
   - component: {fileID: 4228275899065287401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1052624807
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
