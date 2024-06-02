@@ -37,32 +37,38 @@ public class StartEvent2 : MonoBehaviour
 
                 _eventOver = false;
             }
-            
+
         }
         if (!_eventOver)
         {
             _timer += Time.deltaTime;
-            if(_timer > 1)
+            if (_timer > 1)
             {
                 Manneq.SetActive(true);
                 Enemigo.SetActive(true);
                 _stop = false;
             }
-        } 
+        }
 
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == _player.tag)
+        if (other != null)
         {
-            _isActive = _stop;
+            if (other.tag == _player.tag)
+            {
+                _isActive = _stop;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == _player.tag)
+        if (other != null)
         {
-            _isActive = false;
+            if (other.tag == _player.tag)
+            {
+                _isActive = false;
+            }
         }
     }
 }

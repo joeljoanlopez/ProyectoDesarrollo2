@@ -41,6 +41,8 @@ public class WeaponHolderController : MonoBehaviour
 
     private void Update()
     {
+        Debug.DrawLine(transform.position, Vector2.right * 100f, Color.green);
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _animator.SetInteger("WhatWeapon", 0);
