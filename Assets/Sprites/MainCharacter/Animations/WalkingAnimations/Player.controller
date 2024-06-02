@@ -1026,7 +1026,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AimingKnife
+  m_Name: AimingKnifeWalking
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1285,6 +1285,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: IsAiming
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsMoving
     m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: WhatWeapon
@@ -1651,6 +1654,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: WhatWeapon
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsMoving
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 548941425065188994}
   m_Solo: 0
@@ -1893,11 +1899,11 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsAiming
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: WhatWeapon
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsMoving
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3086751667653292768}
