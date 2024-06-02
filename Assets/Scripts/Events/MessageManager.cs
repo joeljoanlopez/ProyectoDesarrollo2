@@ -16,6 +16,7 @@ public class NewBehaviourScript : MonoBehaviour
     private float _messageTimer;
     private bool _messageShowing;
     public GameObject _interact;
+
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -23,6 +24,7 @@ public class NewBehaviourScript : MonoBehaviour
         _animator = GetComponent<Animator>();
         _messageTimer = _messageTime;
         _messageShowing = false;
+        _interact.SetActive(false);
     }
 
     void Update()
