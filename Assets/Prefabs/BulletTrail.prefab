@@ -160,3 +160,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 200
   _lifeTime: 1
+  _dyingDistance: 1

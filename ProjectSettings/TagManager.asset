@@ -15,6 +15,7 @@ TagManager:
   - Limbs
   - Audio
   - GameManager
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Characters
   - Enemies
   - Weapons
-  - 
+  - Walls
   - 
   - 
   - 

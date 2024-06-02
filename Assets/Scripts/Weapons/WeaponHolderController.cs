@@ -8,12 +8,13 @@ public class WeaponHolderController : MonoBehaviour
     public float _maxAimAngle = 30;
     public GameObject _GunArmRight;
     public GameObject _GunArmLeft;
+    public bool _canAim = true;
 
     private MovementController _movementController;
     private GameObject[] _weapons;
     private int _totalWeapons;
-    private bool _isAiming;
     private Animator _animator;
+    private bool _isAiming;
     public bool Aiming
     { get { return _isAiming; } }
     private int _currentWeaponIndex = 0;
@@ -55,7 +56,7 @@ public class WeaponHolderController : MonoBehaviour
         _GunArmRight.SetActive(false);
         _GunArmLeft.SetActive(false);
 
-        _isAiming = Input.GetMouseButton(1);
+        _isAiming = _canAim && Input.GetMouseButton(1);
         if (_isAiming)
         {
             if (_currentWeaponIndex == 1)

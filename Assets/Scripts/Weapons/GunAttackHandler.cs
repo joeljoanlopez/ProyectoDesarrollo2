@@ -48,7 +48,7 @@ public class GunAttackHandler : MonoBehaviour
     {
         // Set the _aimRay direction and show if needed
         _aimRay.SetPosition(0, _gunPoint.position);
-        RaycastHit2D _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance, 9);
+        RaycastHit2D _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance);
         if (_hit.collider != null)
         {
             _aimRay.SetPosition(1, _hit.point);
@@ -64,6 +64,7 @@ public class GunAttackHandler : MonoBehaviour
 
         if (_holdDuration >= 1 && !_messageShown)
         {
+            _controller._canAim = false;
             _checkrecharge = true;
             _movement._canMove = false;
             if (_mags > 3)
@@ -78,6 +79,7 @@ public class GunAttackHandler : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.R) && _holdDuration < 1 && _ammo < 10 && _mags > 0)
         {
+            _controller._canAim = false;
             _audioManager.PlaySFX(_audioManager.Recharge);
             _animator.SetBool("IsRecharging", true);
             _movement._canMove = false;
@@ -91,6 +93,7 @@ public class GunAttackHandler : MonoBehaviour
         {
             _holdDuration = 0;
             _messageShown = false;
+
         }
         if (_light.intensity > 0)
         {
@@ -110,6 +113,7 @@ public class GunAttackHandler : MonoBehaviour
                 _recharge = false;
                 _movement._canMove = true;
                 _timer = 0;
+                _controller._canAim = true;
             }
         }
         if (_checkrecharge)
@@ -121,6 +125,7 @@ public class GunAttackHandler : MonoBehaviour
                 _checkrecharge = false;
                 _timer = 0;
                 _movement._canMove = true;
+                _controller._canAim = true;
             }
         }
     }
