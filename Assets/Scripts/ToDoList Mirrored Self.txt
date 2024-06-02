@@ -1,0 +1,17 @@
+DONE Quan gires segueix un rato caminant cap al costat contrari
+DONE Trenques caixa i nullReference
+DONE Quan apuntes llum esta amunt
+DONE Missatges als papers del terra
+DONE Bales xoquen amb portes i objectes que no haurien de xocar
+DONE Raig pistola que Acabi a l'enemic
+DONE No es veu lletra a interactuar
+DONE Animacio caminar segueix quan amagues caminant
+DONE Animacio apuntar ganivet es apuntarGanivetCaminant
+TODO Animacio apuntar pistola
+TODO Llanterna no s'apaga mai
+TODO Enemic raro
+TODO Falta Sprite de vida
+TODO Si ataques alhora que enemic loop infinit StrikeAnimation
+TODO Habitacion 3 (1) "it's closed" encara que puguis passar
+TODO Si t'amagues mentre et piquen la musica para
+TODO Bala es mou després de disparar-la
