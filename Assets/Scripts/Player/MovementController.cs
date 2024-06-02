@@ -108,6 +108,7 @@ public class MovementController : MonoBehaviour
         }
         else
         {
+            _horizontal = 0f;
             _speed = 0f;
             Flip();
         }

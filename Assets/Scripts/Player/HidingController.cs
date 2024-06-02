@@ -13,7 +13,9 @@ public class HidingController : MonoBehaviour
 
     private GameObject _enemy;
     private MovementController _movementController;
-    AudioManager _audioManager;
+    private AudioManager _audioManager;
+    private Animator _animator;
+
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -23,6 +25,7 @@ public class HidingController : MonoBehaviour
         _hiding = false;
         _movementController = GetComponent<MovementController>();
         _enemy = GameObject.FindWithTag("Enemy");
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -30,7 +33,11 @@ public class HidingController : MonoBehaviour
         if (_canHide && Input.GetKeyDown(KeyCode.E))
         {
             _hiding = !_hiding;
-            if (!_hiding) _movementController._canMove = true;
+            if (!_hiding)
+            {
+                _movementController._canMove = true;
+                // _animator.SetBool("IsMoving", true);
+            }
         }
         _currentTransparency = _hiding ? _hidingTransparency : 1f;
 
@@ -38,6 +45,7 @@ public class HidingController : MonoBehaviour
         {
             _audioManager.ChangeMusic(_audioManager.CombatHidden);
             _movementController._canMove = false;
+            // _animator.SetBool("IsMoving", false);
         }
 
 
