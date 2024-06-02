@@ -8,27 +8,26 @@ public class BulletHandler : MonoBehaviour
 
     private Vector3 direction = Vector3.right;
     private float _currentLife;
-    private Vector3 _targetPosition;
-    private bool _shouldDie;
 
     void Start()
     {
         _currentLife = 1f;
-        _shouldDie = false;
     }
     void Update()
     {
         transform.position = transform.position + direction * _speed * Time.deltaTime;
 
         _currentLife -= Time.deltaTime;
-        _shouldDie = (Vector2.Distance(_targetPosition, transform.position) <= _dyingDistance) || (_currentLife <= 0);
-        if (_shouldDie)
+        if (_currentLife <= 0)
             Destroy(gameObject);
     }
 
     public void SetTargetPosition(Vector3 targetPosition)
     {
-        _targetPosition = targetPosition;
         direction = (targetPosition - transform.position).normalized;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Destroy(gameObject);
     }
 }

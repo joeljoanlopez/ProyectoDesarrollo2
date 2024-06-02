@@ -8,12 +8,14 @@ DONE Animacio caminar segueix quan amagues caminant
 DONE Animacio apuntar ganivet es apuntarGanivetCaminant
 DONE Animacio apuntar pistola
 DONE Quan recarregues apuntant la pistola segueix treta
-TODO Raig pistola que Acabi a l'enemic
-TODO Pistola apunta enrere quan mires esquerra
+DONE Bala es mou després de disparar-la
+DONE Raig pistola que Acabi a l'enemic
+DONE Pistola apunta enrere quan mires esquerra
+TODO Bala no mor quan toca algo
 TODO Llanterna no s'apaga mai
 TODO Enemic raro
 TODO Falta Sprite de vida
 TODO Si ataques alhora que enemic loop infinit StrikeAnimation
 TODO Habitacion 3 (1) "it's closed" encara que puguis passar
 TODO Si t'amagues mentre et piquen la musica para
-TODO Bala es mou després de disparar-la
+TODO Arreglar animacions

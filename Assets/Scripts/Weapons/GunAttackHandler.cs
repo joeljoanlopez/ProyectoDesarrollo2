@@ -47,17 +47,21 @@ public class GunAttackHandler : MonoBehaviour
     public void Update()
     {
         // Set the _aimRay direction and show if needed
-        _aimRay.SetPosition(0, _gunPoint.position);
-        RaycastHit2D _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance);
-        if (_hit.collider != null)
+        _aimRay.enabled = false;
+        if (_controller.Aiming)
         {
-            _aimRay.SetPosition(1, _hit.point);
+            _aimRay.SetPosition(0, _gunPoint.position);
+            RaycastHit2D _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance);
+            if (_hit.collider != null && ((_hit.transform.tag == "Enemy") || (_hit.transform.tag == "Wall")))
+            {
+                _aimRay.SetPosition(1, _hit.point);
+            }
+            else
+            {
+                _aimRay.SetPosition(1, transform.right * _aimDistance);
+            }
+            _aimRay.enabled = true;
         }
-        else
-        {
-            _aimRay.SetPosition(1, transform.right * _aimDistance);
-        }
-        _aimRay.enabled = _controller.Aiming;
 
         if (Input.GetKey(KeyCode.R))
             _holdDuration += Time.deltaTime;
@@ -145,11 +149,10 @@ public class GunAttackHandler : MonoBehaviour
                 _enemies[i].GetComponent<Animator>().SetTrigger("Chase");
             }
 
-            var _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance, 9);
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
-            _trail.transform.SetParent(transform);
             var _trailScript = _trail.GetComponent<BulletHandler>();
-            if (_hit.collider != null)
+            RaycastHit2D _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance);
+            if (_hit.collider != null && ((_hit.transform.tag == "Enemy") || (_hit.transform.tag == "Wall")))
             {
                 _trailScript.SetTargetPosition(_hit.point);
 

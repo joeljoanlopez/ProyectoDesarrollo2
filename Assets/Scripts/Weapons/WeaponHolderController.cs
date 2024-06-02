@@ -52,7 +52,6 @@ public class WeaponHolderController : MonoBehaviour
             ChangeWeapon(1);
         }
 
-        _lantern.transform.rotation = _movementController.FacingRight ? Quaternion.Euler(Vector3.back * 90) : Quaternion.Euler(Vector3.forward * 90);
         _GunArmRight.SetActive(false);
         _GunArmLeft.SetActive(false);
 
@@ -61,14 +60,23 @@ public class WeaponHolderController : MonoBehaviour
         {
             if (_currentWeaponIndex == 1)
             {
-                transform.rotation = GetRotation();
                 _GunArmRight.SetActive(_movementController.FacingRight);
                 _GunArmLeft.SetActive(!_movementController.FacingRight);
             }
-            else
-            {
-                transform.rotation = _movementController.FacingRight ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(Vector3.forward * 180);
-            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        _lantern.transform.rotation = _movementController.FacingRight ? Quaternion.Euler(Vector3.back * 90) : Quaternion.Euler(Vector3.forward * 90);
+
+        if (CurrentWeaponIndex == 1)
+        {
+            transform.rotation = GetRotation();
+        }
+        else
+        {
+            transform.rotation = _movementController.FacingRight ? Quaternion.Euler(Vector3.zero) : Quaternion.Euler(Vector3.forward * 180);
         }
     }
 
@@ -87,9 +95,9 @@ public class WeaponHolderController : MonoBehaviour
         }
         else
         {
-            if (angle > -(180 - _maxAimAngle) && angle < -90)
+            if (angle > -(180 - _maxAimAngle) && angle < 0)
                 angle = -(180 - _maxAimAngle);
-            else if (angle < (180 - _maxAimAngle) && angle > 90)
+            else if (angle < (180 - _maxAimAngle) && angle > 0)
                 angle = 180 - _maxAimAngle;
         }
 
