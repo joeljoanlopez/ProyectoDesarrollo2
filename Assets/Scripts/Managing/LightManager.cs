@@ -8,6 +8,7 @@ public class LightManager : MonoBehaviour
     public float _lightOnIntensity = 0.1f;
     public float _lightOffIntensity = 0.05f;
 
+    [SerializeField] private int _currentLevel;
     [SerializeField] private GameObject[] _levels;
     [SerializeField] private Light2D[][] _lights;
     private int _levelNumber;
@@ -33,7 +34,7 @@ public class LightManager : MonoBehaviour
     private void Update()
     {
         bool _found = false;
-        int _currentLevel = 0;
+        _currentLevel = 0;
 
         while (!_found && _currentLevel < _levels.Length)
         {
@@ -51,20 +52,6 @@ public class LightManager : MonoBehaviour
         {
             for (int j = 0; j < _lights[i].Length; j++)
             {
-                // if (i == _currentLevel)
-                // {
-                //     if (_lights[i][j].lightType == Light2D.LightType.Freeform)
-                //         _lights[i][j].intensity = _lightOnIntensity;
-                //     else 
-                //         _lights[i][j].enabled = true;
-                // }
-                // else
-                // {
-                //     if (_lights[i][j].lightType == Light2D.LightType.Freeform)
-                //         _lights[i][j].intensity = _lightOffIntensity;
-                //     else 
-                //         _lights[i][j].enabled = false;
-                // }
                 _lights[i][j].enabled = (i == _currentLevel);
             }
         }

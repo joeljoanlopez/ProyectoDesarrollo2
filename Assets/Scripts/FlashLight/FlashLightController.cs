@@ -7,12 +7,13 @@ public class FlashLightController : MonoBehaviour
 
     private Light2D _light;
     private bool _canLight = true;
-    private bool _flashEnabled = false;
+    private bool _flashEnabled;
 
 
     private void Start()
     {
         _light = GetComponent<Light2D>();
+        _flashEnabled = false;
     }
 
     // Update is called once per frame
@@ -25,9 +26,8 @@ public class FlashLightController : MonoBehaviour
             {
                 // Change enabled state
                 _flashEnabled = !_flashEnabled;
+                _light.enabled = _flashEnabled;
             }
-
-            _light.enabled = _flashEnabled;
 
             if (_flashEnabled)
                 _battery -= 5f * Time.deltaTime;
@@ -41,7 +41,8 @@ public class FlashLightController : MonoBehaviour
         }
     }
 
-    public void AddBattery(int value){
+    public void AddBattery(int value)
+    {
         _battery += value;
         _light.enabled = true;
         _canLight = true;

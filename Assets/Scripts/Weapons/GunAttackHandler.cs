@@ -179,12 +179,10 @@ public class GunAttackHandler : MonoBehaviour
                 var _endPosition = _gunPoint.position + transform.right * _aimDistance;
                 _trailScript.SetTargetPosition(_endPosition);
             }
-
         }
         else
         {
             _text.ShowText("Out of ammo");
-
         }
     }
 

@@ -10,22 +10,18 @@ public class WeaponHolderController : MonoBehaviour
     public GameObject _GunArmLeft;
 
     private MovementController _movementController;
-    private int _currentWeaponIndex = 0;
-    public int CurrentWeaponIndex { get { return _currentWeaponIndex; } }
     private GameObject[] _weapons;
-    private GameObject _currentWeapon;
     private int _totalWeapons;
     private bool _isAiming;
+    private Animator _animator;
     public bool Aiming
     { get { return _isAiming; } }
-    private Animator _animator;
-    private SpriteRenderer _GunFlipper;
+    private int _currentWeaponIndex = 0;
+    public int CurrentWeaponIndex { get { return _currentWeaponIndex; } }
 
     private void Start()
     {
         _movementController = GetComponentInParent<MovementController>();
-        _GunFlipper = _GunArmRight.GetComponent<SpriteRenderer>();
-
         // Get number of weapons and initialize array
         _totalWeapons = transform.childCount;
         _weapons = new GameObject[_totalWeapons];
@@ -39,7 +35,6 @@ public class WeaponHolderController : MonoBehaviour
 
         // Set current weapon
         _weapons[_currentWeaponIndex].SetActive(true);
-        _currentWeapon = _weapons[_currentWeaponIndex];
         _animator = GetComponentInParent<Animator>();
     }
 
