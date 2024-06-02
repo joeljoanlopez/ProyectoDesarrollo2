@@ -41,7 +41,7 @@ public class WeaponHolderController : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawLine(transform.position, Vector2.right * 100f, Color.green);
+        Debug.DrawLine(transform.position, Vector3.right * 100f, Color.green);
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
