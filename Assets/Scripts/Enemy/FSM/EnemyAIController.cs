@@ -49,7 +49,6 @@ public class EnemyAIController : MonoBehaviour
         Vector3 _direction = new Vector3(_player.transform.position.x - transform.position.x, 0, 0);
         if (_direction.x < 0) _direction.x = -1;
         else if (_direction.x > 0) _direction.x = 1;
-        print(_direction);
         return _direction;
     }
 

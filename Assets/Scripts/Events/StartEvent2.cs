@@ -27,7 +27,6 @@ public class StartEvent2 : MonoBehaviour
     {
         if (_isActive)
         {
-
             if (_eventOver == true)
             {
                 Mannequin1.SetActive(false);

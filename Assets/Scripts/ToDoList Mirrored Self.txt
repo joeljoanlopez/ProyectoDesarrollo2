@@ -11,11 +11,11 @@ DONE Quan recarregues apuntant la pistola segueix treta
 DONE Bala es mou després de disparar-la
 DONE Raig pistola que Acabi a l'enemic
 DONE Pistola apunta enrere quan mires esquerra
+TODO Arreglar animacions
 TODO Bala no mor quan toca algo
 TODO Llanterna no s'apaga mai
 TODO Enemic raro
-TODO Falta Sprite de vida
 TODO Si ataques alhora que enemic loop infinit StrikeAnimation
 TODO Habitacion 3 (1) "it's closed" encara que puguis passar
 TODO Si t'amagues mentre et piquen la musica para
-TODO Arreglar animacions
+TODO Falta Sprite de vida

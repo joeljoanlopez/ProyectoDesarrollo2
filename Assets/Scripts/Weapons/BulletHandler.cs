@@ -4,14 +4,13 @@ public class BulletHandler : MonoBehaviour
 {
     public float _speed = 100f;
     public float _lifeTime = 1f;
-    public float _dyingDistance = 0.1f;
 
     private Vector3 direction = Vector3.right;
     private float _currentLife;
 
     void Start()
     {
-        _currentLife = 1f;
+        _currentLife = _lifeTime;
     }
     void Update()
     {
@@ -27,7 +26,11 @@ public class BulletHandler : MonoBehaviour
         direction = (targetPosition - transform.position).normalized;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        Destroy(gameObject);
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy" || other.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 }
