@@ -587,7 +587,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1052624807
   m_SortingLayer: 10
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 681729607, guid: a824e3c7fae416d4aa83094dad1b1ea0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -608,6 +608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 284730533771000973}
+  - component: {fileID: 6218464903093102822}
   m_Layer: 5
   m_Name: InteractButton
   m_TagString: Untagged
@@ -632,6 +633,22 @@ Transform:
   - {fileID: 6423529405890211961}
   m_Father: {fileID: 1547213178261988498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &6218464903093102822
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4979566048880644245}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b2873e73077a1274787eb2b80916b24f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b2873e73077a1274787eb2b80916b24f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6296635734763516767
 GameObject:
   m_ObjectHideFlags: 0
