@@ -12,9 +12,10 @@ DONE Bala es mou després de disparar-la
 DONE Raig pistola que Acabi a l'enemic
 DONE Pistola apunta enrere quan mires esquerra
 TODO Arreglar animacions
+TODO Quan ataca amb el ganivet es pot moure
+TODO Enemic raro
 TODO Bala no mor quan toca algo
 TODO Llanterna no s'apaga mai
-TODO Enemic raro
 TODO Si ataques alhora que enemic loop infinit StrikeAnimation
 TODO Habitacion 3 (1) "it's closed" encara que puguis passar
 TODO Si t'amagues mentre et piquen la musica para
