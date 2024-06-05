@@ -8,8 +8,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("---------- Audio Clip ----------")]
 
-    public AudioClip intro;
-    public AudioClip exterior;
+    public AudioClip Intro;
+    public AudioClip Exterior;
     public AudioClip DarkAmbienceA;
     public AudioClip DarkAmbienceB;
     public AudioClip CombatAlways;

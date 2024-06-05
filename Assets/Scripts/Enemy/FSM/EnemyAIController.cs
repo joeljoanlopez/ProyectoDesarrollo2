@@ -37,11 +37,11 @@ public class EnemyAIController : MonoBehaviour
         _room = _roomHandler.GetLevelNumber(_collider);
         _distance = Vector2.Distance(transform.position, _player.transform.position);
         _hiding = !_hidingController.Targettable || (_room != _roomHandler.PlayerLevel());
-        if (_room == _roomHandler.PlayerLevel())
+        if (_room == _roomHandler.PlayerLevel() && !_hiding)
         {
             _audioManager.ChangeMusic(_audioManager.CombatAlways);
-
         }
+ 
     }
 
     public Vector3 PlayerDirection()
