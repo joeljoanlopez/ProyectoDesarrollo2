@@ -27,6 +27,7 @@ public class EndEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(_timer);
         if (_isActive)
         {
             if (_eventOver == false)
@@ -53,13 +54,14 @@ public class EndEvent : MonoBehaviour
                     _wife.SetInteger("State", 4);
                     
                 }
-                else if (_timer < 8.4)
+                else if (_timer < 10)
                 {
                     _wife.SetInteger("State", 5);
 
                 }
-                else if (_timer < 10)
+                else if (_timer < 10.2f)
                 {
+                  
                     SceneManager.LoadScene(3);
                 }
             }
