@@ -64,8 +64,9 @@ public class MovementController : MonoBehaviour
                 _speed = _walkingSpeed;
                 _isAiming = false;
             }
-            if (_horizontal > 0 || _horizontal < 0)
+            if (_horizontal !=0)
             {
+                float stepvolume = 2.0f;
                 if (_speed == 8)
                 {
                     if (_timer <= 0.35f)
@@ -74,7 +75,7 @@ public class MovementController : MonoBehaviour
                     }
                     else
                     {
-                        _audioManager.PlaySFX(_audioManager.Step);
+                        _audioManager.PlaySFX(_audioManager.Step, stepvolume);
                         _timer = 0.0f;
                     }
                 }
@@ -86,7 +87,7 @@ public class MovementController : MonoBehaviour
                     }
                     else
                     {
-                        _audioManager.PlaySFX(_audioManager.Step);
+                        _audioManager.PlaySFX(_audioManager.Step, stepvolume);
                         _timer = 0.0f;
                     }
                 }
@@ -98,7 +99,7 @@ public class MovementController : MonoBehaviour
                     }
                     else
                     {
-                        _audioManager.PlaySFX(_audioManager.Step);
+                        _audioManager.PlaySFX(_audioManager.Step, stepvolume);
                         _timer = 0.0f;
                     }
                 }
