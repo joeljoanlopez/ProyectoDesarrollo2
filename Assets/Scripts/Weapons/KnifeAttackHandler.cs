@@ -11,13 +11,18 @@ public class KnifeAttackHandler : MonoBehaviour
     private Collider2D _knifeCollider;
     private int _attackCount;
     private float _currentComboTime;
+    private MovementController _movementController;
+    private GameObject _player;
     Animator _animator;
     AudioManager _audioManager;
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
-    private void Start(){
+    private void Start()
+    {
+        _player = GameObject.FindWithTag("Player");
+        _movementController = _player.GetComponent<MovementController>();
         _currentComboTime = _comboTime;
         _knife = GetComponent<SpriteRenderer>();
         _knife.enabled = false;
@@ -26,7 +31,8 @@ public class KnifeAttackHandler : MonoBehaviour
         _animator = GetComponentInParent<Animator>();
     }
 
-    private void Update(){
+    private void Update()
+    {
         _currentComboTime -= Time.deltaTime;
         if (_currentComboTime <= 0) _attackCount = 0;
     }
@@ -41,7 +47,8 @@ public class KnifeAttackHandler : MonoBehaviour
             _currentComboTime = _comboTime;
             _attackCount++;
         }
-        if (_attackCount >= _maxAttacks){
+        if (_attackCount >= _maxAttacks)
+        {
             // mandar evento de stun
             Debug.Log("Combo!");
             _attackCount = 0;
@@ -51,19 +58,22 @@ public class KnifeAttackHandler : MonoBehaviour
     private IEnumerator Slice()
     {
         _knife.enabled = true;
-        _animator.SetBool("IsStriking", true);
         _knifeCollider.enabled = true;
+        _animator.SetBool("IsStriking", true);
+        _movementController._canMove = false;
         yield return new WaitForSeconds(0.5f);
-        _knife.enabled = false;
-        _knifeCollider.enabled = false;
+        _movementController._canMove = true;
         _animator.SetBool("IsStriking", false);
-
+        _knifeCollider.enabled = false;
+        _knife.enabled = false;
     }
 
-    private void OnTriggerEnter2D (Collider2D other){
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         var _enemyHealth = other.gameObject.GetComponentInParent<EnemyHealthHandler>();
         var _lootBoxHealth = other.gameObject.GetComponent<LootBoxHealth>();
-        if (_enemyHealth != null){
+        if (_enemyHealth != null)
+        {
             _enemyHealth.TakeDamage(_damage);
         }
         else if (_lootBoxHealth != null)

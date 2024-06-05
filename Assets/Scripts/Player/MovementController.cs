@@ -41,6 +41,7 @@ public class MovementController : MonoBehaviour
     {
         if (_canMove)
         {
+            _horizontal = Input.GetAxisRaw("Horizontal");
             if (Input.GetKey(KeyCode.Mouse1))
             {
                 if (_speed > _aimingSpeed)
@@ -49,6 +50,7 @@ public class MovementController : MonoBehaviour
                 }
                 else
                 {
+                    _speed += 0.5f;
                     _isAiming = true;
                 }
             }
@@ -62,9 +64,11 @@ public class MovementController : MonoBehaviour
                 _speed = _walkingSpeed;
                 _isAiming = false;
             }
-            _horizontal = Input.GetAxisRaw("Horizontal");
             if (_horizontal > 0 || _horizontal < 0)
             {
+                print("Really moving");
+                print("Horizontal: " + _horizontal);
+                print("Speed: " + _speed);
                 if (_speed == 8)
                 {
                     if (_timer <= 0.35f)
