@@ -54,7 +54,7 @@ public class EndEvent : MonoBehaviour
                     _wife.SetInteger("State", 4);
                     
                 }
-                else if (_timer < 10)
+                else if (_timer < 8.35)
                 {
                     _wife.SetInteger("State", 5);
 
