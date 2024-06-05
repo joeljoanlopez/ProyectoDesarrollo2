@@ -399,7 +399,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsStriking
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3086751667653292768}
   m_Solo: 0
@@ -820,11 +823,14 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: IsAiming
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsMoving
+    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: WhatWeapon
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: IsMoving
+    m_ConditionEvent: IsStriking
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 548941425065188994}
@@ -1533,10 +1539,10 @@ AnimatorStateMachine:
     m_Position: {x: -220, y: -440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3086751667653292768}
-    m_Position: {x: 340, y: -1240, z: 0}
+    m_Position: {x: 330, y: -1300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 548941425065188994}
-    m_Position: {x: 70, y: -1240, z: 0}
+    m_Position: {x: 40, y: -1110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1842091925306506907}
     m_Position: {x: -550, y: -210, z: 0}

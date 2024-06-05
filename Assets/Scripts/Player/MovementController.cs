@@ -66,9 +66,6 @@ public class MovementController : MonoBehaviour
             }
             if (_horizontal > 0 || _horizontal < 0)
             {
-                print("Really moving");
-                print("Horizontal: " + _horizontal);
-                print("Speed: " + _speed);
                 if (_speed == 8)
                 {
                     if (_timer <= 0.35f)

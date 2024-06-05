@@ -12,7 +12,7 @@ DONE Bala es mou després de disparar-la
 DONE Raig pistola que Acabi a l'enemic
 DONE Pistola apunta enrere quan mires esquerra
 DONE Arreglar animacions
-TODO Quan ataca amb el ganivet es pot moure
+DONE Quan ataca amb el ganivet es pot moure
 TODO Enemic raro
 TODO Bala no mor quan toca algo
 TODO Llanterna no s'apaga mai
