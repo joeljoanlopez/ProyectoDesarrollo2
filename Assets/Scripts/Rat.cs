@@ -12,6 +12,8 @@ public class Rat : MonoBehaviour
     void Start()
     {
         _Scared = false;
+        _animator.SetBool("IsScard", false);
+
     }
 
     // Update is called once per frame

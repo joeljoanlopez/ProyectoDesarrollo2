@@ -16,7 +16,7 @@ public class Cinematica : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime; 
-        if (_timer >= 22)
+        if (_timer >= 28)
         {
             SceneManager.LoadScene(2);
         }
