@@ -27,7 +27,6 @@ public class EndEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(_timer);
         if (_isActive)
         {
             if (_eventOver == false)

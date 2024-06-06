@@ -15,7 +15,7 @@ DONE Arreglar animacions
 DONE Quan ataca amb el ganivet es pot moure
 TODO Enemic raro
 TODO Bala no mor quan toca algo
-TODO Llanterna no s'apaga mai
+DONE Llanterna no s'apaga mai
 TODO Si ataques alhora que enemic loop infinit StrikeAnimation
 DONE Habitacion 3 (1) "it's closed" encara que puguis passar
 TODO Si t'amagues mentre et piquen la musica para
