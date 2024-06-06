@@ -1,59 +1,48 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-
 public class FlashLightController : MonoBehaviour
 {
     public float _battery = 100;
+    public GameObject _lantern;
 
-    private Light2D _light;
-    private bool _canLight = true;
     private bool _flashEnabled;
-
 
     private void Start()
     {
-        _light = GetComponent<Light2D>();
-        _flashEnabled = false;
+        _flashEnabled = true;
+        _lantern.SetActive(true);
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if (_canLight)
+        // Check if the "F" key is pressed
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            // Check if the "F" key is pressed
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                // Change enabled state
-                _flashEnabled = !_flashEnabled;
-                if (_flashEnabled)
-                {
-                    _light.intensity = 0;
-
-                }
-                else
-                {
-                    _light.intensity = 3;
-
-                }
-            }
-
-            if (!_flashEnabled)
-                _battery -= 5f * Time.deltaTime;
-
-            if (_battery <= 0)
-                _canLight = false;
+            // Toggle the enabled state
+            _flashEnabled = !_flashEnabled;
+            _lantern.SetActive(_flashEnabled);
         }
-        else
+
+        // Reduce battery if the flashlight is on
+        if (_flashEnabled)
         {
-            _light.enabled = false;
+            _battery -= 5f * Time.deltaTime;
+            if (_battery <= 0)
+            {
+                _battery = 0;
+                _flashEnabled = false;
+                _lantern.SetActive(false);
+            }
         }
     }
 
     public void AddBattery(int value)
     {
         _battery += value;
-        _light.enabled = true;
-        _canLight = true;
+        if (_battery > 0 && !_flashEnabled)
+        {
+            _flashEnabled = true;
+            _lantern.SetActive(true);
+        }
     }
 }

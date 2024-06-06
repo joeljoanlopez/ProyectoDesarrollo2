@@ -10,22 +10,25 @@ public class EnemyHealthHandler : MonoBehaviour
     public TMP_Text popUpText;
 
     private GameObject _drop;
+    private AudioManager _audioManager;
+    private Animator _animator;
+    private bool _isDying = false;
 
-    AudioManager _audioManager;
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        _animator = GetComponent<Animator>();
     }
+
     public void Start()
     {
         _currentHealth = _maxHealth;
-        
         _drop = _enemyDrop.GetDrop();
     }
 
     public void Update()
     {
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 && !_isDying)
             Die();
     }
 
@@ -36,15 +39,23 @@ public class EnemyHealthHandler : MonoBehaviour
         popUpText.text = value.ToString();
         Instantiate(popUpDamagePrefab, transform.position, Quaternion.identity);
         _audioManager.PlaySFX(_audioManager.EnemyHit);
-
     }
 
     public void Die()
     {
-        // Animacion de muerte
+        _isDying = true;
+        // Trigger the death animation
+        _animator.SetTrigger("Die");
+
+        // Play any death-related audio
         _audioManager.ChangeMusic(_audioManager.DarkAmbienceB);
 
+        // Drop items
         _enemyDrop.DropSomething(_drop);
+    }
+
+    public void OnDeathAnimationComplete()
+    {
         Destroy(gameObject);
     }
 }
