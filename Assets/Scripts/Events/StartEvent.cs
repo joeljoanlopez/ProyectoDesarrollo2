@@ -8,6 +8,8 @@ public class StartEvent : MonoBehaviour
     public GameObject Mannequin1;
     public GameObject Mannequin2;
     public GameObject Text;
+    public GameObject _e;
+    public GameObject _box;
     private bool _isActive;
     private bool _eventOver;
     public TextPopUpManager _text;
@@ -46,6 +48,8 @@ public class StartEvent : MonoBehaviour
         if (other.tag == _player.tag)
         {
             _isActive = true;
+            _box.SetActive(true);
+            _e.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -53,6 +57,8 @@ public class StartEvent : MonoBehaviour
         if (other.tag == _player.tag)
         {
             _isActive = false;
+            _box.SetActive(false);
+            _e.SetActive(false);
         }
     }
 }
