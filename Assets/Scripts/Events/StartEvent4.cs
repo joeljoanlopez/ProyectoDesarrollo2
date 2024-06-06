@@ -7,6 +7,7 @@ public class StartEvent4 : MonoBehaviour
     // Start is called before the first frame update
     public PlayerTeleportController _teleport;
     public GameObject Text;
+    public GameObject _Door;
     private bool _isActive;
     private bool _eventOver;
     public TextPopUpManager _text;
@@ -29,6 +30,7 @@ public class StartEvent4 : MonoBehaviour
                 _teleport._isClosed = false;
                 _playerTeleportController._isClosed = false;
                 _text.ShowText("There's a key here");
+                _Door.SetActive(false);
                 _eventOver = true;
             }
             else if (_eventOver)
