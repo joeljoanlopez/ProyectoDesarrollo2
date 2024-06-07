@@ -118,7 +118,8 @@ public class GunAttackHandler : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         // Set the _aimRay direction and show if needed
         _aimRay.enabled = false;
         if (_controller.Aiming)
@@ -155,42 +156,45 @@ public class GunAttackHandler : MonoBehaviour
 
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
             var _trailScript = _trail.GetComponent<BulletHandler>();
-            RaycastHit2D _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance);
-            if (_hit.collider != null && ((_hit.transform.tag == "Enemy") || (_hit.transform.tag == "Wall")))
+            RaycastHit2D[] _hit = Physics2D.LinecastAll(_gunPoint.position, transform.right * _aimDistance);
+            for (int i = 0; i < _hit.Length; i++)
             {
-                print ("BOOM");
-                _trailScript.SetTargetPosition(_hit.point);
+                if (_hit[i].collider != null && (_hit[i].transform.tag == "Enemy"))
+                {
+                    print("BOOM");
+                    _trailScript.SetTargetPosition(_hit[i].point);
 
-                // Make damage
-                var _enemyHealth = _hit.transform.GetComponent<EnemyHealthHandler>();
-                var _lootBoxHealth = _hit.transform.GetComponent<LootBoxHealth>();
-                if (_enemyHealth != null)
-                {
-                    float _damageMultiplier = 1.0f;
-                    string hitboxTag = _hit.collider.tag;
-                    switch (hitboxTag)
+                    // Make damage
+                    var _enemyHealth = _hit[i].transform.GetComponent<EnemyHealthHandler>();
+                    var _lootBoxHealth = _hit[i].transform.GetComponent<LootBoxHealth>();
+                    if (_enemyHealth != null)
                     {
-                        case "Head":
-                            _damageMultiplier = 2f;
-                            break;
-                        case "Torso":
-                            _damageMultiplier = 1.5f;
-                            break;
-                        case "Limbs":
-                            _damageMultiplier = 1.0f;
-                            break;
+                        float _damageMultiplier = 1.0f;
+                        string hitboxTag = _hit[i].collider.tag;
+                        switch (hitboxTag)
+                        {
+                            case "Head":
+                                _damageMultiplier = 2f;
+                                break;
+                            case "Torso":
+                                _damageMultiplier = 1.5f;
+                                break;
+                            case "Limbs":
+                                _damageMultiplier = 1.0f;
+                                break;
+                        }
+                        _enemyHealth.TakeDamage(_damage * _damageMultiplier);
                     }
-                    _enemyHealth.TakeDamage(_damage * _damageMultiplier);
+                    else if (_lootBoxHealth != null)
+                    {
+                        _lootBoxHealth.TakeDamage(_damage);
+                    }
                 }
-                else if (_lootBoxHealth != null)
+                else
                 {
-                    _lootBoxHealth.TakeDamage(_damage);
+                    var _endPosition = _gunPoint.position + transform.right * _aimDistance;
+                    _trailScript.SetTargetPosition(_endPosition);
                 }
-            }
-            else
-            {
-                var _endPosition = _gunPoint.position + transform.right * _aimDistance;
-                _trailScript.SetTargetPosition(_endPosition);
             }
         }
         else
