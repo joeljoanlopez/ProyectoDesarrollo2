@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyAIController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float _speed = 10f;
     public float _detectionRange = 10;
     public float _attackDistance = 3f;
@@ -21,11 +20,12 @@ public class EnemyAIController : MonoBehaviour
     AudioManager _audioManager;
     private SpriteRenderer _sprite;
     private float _xPre;
-
+    private AudioSource _enemyAudioSource;
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
+
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
@@ -33,17 +33,29 @@ public class EnemyAIController : MonoBehaviour
         _gm = GameObject.FindWithTag("GameManager");
         _roomHandler = _gm.GetComponent<RoomHandler>();
         _sprite = GetComponent<SpriteRenderer>();
+        _enemyAudioSource = GetComponent<AudioSource>();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
+        bool isPlayerInSameRoom = (_room == _roomHandler.PlayerLevel() && !_hiding);
+
         _room = _roomHandler.GetLevelNumber(_collider);
         _distance = Vector2.Distance(transform.position, _player.transform.position);
         _hiding = !_hidingController.Targettable || (_room != _roomHandler.PlayerLevel());
-        if (_room == _roomHandler.PlayerLevel() && !_hiding)
+
+        if (isPlayerInSameRoom)
         {
-            _audioManager.ChangeMusic(_audioManager.CombatAlways);
+            _enemyAudioSource.clip = _audioManager.Combat;
+            if (!_enemyAudioSource.isPlaying)
+            {
+                _enemyAudioSource.Play();
+            }
+        }
+        else
+        {
+            _enemyAudioSource.Stop();
         }
     }
 
@@ -54,5 +66,4 @@ public class EnemyAIController : MonoBehaviour
         else if (_direction.x > 0) _direction.x = 1;
         return _direction;
     }
-
 }
