@@ -11,8 +11,8 @@ public class UndetectBehavior : StateMachineBehaviour
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _AI = animator.GetComponent<EnemyAIController>();
-        _timer = _undetectTime;
         _direction = _AI.PlayerDirection();
+        _timer = _undetectTime;
         _sprite = animator.GetComponent<SpriteRenderer>();
     }
 

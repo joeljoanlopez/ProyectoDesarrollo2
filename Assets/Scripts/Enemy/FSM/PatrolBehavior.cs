@@ -16,6 +16,7 @@ public class PatrolBehaviour : StateMachineBehaviour
         _detector = animator.GetComponent<HearingDetector>();
         _pathFollower = animator.GetComponent<PathFollower>();
         _sprite = animator.GetComponent<SpriteRenderer>();
+        _pathFollower.NextWP();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

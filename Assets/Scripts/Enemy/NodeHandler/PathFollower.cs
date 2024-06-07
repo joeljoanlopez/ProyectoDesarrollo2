@@ -6,9 +6,9 @@ public class PathFollower : MonoBehaviour
     [SerializeField] private Waypoint _waypoints;
     [SerializeField] private float _speed = 2f;
     [SerializeField] private float _distChange = 0.01f;
+    [SerializeField] private Transform _currentWP;
 
     private bool _moving;
-    private Transform _currentWP;
     public Transform CurrentWP { get { return _currentWP; } }
 
     // Start is called before the first frame update
@@ -50,6 +50,6 @@ public class PathFollower : MonoBehaviour
     }
 
     public Transform GetNextTransform(){
-        return _waypoints.GetNextWP(_currentWP);
+        return _currentWP;
     }
 }
