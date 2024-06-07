@@ -125,15 +125,18 @@ public class GunAttackHandler : MonoBehaviour
         if (_controller.Aiming)
         {
             _aimRay.SetPosition(0, _gunPoint.position);
-            RaycastHit2D _hit = Physics2D.Linecast(_gunPoint.position, transform.right * _aimDistance);
+            RaycastHit2D[] _hit = Physics2D.LinecastAll(_gunPoint.position, transform.right * _aimDistance);
             Debug.DrawLine(transform.position, transform.right * _aimDistance, Color.blue);
-            if (_hit.collider != null && ((_hit.transform.tag == "Enemy") || (_hit.transform.tag == "Wall")))
+            for (int i = 0; i < _hit.Length; i++)
             {
-                _aimRay.SetPosition(1, _hit.point);
-            }
-            else
-            {
-                _aimRay.SetPosition(1, transform.right * _aimDistance);
+                if ((_hit[i].transform.tag == "Enemy") || (_hit[i].transform.tag == "Wall"))
+                {
+                    _aimRay.SetPosition(1, _hit[i].point);
+                }
+                else
+                {
+                    _aimRay.SetPosition(1, transform.right * _aimDistance);
+                }
             }
             _aimRay.enabled = true;
         }
@@ -159,7 +162,7 @@ public class GunAttackHandler : MonoBehaviour
             RaycastHit2D[] _hit = Physics2D.LinecastAll(_gunPoint.position, transform.right * _aimDistance);
             for (int i = 0; i < _hit.Length; i++)
             {
-                if (_hit[i].collider != null && (_hit[i].transform.tag == "Enemy"))
+                if (_hit[i].transform.tag == "Enemy")
                 {
                     print("BOOM");
                     _trailScript.SetTargetPosition(_hit[i].point);
@@ -189,6 +192,10 @@ public class GunAttackHandler : MonoBehaviour
                     {
                         _lootBoxHealth.TakeDamage(_damage);
                     }
+                }
+                else if (_hit[i].transform.tag == "Wall")
+                {
+                    _trailScript.SetTargetPosition(_hit[i].point);
                 }
                 else
                 {

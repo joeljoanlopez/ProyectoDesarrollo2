@@ -13,10 +13,10 @@ DONE Raig pistola que Acabi a l'enemic
 DONE Pistola apunta enrere quan mires esquerra
 DONE Arreglar animacions
 DONE Quan ataca amb el ganivet es pot moure
-TODO Enemic raro
-TODO Bala no mor quan toca algo
 DONE Llanterna no s'apaga mai
-TODO Si ataques alhora que enemic loop infinit StrikeAnimation
 DONE Habitacion 3 (1) "it's closed" encara que puguis passar
+DONE Enemic raro
+TODO Bala no mor quan toca algo
+TODO Si ataques alhora que enemic loop infinit StrikeAnimation
 TODO Si t'amagues mentre et piquen la musica para
 TODO Falta Sprite de vida
