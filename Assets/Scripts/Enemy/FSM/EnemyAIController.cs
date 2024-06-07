@@ -3,22 +3,23 @@ using UnityEngine;
 public class EnemyAIController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject _player;
     public float _speed = 10f;
     public float _detectionRange = 10;
     public float _attackDistance = 3f;
     public Collider2D _collider;
 
+    private GameObject _player;
     private HidingController _hidingController;
     private float _distance;
     public float Distance { get { return _distance; } }
     private bool _hiding;
     public bool Hiding { get { return _hiding; } }
-    [SerializeField]private int _room;
+    [SerializeField] private int _room;
     public int Room { get { return _room; } }
     private GameObject _gm;
     private RoomHandler _roomHandler;
     AudioManager _audioManager;
+    private Rigidbody2D _rb;
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -29,6 +30,7 @@ public class EnemyAIController : MonoBehaviour
         _hidingController = _player.GetComponent<HidingController>();
         _gm = GameObject.FindWithTag("GameManager");
         _roomHandler = _gm.GetComponent<RoomHandler>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +43,12 @@ public class EnemyAIController : MonoBehaviour
         {
             _audioManager.ChangeMusic(_audioManager.CombatAlways);
         }
- 
+
+        bool _facingRight = _rb.velocity.x > 0;
+        if (_facingRight)
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        else
+            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
     }
 
     public Vector3 PlayerDirection()
