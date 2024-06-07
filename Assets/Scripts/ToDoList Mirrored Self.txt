@@ -23,4 +23,4 @@ TODO Falta Sprite de vida
 TODO Cinematica final sprite corre hacia ti
 DONE Treure bales enemics
 DONE Quan mors no reiniciar
-TODO Posar delay a atac ganivet
+DONE Posar delay a atac ganivet

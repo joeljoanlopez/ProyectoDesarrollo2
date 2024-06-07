@@ -161,10 +161,11 @@ public class GunAttackHandler : MonoBehaviour
 
             for (int i = 0; i < _enemies.Length; i++)
             {
-                if (_room.GetLevelNumber(_enemies[i].GetComponent<Collider2D>()) == _room.PlayerLevel())
+                Animator _enemyAnimator = _enemies[i].GetComponent<Animator>();
+                if (_enemyAnimator != null)
                 {
-                    Animator _enemyAnimator = _enemies[i].GetComponent<Animator>();
-                    if (_enemyAnimator != null)
+                    GameObject _enemyCollider = _enemies[i].transform.GetChild(2).gameObject;
+                    if (_room.GetLevelNumber(_enemyCollider.GetComponent<Collider2D>()) == _room.PlayerLevel())
                     {
                         _enemyAnimator.SetTrigger("Chase");
                     }
