@@ -37,6 +37,8 @@ public class HidingController : MonoBehaviour
             {
                 _movementController._canMove = true;
                 // _animator.SetBool("IsMoving", true);
+                _audioManager.ChangeMusic(_audioManager.DarkAmbienceB);
+
             }
         }
         _currentTransparency = _hiding ? _hidingTransparency : 1f;
@@ -47,6 +49,7 @@ public class HidingController : MonoBehaviour
             _movementController._canMove = false;
             // _animator.SetBool("IsMoving", false);
         }
+
 
 
         if (_enemy != null)

@@ -12,8 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Exterior;
     public AudioClip DarkAmbienceA;
     public AudioClip DarkAmbienceB;
-    public AudioClip CombatAlways;
-    public AudioClip CombatBattle;
+    public AudioClip Combat;
     public AudioClip CombatHidden;
     public AudioClip MainTheme;
     public AudioClip PianoA;
