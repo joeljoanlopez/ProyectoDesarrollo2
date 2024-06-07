@@ -45,6 +45,7 @@ public class HidingController : MonoBehaviour
 
         if (_hiding)
         {
+            _canHide = true;
             _audioManager.ChangeMusic(_audioManager.CombatHidden);
             _movementController._canMove = false;
             // _animator.SetBool("IsMoving", false);
