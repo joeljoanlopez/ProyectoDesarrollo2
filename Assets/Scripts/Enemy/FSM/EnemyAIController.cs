@@ -19,7 +19,9 @@ public class EnemyAIController : MonoBehaviour
     private GameObject _gm;
     private RoomHandler _roomHandler;
     AudioManager _audioManager;
-    private Rigidbody2D _rb;
+    private SpriteRenderer _sprite;
+    private float _xPre;
+
     private void Awake()
     {
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -30,7 +32,7 @@ public class EnemyAIController : MonoBehaviour
         _hidingController = _player.GetComponent<HidingController>();
         _gm = GameObject.FindWithTag("GameManager");
         _roomHandler = _gm.GetComponent<RoomHandler>();
-        _rb = GetComponent<Rigidbody2D>();
+        _sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -43,12 +45,6 @@ public class EnemyAIController : MonoBehaviour
         {
             _audioManager.ChangeMusic(_audioManager.CombatAlways);
         }
-
-        bool _facingRight = _rb.velocity.x > 0;
-        if (_facingRight)
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        else
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);
     }
 
     public Vector3 PlayerDirection()

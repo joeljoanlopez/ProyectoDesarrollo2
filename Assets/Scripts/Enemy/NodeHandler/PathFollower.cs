@@ -48,4 +48,8 @@ public class PathFollower : MonoBehaviour
     {
         _moving = false;
     }
+
+    public Transform GetNextTransform(){
+        return _waypoints.GetNextWP(_currentWP);
+    }
 }

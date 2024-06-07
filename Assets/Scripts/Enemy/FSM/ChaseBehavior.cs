@@ -4,6 +4,7 @@ public class ChaseBehavior : StateMachineBehaviour
 {
     private GameObject _player;
     private EnemyAIController _AI;
+    private SpriteRenderer _sprite;
 
     AudioManager _audioManager;
 
@@ -12,6 +13,7 @@ public class ChaseBehavior : StateMachineBehaviour
         _player = GameObject.FindWithTag("Player");
         _AI = animator.GetComponent<EnemyAIController>();
         _audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        _sprite = animator.GetComponent<SpriteRenderer>();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
@@ -23,6 +25,7 @@ public class ChaseBehavior : StateMachineBehaviour
             animator.SetTrigger("Attack");
 
         // Do stuff
+        _sprite.flipX = _player.transform.position.x > animator.transform.position.x;
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, _player.transform.position, _AI._speed * Time.deltaTime);
     }
 }
