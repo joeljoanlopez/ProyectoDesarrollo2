@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAttackHandler : MonoBehaviour
 {
     public float _damage = 30;
-    public float _cooldown = 2f;
+    // public float _cooldown = 2f;
 
     private SpriteRenderer _claw;
     private Collider2D _clawCollider;
@@ -17,7 +17,7 @@ public class EnemyAttackHandler : MonoBehaviour
         _claw.enabled = false;
         _clawCollider = GetComponent<Collider2D>();
         _clawCollider.enabled = false;
-        _timer = _cooldown;
+        // _timer = _cooldown;
     }
 
     // Update is called once per frame
@@ -40,16 +40,16 @@ public class EnemyAttackHandler : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             _claw.enabled = false;
             _clawCollider.enabled = false;
-            _timer = _cooldown;
+            // _timer = _cooldown;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var _enemyHealth = other.gameObject.GetComponentInParent<HealthManager>();
-        if (_enemyHealth != null)
+        var _targetHealth = other.gameObject.GetComponentInParent<HealthManager>();
+        if (_targetHealth != null)
         {
-            _enemyHealth.RemoveHealth(_damage);
+            _targetHealth.RemoveHealth(_damage);
         }
     }
 }

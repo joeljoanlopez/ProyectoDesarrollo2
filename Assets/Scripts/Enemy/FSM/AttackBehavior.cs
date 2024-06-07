@@ -12,15 +12,11 @@ public class AttackBehavior : StateMachineBehaviour
         _player = GameObject.FindWithTag("Player");
         _attackHandler = animator.GetComponentInChildren<EnemyAttackHandler>();
         _AI = animator.GetComponent<EnemyAIController>();
+        _attackHandler.DoStrike();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        // Check Triggers
-        if (_AI.Distance >= _AI._attackDistance)
-            animator.SetTrigger("Chase");
-
-        // Do stuff
-        _attackHandler.DoStrike();
+        animator.SetTrigger("Idle");
     }
 }
