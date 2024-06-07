@@ -13,7 +13,7 @@ public class IdleBehavior : StateMachineBehaviour
         _AI = animator.GetComponent<EnemyAIController>();
     }
 
-    private void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         if (_timer <= 0)
             animator.SetTrigger("Attack");

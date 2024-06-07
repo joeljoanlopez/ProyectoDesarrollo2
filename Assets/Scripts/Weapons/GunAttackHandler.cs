@@ -159,18 +159,18 @@ public class GunAttackHandler : MonoBehaviour
             _light.intensity = 10;
             _particles.SetActive(true);
 
-            for (int i = 0; i < _enemies.Length; i++)
-            {
-                Animator _enemyAnimator = _enemies[i].GetComponent<Animator>();
-                if (_enemyAnimator != null)
-                {
-                    GameObject _enemyCollider = _enemies[i].transform.GetChild(2).gameObject;
-                    if (_room.GetLevelNumber(_enemyCollider.GetComponent<Collider2D>()) == _room.PlayerLevel())
-                    {
-                        _enemyAnimator.SetTrigger("Chase");
-                    }
-                }
-            }
+            // for (int i = 0; i < _enemies.Length; i++)
+            // {
+            //     Animator _enemyAnimator = _enemies[i].GetComponent<Animator>();
+            //     if (_enemyAnimator != null)
+            //     {
+            //         GameObject _enemyCollider = _enemies[i].transform.GetChild(2).gameObject;
+            //         if (_room.GetLevelNumber(_enemyCollider.GetComponent<Collider2D>()) == _room.PlayerLevel())
+            //         {
+            //             _enemyAnimator.SetTrigger("Chase");
+            //         }
+            //     }
+            // }
 
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
             var _trailScript = _trail.GetComponent<BulletHandler>();
