@@ -3,8 +3,8 @@ using UnityEngine;
 public class DroppedItem : MonoBehaviour
 {
     public GameObject _player;
-    public int _maxQuant = 1;
-    public int _minQuant = 1;
+    public int _maxQuant = 2;
+    public int _minQuant = 2;
 
     private int _quant;
     public int Quantity { get { return _quant; } }
