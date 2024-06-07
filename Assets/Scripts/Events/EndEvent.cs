@@ -53,12 +53,12 @@ public class EndEvent : MonoBehaviour
                     _wife.SetInteger("State", 4);
                     
                 }
-                else if (_timer < 8.35)
+                else if (_timer < 9.45)
                 {
                     _wife.SetInteger("State", 5);
 
                 }
-                else if (_timer < 10.2f)
+                else if (_timer < 11.2f)
                 {
                   
                     SceneManager.LoadScene(3);
