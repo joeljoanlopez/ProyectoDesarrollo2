@@ -7,7 +7,8 @@ public class CameraFollow : MonoBehaviour
 {
     public bool _smooth = true;
     public Transform _target;
-    public float _smoothTime = 0.1f;
+    public float _smoothTime = 0.05f;
+    
     private Vector3 _offset = new Vector3(0, 2, -10);
     private MovementController _targetController;
 

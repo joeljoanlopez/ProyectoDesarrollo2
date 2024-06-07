@@ -28,6 +28,8 @@ public class GunAttackHandler : MonoBehaviour
     private bool _checkrecharge;
     private MovementController _movement;
     private GameObject[] _enemies;
+    private GameObject _gm;
+    private RoomHandler _room;
 
     private void Awake()
     {
@@ -43,6 +45,8 @@ public class GunAttackHandler : MonoBehaviour
         _particles.SetActive(false);
         _animator = GetComponentInParent<Animator>();
         _enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        _gm = GameObject.FindGameObjectWithTag("GameManager");
+        _room = _gm.GetComponent<RoomHandler>();
     }
 
     public void Update()
@@ -127,16 +131,19 @@ public class GunAttackHandler : MonoBehaviour
             _aimRay.SetPosition(0, _gunPoint.position);
             RaycastHit2D[] _hit = Physics2D.LinecastAll(_gunPoint.position, transform.right * _aimDistance);
             Debug.DrawLine(transform.position, transform.right * _aimDistance, Color.blue);
+            bool _found = false;
             for (int i = 0; i < _hit.Length; i++)
             {
                 if ((_hit[i].transform.tag == "Enemy") || (_hit[i].transform.tag == "Wall"))
                 {
+                    _found = true;
                     _aimRay.SetPosition(1, _hit[i].point);
                 }
-                else
-                {
-                    _aimRay.SetPosition(1, transform.right * _aimDistance);
-                }
+
+            }
+            if (!_found)
+            {
+                _aimRay.SetPosition(1, transform.right * _aimDistance);
             }
             _aimRay.enabled = true;
         }
@@ -154,16 +161,25 @@ public class GunAttackHandler : MonoBehaviour
 
             for (int i = 0; i < _enemies.Length; i++)
             {
-                _enemies[i].GetComponent<Animator>().SetTrigger("Chase");
+                if (_room.GetLevelNumber(_enemies[i].GetComponent<Collider2D>()) == _room.PlayerLevel())
+                {
+                    Animator _enemyAnimator = _enemies[i].GetComponent<Animator>();
+                    if (_enemyAnimator != null)
+                    {
+                        _enemyAnimator.SetTrigger("Chase");
+                    }
+                }
             }
 
             var _trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
             var _trailScript = _trail.GetComponent<BulletHandler>();
             RaycastHit2D[] _hit = Physics2D.LinecastAll(_gunPoint.position, transform.right * _aimDistance);
+            bool _found = false;
             for (int i = 0; i < _hit.Length; i++)
             {
-                if (_hit[i].transform.tag == "Enemy")
+                if (_hit[i].transform.tag == "Enemy" || _hit[i].transform.tag == "")
                 {
+                    _found = true;
                     print("BOOM");
                     _trailScript.SetTargetPosition(_hit[i].point);
 
@@ -192,16 +208,18 @@ public class GunAttackHandler : MonoBehaviour
                     {
                         _lootBoxHealth.TakeDamage(_damage);
                     }
+
                 }
                 else if (_hit[i].transform.tag == "Wall")
                 {
+                    _found = true;
                     _trailScript.SetTargetPosition(_hit[i].point);
                 }
-                else
-                {
-                    var _endPosition = _gunPoint.position + transform.right * _aimDistance;
-                    _trailScript.SetTargetPosition(_endPosition);
-                }
+            }
+            if (!_found)
+            {
+                var _endPosition = _gunPoint.position + transform.right * _aimDistance;
+                _trailScript.SetTargetPosition(_endPosition);
             }
         }
         else

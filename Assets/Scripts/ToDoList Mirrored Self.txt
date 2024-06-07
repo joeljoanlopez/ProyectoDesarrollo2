@@ -20,3 +20,7 @@ TODO Bala no mor quan toca algo
 TODO Si ataques alhora que enemic loop infinit StrikeAnimation
 TODO Si t'amagues mentre et piquen la musica para
 TODO Falta Sprite de vida
+TODO Cinematica final sprite corre hacia ti
+DONE Treure bales enemics
+DONE Quan mors no reiniciar
+TODO Posar delay a atac ganivet

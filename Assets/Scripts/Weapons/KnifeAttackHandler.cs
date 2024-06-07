@@ -6,6 +6,7 @@ public class KnifeAttackHandler : MonoBehaviour
     public int _maxAttacks = 3;
     public float _comboTime = 1;
     public float _damage = 0;
+    public float _knifeDelay = 0.2f;
 
     private SpriteRenderer _knife;
     private Collider2D _knifeCollider;
@@ -57,6 +58,7 @@ public class KnifeAttackHandler : MonoBehaviour
 
     private IEnumerator Slice()
     {
+        yield return new WaitForSeconds(_knifeDelay);
         _knife.enabled = true;
         _knifeCollider.enabled = true;
         _animator.SetBool("IsStriking", true);

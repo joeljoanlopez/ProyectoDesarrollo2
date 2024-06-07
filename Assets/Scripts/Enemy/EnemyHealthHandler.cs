@@ -8,6 +8,7 @@ public class EnemyHealthHandler : MonoBehaviour
     public EnemyDrops _enemyDrop;
     public GameObject popUpDamagePrefab;
     public TMP_Text popUpText;
+    public bool _dropsSomething = false;
 
     private GameObject _drop;
     private AudioManager _audioManager;
@@ -51,7 +52,10 @@ public class EnemyHealthHandler : MonoBehaviour
         _audioManager.ChangeMusic(_audioManager.DarkAmbienceB);
 
         // Drop items
-        _enemyDrop.DropSomething(_drop);
+        if (_dropsSomething)
+        {
+            _enemyDrop.DropSomething(_drop);
+        }
     }
 
     public void OnDeathAnimationComplete()
