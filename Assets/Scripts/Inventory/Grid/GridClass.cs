@@ -9,7 +9,7 @@ public class GridClass<T>
     private float cellSize;
     private T[,] gridArray;
     private TextMesh[,] textMeshArray;
-    private GameObject[,] gameObjectArray;
+    private GridObject[,] gameObjectArray;
     private Vector3 originPosition;
 
     public GridClass(int width, int height, float cellSize, Vector3 originPosition = default(Vector3))
@@ -21,7 +21,7 @@ public class GridClass<T>
 
         gridArray = new T[width, height];
         textMeshArray = new TextMesh[width, height];
-        gameObjectArray = new GameObject[width, height];
+        gameObjectArray = new GridObject[width, height];
 
         for (int x = 0; x < gridArray.GetLength(0); x++)
         {
@@ -65,27 +65,55 @@ public class GridClass<T>
         SetValue(x, y, value);
     }
 
-    public void AddGameObject(Vector3 worldPosition, GameObject gameObjectPrefab)
+    public void AddGameObject(Vector3 worldPosition, GameObject gameObjectPrefab, int sizeX = 1, int sizeY = 1)
+    {
+        int x, y;
+        GetXY(worldPosition, out x, out y);
+        if (AreCellsEmpty(x, y, sizeX, sizeY))
+        {
+            Vector3 position = GetWorldPoint(x, y) + new Vector3(cellSize * sizeX, cellSize * sizeY) * 0.5f;
+            GameObject gameObject = GameObject.Instantiate(gameObjectPrefab, position, Quaternion.identity);
+            GridObject gridObject = new GridObject(gameObject, sizeX, sizeY);
+
+            for (int i = x; i < x + sizeX; i++)
+            {
+                for (int j = y; j < y + sizeY; j++)
+                {
+                    gameObjectArray[i, j] = gridObject;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"AddGameObject: Not enough space for object at x: {x}, y: {y} with sizeX: {sizeX}, sizeY: {sizeY}");
+        }
+    }
+
+    public void RemoveGameObject(Vector3 worldPosition)
     {
         int x, y;
         GetXY(worldPosition, out x, out y);
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
-            if (gameObjectArray[x, y] != null)
+            GridObject gridObject = gameObjectArray[x, y];
+            if (gridObject != null)
             {
-                // Destroy the existing GameObject before adding a new one
-                GameObject.Destroy(gameObjectArray[x, y]);
+                for (int i = x; i < x + gridObject.SizeX; i++)
+                {
+                    for (int j = y; j < y + gridObject.SizeY; j++)
+                    {
+                        if (i >= 0 && j >= 0 && i < width && j < height)
+                        {
+                            gameObjectArray[i, j] = null;
+                        }
+                    }
+                }
+                GameObject.Destroy(gridObject.GameObject);
             }
-            Vector3 position = GetWorldPoint(x, y) + new Vector3(cellSize, cellSize) * 0.5f;
-            gameObjectArray[x, y] = GameObject.Instantiate(gameObjectPrefab, position, Quaternion.identity);
-        }
-        else
-        {
-            Debug.LogWarning($"AddGameObject: Index out of range. x: {x}, y: {y}");
         }
     }
 
-    public GameObject GetGameObject(Vector3 worldPosition)
+    public GridObject GetGameObject(Vector3 worldPosition)
     {
         int x, y;
         GetXY(worldPosition, out x, out y);
@@ -105,48 +133,72 @@ public class GridClass<T>
         return false;
     }
 
-    public void RemoveGameObject(Vector3 worldPosition)
+    public bool AreCellsEmpty(int startX, int startY, int sizeX, int sizeY)
     {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        if (x >= 0 && y >= 0 && x < width && y < height)
+        for (int x = startX; x < startX + sizeX; x++)
         {
-            if (gameObjectArray[x, y] != null)
+            for (int y = startY; y < startY + sizeY; y++)
             {
-                GameObject.Destroy(gameObjectArray[x, y]);
-                gameObjectArray[x, y] = null;
-            }
-        }
-    }
-
-public Vector3? FindNearestEmptyCell(Vector3 worldPosition)
-{
-    int startX, startY;
-    GetXY(worldPosition, out startX, out startY);
-
-    float minDistance = float.MaxValue;
-    Vector3? nearestEmptyCell = null;
-
-    for (int x = 0; x < width; x++)
-    {
-        for (int y = 0; y < height; y++)
-        {
-            if (IsEmpty(x, y))
-            {
-                Vector3 cellPosition = GetWorldPoint(x, y) + new Vector3(cellSize, cellSize) * 0.5f;
-                float distance = Vector3.Distance(worldPosition, cellPosition);
-
-                if (distance < minDistance)
+                if (x < 0 || y < 0 || x >= width || y >= height || gameObjectArray[x, y] != null)
                 {
-                    minDistance = distance;
-                    nearestEmptyCell = cellPosition;
+                    return false;
                 }
             }
         }
+        return true;
     }
 
-    return nearestEmptyCell;
+    public Vector3? FindNearestEmptyCell(Vector3 worldPosition, int sizeX = 1, int sizeY = 1)
+    {
+        float minDistance = float.MaxValue;
+        Vector3? nearestEmptyCell = null;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if (AreCellsEmpty(x, y, sizeX, sizeY))
+                {
+                    Vector3 cellPosition = GetWorldPoint(x, y) + new Vector3(cellSize * sizeX, cellSize * sizeY) * 0.5f;
+                    float distance = Vector3.Distance(worldPosition, cellPosition);
+
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        nearestEmptyCell = cellPosition;
+                    }
+                }
+            }
+        }
+
+        return nearestEmptyCell;
+    }
 }
+
+
+   public class GridObject
+{
+    public GameObject GameObject { get; private set; }
+    public int SizeX { get; private set; }
+    public int SizeY { get; private set; }
+
+    public GridObject(GameObject gameObject, int sizeX, int sizeY)
+    {
+        GameObject = gameObject;
+        SizeX = sizeX;
+        SizeY = sizeY;
+    }
+
+    public void Rotate()
+    {
+        // Swap sizeX and sizeY
+        int temp = SizeX;
+        SizeX = SizeY;
+        SizeY = temp;
+
+        // Rotate the game object 90 degrees
+        GameObject.transform.Rotate(0, 0, 90);
+    }
 }
 
 

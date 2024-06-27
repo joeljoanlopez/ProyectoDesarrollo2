@@ -5,9 +5,10 @@ using UnityEngine;
 public class Testing : MonoBehaviour
 {
     private GridClass<int> grid;
-    public GameObject gameObjectPrefab;
+    public GameObject singleSlotPrefab;  // Prefab for single slot objects
+    public GameObject doubleSlotPrefab;  // Prefab for double slot objects
 
-    private GameObject selectedGameObject;
+    private GridObject selectedGridObject;
     private Vector3 initialPosition;
 
     private void Start()
@@ -24,35 +25,46 @@ public class Testing : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            selectedGameObject = grid.GetGameObject(mouseWorldPosition);
-            if (selectedGameObject != null)
+            GridObject gridObject = grid.GetGameObject(mouseWorldPosition);
+            if (gridObject != null)
             {
+                selectedGridObject = gridObject;
                 initialPosition = mouseWorldPosition;
             }
             else
             {
+                // Add a single slot object
                 grid.SetValue(mouseWorldPosition, 56);  // Set the value to an int
-                grid.AddGameObject(mouseWorldPosition, gameObjectPrefab);  // Add the GameObject
+                grid.AddGameObject(mouseWorldPosition, singleSlotPrefab);  // Add the single slot GameObject
+
+                // Add a double slot object (example usage, you can customize the condition)
+                Vector3 doubleSlotPosition = mouseWorldPosition + new Vector3(2, 0);  // Example offset for demonstration
+                grid.AddGameObject(doubleSlotPosition, doubleSlotPrefab, 2, 1);  // Add the double slot GameObject
             }
         }
 
-        if (selectedGameObject != null)
+        if (selectedGridObject != null)
         {
-            selectedGameObject.transform.position = mouseWorldPosition;
+            selectedGridObject.GameObject.transform.position = mouseWorldPosition;
 
             if (Input.GetMouseButtonUp(0))
             {
                 grid.RemoveGameObject(initialPosition);
-                Vector3? nearestEmptyCell = grid.FindNearestEmptyCell(mouseWorldPosition);
+                Vector3? nearestEmptyCell = grid.FindNearestEmptyCell(mouseWorldPosition, selectedGridObject.SizeX, selectedGridObject.SizeY);
                 if (nearestEmptyCell.HasValue)
                 {
-                    grid.AddGameObject(nearestEmptyCell.Value, selectedGameObject);
+                    grid.AddGameObject(nearestEmptyCell.Value, selectedGridObject.GameObject, selectedGridObject.SizeX, selectedGridObject.SizeY);
                 }
                 else
                 {
-                    grid.AddGameObject(initialPosition, selectedGameObject);
+                    grid.AddGameObject(initialPosition, selectedGridObject.GameObject, selectedGridObject.SizeX, selectedGridObject.SizeY);
                 }
-                selectedGameObject = null;
+                selectedGridObject = null;
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                selectedGridObject.Rotate();
             }
         }
     }
@@ -80,3 +92,4 @@ public class Testing : MonoBehaviour
         return worldPosition;
     }
 }
+
