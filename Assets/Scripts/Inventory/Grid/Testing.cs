@@ -18,56 +18,56 @@ public class Testing : MonoBehaviour
         grid = new GridClass<int>(20, 10, 1f, originPosition);
     }
 
-    private void Update()
-    {
-        Vector3 mouseWorldPosition = GetMouseWorldPosition();
-        Debug.Log($"Mouse World Position: {mouseWorldPosition}");
+private void Update()
+{
+    Vector3 mouseWorldPosition = GetMouseWorldPosition();
+    Debug.Log($"Mouse World Position: {mouseWorldPosition}");
 
-        if (Input.GetMouseButtonDown(0))
+    if (Input.GetMouseButtonDown(0))
+    {
+        GridObject gridObject = grid.GetGameObject(mouseWorldPosition);
+        if (gridObject != null)
         {
-            GridObject gridObject = grid.GetGameObject(mouseWorldPosition);
-            if (gridObject != null)
+            selectedGridObject = gridObject;
+            initialPosition = mouseWorldPosition;
+        }
+        else
+        {
+            // Add a single slot object
+            grid.SetValue(mouseWorldPosition, 56);  // Set the value to an int
+            grid.AddGameObject(mouseWorldPosition, singleSlotPrefab);  // Add the single slot GameObject
+
+            // Add a double slot object (example usage, you can customize the condition)
+            Vector3 doubleSlotPosition = mouseWorldPosition + new Vector3(2, 0);  // Example offset for demonstration
+            grid.AddGameObject(doubleSlotPosition, doubleSlotPrefab, 2, 1);  // Add the double slot GameObject
+        }
+    }
+
+    if (selectedGridObject != null)
+    {
+        selectedGridObject.GameObject.transform.position = mouseWorldPosition;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            grid.RemoveGameObject(initialPosition);
+            Vector3? nearestEmptyCell = grid.FindNearestEmptyCell(mouseWorldPosition, selectedGridObject.SizeX, selectedGridObject.SizeY);
+            if (nearestEmptyCell.HasValue)
             {
-                selectedGridObject = gridObject;
-                initialPosition = mouseWorldPosition;
+                grid.AddGameObject(nearestEmptyCell.Value, selectedGridObject.GameObject, selectedGridObject.SizeX, selectedGridObject.SizeY, selectedGridObject.RotationAngle);  // Add with rotation
             }
             else
             {
-                // Add a single slot object
-                grid.SetValue(mouseWorldPosition, 56);  // Set the value to an int
-                grid.AddGameObject(mouseWorldPosition, singleSlotPrefab);  // Add the single slot GameObject
-
-                // Add a double slot object (example usage, you can customize the condition)
-                Vector3 doubleSlotPosition = mouseWorldPosition + new Vector3(2, 0);  // Example offset for demonstration
-                grid.AddGameObject(doubleSlotPosition, doubleSlotPrefab, 2, 1);  // Add the double slot GameObject
+                grid.AddGameObject(initialPosition, selectedGridObject.GameObject, selectedGridObject.SizeX, selectedGridObject.SizeY, selectedGridObject.RotationAngle);  // Add with rotation
             }
+            selectedGridObject = null;
         }
 
-        if (selectedGridObject != null)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            selectedGridObject.GameObject.transform.position = mouseWorldPosition;
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                grid.RemoveGameObject(initialPosition);
-                Vector3? nearestEmptyCell = grid.FindNearestEmptyCell(mouseWorldPosition, selectedGridObject.SizeX, selectedGridObject.SizeY);
-                if (nearestEmptyCell.HasValue)
-                {
-                    grid.AddGameObject(nearestEmptyCell.Value, selectedGridObject.GameObject, selectedGridObject.SizeX, selectedGridObject.SizeY);
-                }
-                else
-                {
-                    grid.AddGameObject(initialPosition, selectedGridObject.GameObject, selectedGridObject.SizeX, selectedGridObject.SizeY);
-                }
-                selectedGridObject = null;
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                selectedGridObject.Rotate();
-            }
+            selectedGridObject.Rotate();
         }
     }
+}
 
     public static Vector3 GetMouseWorldPosition()
     {

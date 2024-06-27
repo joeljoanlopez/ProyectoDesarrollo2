@@ -65,15 +65,16 @@ public class GridClass<T>
         SetValue(x, y, value);
     }
 
-    public void AddGameObject(Vector3 worldPosition, GameObject gameObjectPrefab, int sizeX = 1, int sizeY = 1)
+    public void AddGameObject(Vector3 worldPosition, GameObject gameObjectPrefab, int sizeX = 1, int sizeY = 1, float rotationAngle = 0)
     {
         int x, y;
         GetXY(worldPosition, out x, out y);
         if (AreCellsEmpty(x, y, sizeX, sizeY))
         {
             Vector3 position = GetWorldPoint(x, y) + new Vector3(cellSize * sizeX, cellSize * sizeY) * 0.5f;
-            GameObject gameObject = GameObject.Instantiate(gameObjectPrefab, position, Quaternion.identity);
+            GameObject gameObject = GameObject.Instantiate(gameObjectPrefab, position, Quaternion.Euler(0, 0, rotationAngle));
             GridObject gridObject = new GridObject(gameObject, sizeX, sizeY);
+            gridObject.RotationAngle = rotationAngle;
 
             for (int i = x; i < x + sizeX; i++)
             {
@@ -176,17 +177,20 @@ public class GridClass<T>
 }
 
 
-   public class GridObject
+
+public class GridObject
 {
     public GameObject GameObject { get; private set; }
     public int SizeX { get; private set; }
     public int SizeY { get; private set; }
+    public float RotationAngle { get; set; }  // Make the setter public
 
     public GridObject(GameObject gameObject, int sizeX, int sizeY)
     {
         GameObject = gameObject;
         SizeX = sizeX;
         SizeY = sizeY;
+        RotationAngle = 0;  // Initialize the rotation angle
     }
 
     public void Rotate()
@@ -198,8 +202,17 @@ public class GridClass<T>
 
         // Rotate the game object 90 degrees
         GameObject.transform.Rotate(0, 0, 90);
+
+        // Update rotation angle
+        RotationAngle += 90;
+        if (RotationAngle >= 360)
+        {
+            RotationAngle -= 360;
+        }
     }
 }
+
+
 
 
 public static class WorldText
