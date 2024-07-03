@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GridClass<T>
 {
-    private int width;
-    private int height;
+    public int width;
+    public int height;
     private float cellSize;
     private T[,] gridArray;
     private TextMesh[,] textMeshArray;
@@ -34,7 +34,7 @@ public class GridClass<T>
         }
     }
 
-    private Vector3 GetWorldPoint(int x, int y)
+    public Vector3 GetWorldPoint(int x, int y)
     {
         return new Vector3(x, y) * cellSize + originPosition;
     }
